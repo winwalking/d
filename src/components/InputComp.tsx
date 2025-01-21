@@ -7,6 +7,9 @@ interface InputCompProps {
   width?: string; // Width of the input/textarea
   height?: string; // Height of the input/textarea (only for textarea)
   resize?: "none" | "both" | "horizontal" | "vertical"; // Resize behavior (only for textarea)
+  value?: string; // Value of the input/textarea
+  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void; // Change event handler
+  name?: string; // Name attribute to identify the field
 }
 
 const InputComp: React.FC<InputCompProps> = ({
@@ -16,6 +19,9 @@ const InputComp: React.FC<InputCompProps> = ({
   width = "100%", // Default width
   height = "100px", // Default height for textarea
   resize = "vertical", // Default resize behavior for textarea
+  value,
+  onChange,
+  name,
 }) => {
   return (
     <div style={{ marginBottom: "20px" }}>
@@ -24,7 +30,7 @@ const InputComp: React.FC<InputCompProps> = ({
         style={{
           display: "block",
           marginBottom: "16px",
-          fontSize: "18ppx",
+          fontSize: "18px",
           fontWeight: 400,
           color: "#111",
         }}
@@ -37,32 +43,38 @@ const InputComp: React.FC<InputCompProps> = ({
         <input
           type="text"
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          name={name} // Pass name prop
           style={{
             width: width,
-            color:"#767676",
+            color: "#767676",
             padding: "10px",
             fontSize: "18px",
             border: "1px solid #D5DBE2",
             borderRadius: "4px",
-            backgroundColor:"#fff",
-            boxSizing:"border-box"
+            backgroundColor: "#fff",
+            boxSizing: "border-box",
           }}
         />
       ) : (
         <textarea
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          name={name} // Pass name prop
           style={{
             width: width,
             height: height,
-            color:"#767676",
+            color: "#767676",
             padding: "20px",
             fontSize: "18px",
-            lineHeight:"27px",
+            lineHeight: "27px",
             border: "1px solid #D5DBE2",
             borderRadius: "4px",
             resize: resize,
-            backgroundColor:"#fff",
-            boxSizing:"border-box"
+            backgroundColor: "#fff",
+            boxSizing: "border-box",
           }}
         />
       )}

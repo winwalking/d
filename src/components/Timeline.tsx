@@ -6,79 +6,77 @@ const Timeline = () => {
   const yearContent: { [key: string]: React.ReactNode } = {
     "2020": (
       <>
-        <h3 className="history_date">February 2020</h3>
+        <h3 className="history_date">January 2020</h3>
+        <p className="history_description">Establishment.</p>
+        <h3 className="history_date">May 2020</h3>
         <p className="history_description">
-          Selected as a cohort 7-1 member of Shinhan Future’s Lab.
+          Kiwoom sec. GBI portfolio investment solution.
         </p>
-        <h3 className="history_date">April 2020</h3>
+        <h3 className="history_date">June 2020</h3>
         <p className="history_description">
-          Supplied advisory platform to Eugene Investment & Securities.
+          K-Global Program (Min. of Science & Tech.).
+          <br />
+          Kiwoom AM, TDF Glidepath simulator.
+          <br />
+          Hanhwa Life insurance open stage partnership.
+        </p>
+        <h3 className="history_date">July 2020</h3>
+        <p className="history_description">
+          Seoul Fintech Lab accelerating program selected.
         </p>
         <h3 className="history_date">September 2020</h3>
         <p className="history_description">
-          Seoul Venture Hub Space and Accelerating Program.
+          Yonsei Univ. coding fintech education.
         </p>
-        
+        <h3 className="history_date">October 2020</h3>
+        <p className="history_description">
+          Seoul Fintech Lab startups valuation & pitchbook.
+          <br />
+          Kiwoom NLP(Natural language process) global thematic investing
+          algorithm
+        </p>
       </>
     ),
     "2021": (
       <>
         <h3 className="history_date">February 2021</h3>
-        <p className="history_description">
-          Selected as a cohort 7-1 member of Shinhan Future’s Lab.
-        </p>
+        <p className="history_description">Shinhan bank Futures lab.</p>
         <h3 className="history_date">April 2021</h3>
-        <p className="history_description">
-          Supplied advisory platform to Eugene Investment & Securities.
-        </p>
+        <p className="history_description">Eugene sec. PB solution.</p>
         <h3 className="history_date">September 2021</h3>
         <p className="history_description">
-          Seoul Venture Hub Space and Accelerating Program.
+          Seoul Venture Hub Space and accelerating program.
         </p>
         <h3 className="history_date">October 2021</h3>
         <p className="history_description">
-          Kodit (Korea Credit Guarantee Fund) Innovative Startup.
+          Kodit (Korea credit guarantee fund) Innovative Startup.
         </p>
         <h3 className="history_date">December 2021</h3>
         <p className="history_description">
-          Supplied NLP and factor investing strategy solutions to Kiwoom
-          Securities.
-          <br /> Signed an MOU for research and development of
-          hyper-personalized asset management with KB Securities.
+          Kiwoom sec. Market Regime Index/ Factor allocation model.
+          <br /> KB Sec. Hyper-personalized portfolio solution Research MOU.
         </p>
       </>
     ),
     "2022": (
       <>
-        <h3 className="history_date">February 2022</h3>
+        <h3 className="history_date">March 2022</h3>
         <p className="history_description">
-          Selected as a cohort 7-1 member of Shinhan Future’s Lab.
+          Kiwoom AM, LDI portfolio OCIO simulator.
         </p>
-        <h3 className="history_date">April 2022</h3>
+        <h3 className="history_date">July 2022</h3>
+        <p className="history_description">Douzon Strategic partnership.</p>
+        <h3 className="history_date">August 2022</h3>
         <p className="history_description">
-          Supplied advisory platform to Eugene Investment & Securities.
+          TIPS (Technical Incubation Program fot Startup Korea), 55 million yen
+          support.
         </p>
         <h3 className="history_date">September 2022</h3>
-        <p className="history_description">
-          Seoul Venture Hub Space and Accelerating Program.
-        </p>
+        <p className="history_description">Venture business certification.</p>
         <h3 className="history_date">October 2022</h3>
         <p className="history_description">
-          Kodit (Korea Credit Guarantee Fund) Innovative Startup.
-        </p>
-        <h3 className="history_date">December 2022</h3>
-        <p className="history_description">
-          Supplied NLP and factor investing strategy solutions to Kiwoom
-          Securities.
-          <br /> Signed an MOU for research and development of
-          hyper-personalized asset management with KB Securities.
-        </p>
-        <h3 className="history_date">December 2022</h3>
-        <p className="history_description">
-          Supplied NLP and factor investing strategy solutions to Kiwoom
-          Securities.
-          <br /> Signed an MOU for research and development of
-          hyper-personalized asset management with KB Securities.
+          KB sec. AI-driven Hyper-personalized wealth management solution
+          project.
         </p>
       </>
     ),
@@ -86,37 +84,27 @@ const Timeline = () => {
       <>
         <h3 className="history_date">February 2023</h3>
         <p className="history_description">
-          Selected as a cohort 7-1 member of Shinhan Future’s Lab.
+          KQC(Korea Quantum Computing) Research.
         </p>
-        <h3 className="history_date">April 2023</h3>
+        <h3 className="history_date">March 2023</h3>
+        <p className="history_description">IBM QC Subcriber.</p>
+        <h3 className="history_date">August 2023</h3>
         <p className="history_description">
-          Supplied advisory platform to Eugene Investment & Securities.
-        </p>
-        <h3 className="history_date">September 2023</h3>
-        <p className="history_description">
-          Seoul Venture Hub Space and Accelerating Program.
-        </p>
-        <h3 className="history_date">October 2023</h3>
-        <p className="history_description">
-          Kodit (Korea Credit Guarantee Fund) Innovative Startup.
-        </p>
-        <h3 className="history_date">December 2023</h3>
-        <p className="history_description">
-          Supplied NLP and factor investing strategy solutions to Kiwoom
-          Securities.
-          <br /> Signed an MOU for research and development of
-          hyper-personalized asset management with KB Securities.
+          Eugene sec. Private equity valuation and STO research.
+          <br />
+          Creww(JP, CN, KR), StartupDB(JP), 36kr(CN) Asia startup and private
+          equity valuation & investment platform MOU.
         </p>
         <h3 className="history_date">October 2023</h3>
         <p className="history_description">
-          Kodit (Korea Credit Guarantee Fund) Innovative Startup.
+          KB sec. MOA (AI-driven Hyper-personalized wealth management solution)
+          service open{" "}
         </p>
-        <h3 className="history_date">December 2023</h3>
+        <h3 className="history_date">November 2023</h3>
         <p className="history_description">
-          Supplied NLP and factor investing strategy solutions to Kiwoom
-          Securities.
-          <br /> Signed an MOU for research and development of
-          hyper-personalized asset management with KB Securities.
+          Vietnam Vietin bank sec. MOU.
+          <br />
+          TIPS commercialization program, 11 million yen.
         </p>
       </>
     ),
@@ -124,26 +112,16 @@ const Timeline = () => {
       <>
         <h3 className="history_date">February 2024</h3>
         <p className="history_description">
-          Selected as a cohort 7-1 member of Shinhan Future’s Lab.
+          Douzon ERP/groupware SME embedded finance Research MOU.
+          <br />
+          KOTRA(Korea Trade Investment Promotion Agency) startup, Digital
+          pitchbook.
+          <br />
+          Eugene sec. Private equity STO platform development (Open API).
         </p>
-        <h3 className="history_date">April 2024</h3>
+        <h3 className="history_date">March 2024</h3>
         <p className="history_description">
-          Supplied advisory platform to Eugene Investment & Securities.
-        </p>
-        <h3 className="history_date">September 2024</h3>
-        <p className="history_description">
-          Seoul Venture Hub Space and Accelerating Program.
-        </p>
-        <h3 className="history_date">October 2024</h3>
-        <p className="history_description">
-          Kodit (Korea Credit Guarantee Fund) Innovative Startup.
-        </p>
-        <h3 className="history_date">December 2024</h3>
-        <p className="history_description">
-          Supplied NLP and factor investing strategy solutions to Kiwoom
-          Securities.
-          <br /> Signed an MOU for research and development of
-          hyper-personalized asset management with KB Securities.
+          A super gap venture business, Digital pitchbook.
         </p>
       </>
     ),

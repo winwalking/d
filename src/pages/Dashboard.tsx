@@ -22,7 +22,7 @@ const Dashboard = () => {
     | "team"
     | "contact-us"
   >("home");
-
+  console.log(activeMenu, "activeMenu");
   const sectionRefs: Record<
     | "home"
     | "about-us"
@@ -42,33 +42,72 @@ const Dashboard = () => {
     "contact-us": useRef<HTMLDivElement | null>(null),
   };
 
+  const [scrolling, setScrolling] = useState(false); // 스크롤 잠금 상태 추가
+
   const scrollToSection = (id: keyof typeof sectionRefs) => {
     const section = sectionRefs[id]?.current;
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setActiveMenu(id); // Update active menu on scroll
+      setActiveMenu(id); // 클릭한 메뉴로 활성화
+      setScrolling(true); // 스크롤 잠금 활성화
+  
+      setTimeout(() => {
+        setScrolling(false); // 잠금 해제
+      }, 1000); // 스크롤 애니메이션 시간 동안 잠금 유지
     }
   };
-
-  // Detect scroll position and update activeMenu
+  
   useEffect(() => {
     const handleScroll = () => {
+      if (scrolling) return; // 스크롤 잠금 상태일 때 무시
+  
       const offsets = Object.entries(sectionRefs).map(([key, ref]) => ({
         key,
         offset: ref.current?.getBoundingClientRect().top || Infinity,
       }));
-
+  
       const closest = offsets.reduce((acc, curr) =>
         Math.abs(curr.offset) < Math.abs(acc.offset) ? curr : acc
       );
+  
       if (closest.key !== activeMenu) {
         setActiveMenu(closest.key as keyof typeof sectionRefs);
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeMenu, sectionRefs]);
+  }, [activeMenu, scrolling, sectionRefs]);
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  // 입력 값 변경 핸들러
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // 폼 전송 함수
+  const sendForm = async () => {
+    const response = await fetch("http://3.35.146.89:5000/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+    console.log(data.message);
+    alert("Message sent successfully!");
+  };
 
   return (
     <div>
@@ -194,8 +233,9 @@ const Dashboard = () => {
                     style={{
                       padding: 7,
                       borderRadius: "19px",
-                      border: " 2px solid #FFF",
+                      border: "2px solid #FFF",
                     }}
+                    onClick={() => scrollToSection("services")} // 키 값 "services" 전달
                   >
                     <BtnArrowWhite />
                   </button>
@@ -639,9 +679,12 @@ const Dashboard = () => {
                 <InputComp
                   label="Your Name"
                   type="input"
+                  name="name" // Add name prop
                   placeholder=""
                   width="740px"
                   height="50px"
+                  value={formData.name}
+                  onChange={handleChange}
                 />
               </div>
               <div
@@ -654,16 +697,22 @@ const Dashboard = () => {
                 <InputComp
                   label="Work Email"
                   type="input"
+                  name="email" // Add name prop
                   placeholder=""
                   width="740px"
                   height="50px"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
                 <InputComp
                   label="Company Name"
                   type="input"
+                  name="company" // Add name prop
                   placeholder=""
                   width="740px"
                   height="50px"
+                  value={formData.company}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -671,10 +720,13 @@ const Dashboard = () => {
               <InputComp
                 label="Message"
                 type="textarea"
+                name="message" // Add name prop
                 placeholder="Tell us how can we help!
 Leave your message, and we’ll get back to you shortly."
                 height="250px"
                 resize="none"
+                value={formData.message}
+                onChange={handleChange}
               />
             </div>
             <div
@@ -684,14 +736,13 @@ Leave your message, and we’ll get back to you shortly."
                 alignItems: "center",
               }}
             >
-              {" "}
               <button
                 style={{
                   padding: "12px 24px",
-
                   borderRadius: 5,
                   backgroundColor: "#111",
                 }}
+                onClick={sendForm}
               >
                 <span
                   style={{
@@ -701,14 +752,14 @@ Leave your message, and we’ll get back to you shortly."
                     lineHeight: "30px",
                   }}
                 >
-                  Sumbit
+                  Submit
                 </span>
               </button>
             </div>
           </div>
         </div>
       </div>
-      <Footer scrollToSection={scrollToSection}/>
+      <Footer scrollToSection={scrollToSection} />
     </div>
   );
 };
