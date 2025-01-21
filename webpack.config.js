@@ -13,7 +13,7 @@ module.exports = {
   devtool: production ? "hidden-source-map" : "eval",
   entry: "./src/routes/index.tsx",
   output: {
-    path: path.resolve(__dirname, "../backend-main/src/main/resources/static"),
+    path: path.resolve(__dirname, "public"),
     publicPath: "/",
     filename: production ? "bundle.[contenthash].js" : "bundle.js",
   },
