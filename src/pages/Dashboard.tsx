@@ -69,7 +69,7 @@ const Dashboard = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeMenu, sectionRefs]);
-  console.log(activeMenu,"activeMenu")
+
   return (
     <div>
       <Header scrollToSection={scrollToSection} activeMenu={activeMenu} />
