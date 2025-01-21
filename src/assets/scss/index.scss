@@ -1,0 +1,11 @@
+@use 'theme';
+@use 'base';
+@use 'class';
+
+// @use '../scss/common/test2.scss';
+// @use '../scss/common/test2.scss';
+@import url("../../assets/fonts/pretendard/css/pretendard.css");
+
+* {
+  font-family: "Pretendard";
+}
