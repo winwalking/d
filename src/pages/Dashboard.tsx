@@ -51,35 +51,35 @@ const Dashboard = () => {
       section.scrollIntoView({ behavior: "smooth" });
       setActiveMenu(id); // 클릭한 메뉴로 활성화
       setScrolling(true); // 스크롤 잠금 활성화
-  
+
       setTimeout(() => {
         setScrolling(false); // 잠금 해제
       }, 1000); // 스크롤 애니메이션 시간 동안 잠금 유지
     }
   };
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (scrolling) return; // 스크롤 잠금 상태일 때 무시
-  
+
       const offsets = Object.entries(sectionRefs).map(([key, ref]) => ({
         key,
         offset: ref.current?.getBoundingClientRect().top || Infinity,
       }));
-  
+
       const closest = offsets.reduce((acc, curr) =>
         Math.abs(curr.offset) < Math.abs(acc.offset) ? curr : acc
       );
-  
+
       if (closest.key !== activeMenu) {
         setActiveMenu(closest.key as keyof typeof sectionRefs);
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeMenu, scrolling, sectionRefs]);
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -87,22 +87,43 @@ const Dashboard = () => {
     message: "",
   });
 
+  const [isFormValid, setIsFormValid] = useState(false); // 폼 유효성 상태
+  const [loading, setLoading] = useState(false); // 로딩 상태 추가
+
   // 입력 값 변경 핸들러
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const updatedFormData = { ...formData, [name]: value };
+    setFormData(updatedFormData);
+
+    // 유효성 검사 업데이트
+    setIsFormValid(
+      !!(
+        updatedFormData.name &&
+        updatedFormData.email &&
+        updatedFormData.company &&
+        updatedFormData.message
+      )
+    );
   };
 
   // 폼 전송 함수
   const sendForm = async () => {
+    if (!isFormValid || loading) return; // 폼이 유효하지 않거나 로딩 중일 때 실행 안 함
+
+    setLoading(true); // 로딩 시작
     try {
       const response = await sendMail(formData);
       console.log("Response from server:", response);
       alert("Message sent successfully!");
+      setFormData({ name: "", email: "", company: "", message: "" }); // 폼 초기화
     } catch (error) {
       alert("Failed to send message. Please try again later.");
+    } finally {
+      setLoading(false); // 로딩 종료
+      setIsFormValid(false)
     }
   };
 
@@ -737,9 +758,12 @@ Leave your message, and we’ll get back to you shortly."
                 style={{
                   padding: "12px 24px",
                   borderRadius: 5,
-                  backgroundColor: "#111",
+                  backgroundColor:
+                    isFormValid && !loading ? "#111" : "rgba(17,17,17,0.5)",
+                  cursor: isFormValid && !loading ? "pointer" : "not-allowed",
                 }}
                 onClick={sendForm}
+                disabled={!isFormValid || loading} // 버튼 비활성화
               >
                 <span
                   style={{
@@ -749,7 +773,7 @@ Leave your message, and we’ll get back to you shortly."
                     lineHeight: "30px",
                   }}
                 >
-                  Submit
+                  {loading ? "Sending..." : "Submit"}
                 </span>
               </button>
             </div>
