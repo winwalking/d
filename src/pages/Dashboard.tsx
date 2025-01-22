@@ -223,6 +223,7 @@ const Dashboard = () => {
                 </span>
               </button>
             </div>
+           
             <div style={{ position: "relative" }}>
               <img src={MainImg} style={{ width: 420 }} />
               <div
@@ -230,41 +231,37 @@ const Dashboard = () => {
                   position: "absolute",
                   bottom: 77,
                   left: -195,
-                  display: "inline-flex",
-                  padding: "8px 20px 8px 8px",
-                  alignItems: "center",
-                  gap: 20,
-                  borderRadius: 16,
-                  border: "1px solid rgba(255, 255, 255, 0.80)",
-                  background: "rgba(255, 255, 255, 0.12)",
-                  boxShadow: "10px 20px 20px 0px rgba(37, 68, 157, 0.50)",
-                  backdropFilter: "blur(12px)",
                 }}
               >
-                <img src={MainSmImg} />
                 <div
-                  style={{
-                    color: "#fff",
-                    fontSize: 18,
-                    fontWeight: 600,
-                    lineHeight: "27px",
-                  }}
+                  className="gradient-border-rounded"
+                 
                 >
-                  <p style={{ marginBottom: 18 }}>
-                    Explore Our
-                    <br />
-                    Financial Solutions
-                  </p>
-                  <button
+                  <img src={MainSmImg} />
+                  <div
                     style={{
-                      padding: 7,
-                      borderRadius: "19px",
-                      border: "2px solid #FFF",
+                      color: "#fff",
+                      fontSize: 18,
+                      fontWeight: 600,
+                      lineHeight: "27px",
                     }}
-                    onClick={() => scrollToSection("services")} // 키 값 "services" 전달
                   >
-                    <BtnArrowWhite />
-                  </button>
+                    <p style={{ marginBottom: 18 }}>
+                      Explore Our
+                      <br />
+                      Financial Solutions
+                    </p>
+                    <button
+                      style={{
+                        padding: 7,
+                        borderRadius: "19px",
+                        border: "2px solid #FFF",
+                      }}
+                      onClick={() => scrollToSection("services")} // 키 값 "services" 전달
+                    >
+                      <BtnArrowWhite />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -376,19 +373,22 @@ const Dashboard = () => {
                 }}
               >
                 Our services include:
-                <ul style={{marginLeft:8}}>
+                <ul style={{ marginLeft: 8 }}>
                   <li style={{ listStyle: "inside" }}>
                     <b>Robo-advisory solutions</b>for <b>pension planning</b>
                     and <b>startup valuation</b>
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    <b>Behavioral economics–based</b> personalized asset management
+                    <b>Behavioral economics–based</b> personalized asset
+                    management
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    <b>Tailored investment strategies</b> and <b>AI-driven</b> reporting
+                    <b>Tailored investment strategies</b> and <b>AI-driven</b>{" "}
+                    reporting
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                   <b>Global theme analysis</b> and <b>alternative investment</b> solutions
+                    <b>Global theme analysis</b> and{" "}
+                    <b>alternative investment</b> solutions
                   </li>
                 </ul>
               </div>
@@ -400,9 +400,16 @@ const Dashboard = () => {
                   lineHeight: "27px",
                 }}
               >
-                As we expand beyond <span style={{fontWeight:600}}>Korea into the Asian market,</span> we
-                empower our clients to <span style={{fontWeight:600}}>make better financial decisions.</span>
-                <br /> Experience the future of <span style={{fontWeight:600}}>finance with Algolab.</span>
+                As we expand beyond{" "}
+                <span style={{ fontWeight: 600 }}>
+                  Korea into the Asian market,
+                </span>{" "}
+                we empower our clients to{" "}
+                <span style={{ fontWeight: 600 }}>
+                  make better financial decisions.
+                </span>
+                <br /> Experience the future of{" "}
+                <span style={{ fontWeight: 600 }}>finance with Algolab.</span>
               </div>
             </div>
             <div>
