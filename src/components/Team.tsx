@@ -15,7 +15,7 @@ const Team = () => {
       {
         imgSrc: TeamProfileMayumi,
         name: "Mayumi Naoko",
-        title: "Representative Director",
+        title: "President & CEO",
       },
       {
         imgSrc: TeamProfileAbiko,
@@ -25,7 +25,7 @@ const Team = () => {
       {
         imgSrc: TeamProfileSeungjong,
         name: "Kim Seung Jong",
-        title: "CEO",
+        title: "CTO",
       },
       {
         imgSrc: TeamProfileDongho,

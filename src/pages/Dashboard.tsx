@@ -146,7 +146,7 @@ const Dashboard = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              paddingTop: 124,
+              paddingTop: 60,
               paddingBottom: 60,
             }}
           >
