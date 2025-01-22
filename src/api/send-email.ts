@@ -7,7 +7,7 @@ interface FormData {
   
   const sendMail = async (data: FormData): Promise<any> => {
     try {
-      const response = await fetch("http://3.35.146.89:5000/send-email", {
+      const response = await fetch("https://algolabserver.vercel.app//send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
