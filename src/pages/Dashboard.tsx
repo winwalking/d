@@ -12,6 +12,7 @@ import Team from "@components/Team";
 import InputComp from "@components/InputComp";
 import Header from "@components/base/Header";
 import Footer from "@components/base/Footer";
+import sendMail from "../api/send-email";
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState<
     | "home"
@@ -96,17 +97,13 @@ const Dashboard = () => {
 
   // 폼 전송 함수
   const sendForm = async () => {
-    const response = await fetch("http://3.35.146.89:5000/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await response.json();
-    console.log(data.message);
-    alert("Message sent successfully!");
+    try {
+      const response = await sendMail(formData);
+      console.log("Response from server:", response);
+      alert("Message sent successfully!");
+    } catch (error) {
+      alert("Failed to send message. Please try again later.");
+    }
   };
 
   return (
