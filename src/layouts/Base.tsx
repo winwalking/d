@@ -9,7 +9,7 @@ const BaseLayout: React.FC = () => {
   // 유저의 역할을 가져옵니다.
 
   return (
-    <main className="pt_84 lg:pt_84">
+    <main className="pt_64 lg:pt_64">
       <Outlet />
       {/* {children} */}
     </main>

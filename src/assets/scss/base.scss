@@ -36,7 +36,7 @@
   justify-content: space-between;
   max-width: 1520px;
   margin: 0 auto;
-  padding: 22px 0px;
+  padding: 16px 0px;
   &__N4Jni {
     display: flex;
     flex-direction: column;
@@ -1735,7 +1735,6 @@
   top: 0;
   z-index: 2;
   background-color: white; /* Add a background for better visibility */
-  padding: 20px 0;
 }
 
 .timeline-content {
@@ -1796,7 +1795,7 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
-  margin-bottom: 16px;
+  margin-bottom: 12px; // 16
 }
 .history_description {
   color: #111;

@@ -49,7 +49,7 @@ const Timeline = () => {
         </p>
         <h3 className="history_date">October 2021</h3>
         <p className="history_description">
-          Kodit (Korea credit guarantee fund) Innovative Startup.
+          Kodit(Korea credit guarantee fund) Innovative Startup.
         </p>
         <h3 className="history_date">December 2021</h3>
         <p className="history_description">
@@ -68,7 +68,7 @@ const Timeline = () => {
         <p className="history_description">Douzon Strategic partnership.</p>
         <h3 className="history_date">August 2022</h3>
         <p className="history_description">
-          TIPS (Technical Incubation Program fot Startup Korea), 55 million yen
+          TIPS(Technical Incubation Program fot Startup Korea), 55 million yen
           support.
         </p>
         <h3 className="history_date">September 2022</h3>

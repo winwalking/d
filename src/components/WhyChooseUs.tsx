@@ -10,26 +10,79 @@ const WhyChooseUs = () => {
     {
       img: <FinancialTechnologies />,
       title: "Innovative Financial Technologies",
-      article:
-        "We deliver precise asset management using Embedded Finance and advanced technologies.",
+      article: (
+        <span
+          style={{
+            fontSize: 18,
+            fontWeight: 400,
+            lineHeight: "27px",
+            textAlign: "left",
+            wordBreak: "break-all",
+          }}
+        >
+          We deliver precise asset
+          <br /> management using Embedded
+          <br /> Finance and advanced technologies.
+        </span>
+      ),
     },
     {
       img: <HyperPersonlized />,
       title: "Hyper-Personalized Services",
-      article:
-        "We help achieve financial goals with customized investment plans and global theme insights.",
+      article: (
+        <span
+          style={{
+            fontSize: 18,
+            fontWeight: 400,
+            lineHeight: "27px",
+            textAlign: "left",
+            wordBreak: "break-all",
+          }}
+        >
+          We help achieve financial goals with
+          <br /> customized investment plans and
+          <br />
+          global theme insights.
+        </span>
+      ),
     },
     {
       img: <ProvenTrust />,
       title: "Proven Trust and Reliability",
-      article:
-        "Our domestic and international success stories showcase our expertise and reliability.",
+      article: (
+        <span
+          style={{
+            fontSize: 18,
+            fontWeight: 400,
+            lineHeight: "27px",
+            textAlign: "left",
+            wordBreak: "break-all",
+          }}
+        >
+          Our domestic and international
+          <br /> success stories showcase our
+          <br /> expertise and reliability.
+        </span>
+      ),
     },
     {
       img: <Leadership />,
       title: "Leadership in the Asian Market",
-      article:
-        "Expanding from Korea, we are shaping the global financial ecosystem across Asia.",
+      article: (
+        <span
+          style={{
+            fontSize: 18,
+            fontWeight: 400,
+            lineHeight: "27px",
+            textAlign: "left",
+            wordBreak: "break-all",
+          }}
+        >
+          Expanding from Korea, we are
+          <br /> shaping the global financial
+          <br /> ecosystem across Asia.
+        </span>
+      ),
     },
   ];
 
@@ -97,18 +150,9 @@ const WhyChooseUs = () => {
                   {reason.title}
                 </p>
               </div>
-              <span
-                style={{
-                  fontSize: 18,
-                  fontWeight: 400,
-                  lineHeight: "27px",
-                  textAlign: "left",
-                  wordBreak: "break-all",
-                }}
-              >
-                {/* Render article */}
-                {reason.article}
-              </span>
+
+              {/* Render article */}
+              {reason.article}
             </div>
           ))}
         </div>

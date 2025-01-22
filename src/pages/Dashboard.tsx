@@ -168,7 +168,8 @@ const Dashboard = () => {
                 }}
               >
                 Design Your Financial
-                <br /> Future with &nbsp;
+                <br />
+                Future with&nbsp;
                 <span
                   style={{
                     fontWeight: 600,
@@ -193,8 +194,9 @@ const Dashboard = () => {
                 }}
               >
                 Unlock new possibilities in asset management and venture
-                valuation with cutting-edge financial technology and
-                personalized solutions
+                valuation with
+                <br /> cutting-edge financial technology and personalized
+                solutions
               </span>
               <button
                 style={{
@@ -334,16 +336,33 @@ const Dashboard = () => {
                     lineHeight: "27px",
                   }}
                 >
-                  <b>Algolab</b> is a financial technology company offering
+                  <span style={{ fontWeight: 600 }}>Algolab</span>&nbsp;is a
+                  financial technology company offering &nbsp;
+                  <span style={{ fontWeight: 600 }}>
+                    personalized asset management
+                  </span>
+                  &nbsp;for investors and
+                  <br />
+                  <span style={{ fontWeight: 600 }}>startup valuation</span>
+                  &nbsp;services for emerging businesses, leveraging&nbsp;
+                  <span style={{ fontWeight: 600 }}>embedded finance</span>
+                  &nbsp;and&nbsp;
+                  <span style={{ fontWeight: 600 }}>
+                    innovative financial technologies.
+                  </span>
+                  <br />
+                  We provide&nbsp;
+                  <span style={{ fontWeight: 600 }}>cutting-edge tools</span>
+                  &nbsp;to&nbsp;
+                  <span style={{ fontWeight: 600 }}>
+                    financial institutions,
+                  </span>
                   &nbsp;
-                  <b>personalized asset management</b> for investors and&nbsp;
-                  <b>startup valuation</b> services for emerging businesses,
-                  leveraging&nbsp;<b>embedded finance</b>&nbsp;and&nbsp;
-                  <b>innovative financial technologies.</b>&nbsp; <br />
-                  We provide <b>cutting-edge tools</b> to&nbsp;
-                  <b>financial institutions,</b>
-                  <b> investors,</b>&nbsp; and <b>startups,</b>&nbsp;and achieve
-                  their&nbsp;<b>financial goals.</b>
+                  <span style={{ fontWeight: 600 }}>investors,</span>
+                  &nbsp;and&nbsp;
+                  <span style={{ fontWeight: 600 }}>startups,</span>&nbsp;and
+                  achieve their&nbsp;
+                  <span style={{ fontWeight: 600 }}>financial goals.</span>
                 </p>
               </div>
               {/* Our services include */}
@@ -357,19 +376,19 @@ const Dashboard = () => {
                 }}
               >
                 Our services include:
-                <ul>
+                <ul style={{marginLeft:8}}>
                   <li style={{ listStyle: "inside" }}>
-                    Robo-advisory solutions for pension planning and startup
-                    valuation
+                    <b>Robo-advisory solutions</b>for <b>pension planning</b>
+                    and <b>startup valuation</b>
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    Behavioral economics–based personalized asset management
+                    <b>Behavioral economics–based</b> personalized asset management
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    Tailored investment strategies and AI-driven reporting
+                    <b>Tailored investment strategies</b> and <b>AI-driven</b> reporting
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    Global theme analysis and alternative investment solutions
+                   <b>Global theme analysis</b> and <b>alternative investment</b> solutions
                   </li>
                 </ul>
               </div>
@@ -381,9 +400,9 @@ const Dashboard = () => {
                   lineHeight: "27px",
                 }}
               >
-                As we expand beyond <b>Korea into the Asian market,</b> we
-                empower our clients to <b>make better financial decisions.</b>
-                <br /> Experience the future of <b>finance with Algolab.</b>
+                As we expand beyond <span style={{fontWeight:600}}>Korea into the Asian market,</span> we
+                empower our clients to <span style={{fontWeight:600}}>make better financial decisions.</span>
+                <br /> Experience the future of <span style={{fontWeight:600}}>finance with Algolab.</span>
               </div>
             </div>
             <div>
@@ -393,7 +412,6 @@ const Dashboard = () => {
         </div>
         {/* Why Choose Us? */}
         <div ref={sectionRefs["why-choose-us"]}>
-          {" "}
           <WhyChooseUs />
         </div>
 
@@ -450,7 +468,9 @@ const Dashboard = () => {
                     marginBottom: 28,
                   }}
                 >
-                  Retirement Pension Robo-Advisor
+                  Retirement Pension
+                  <br />
+                  Robo-Advisor
                 </p>
                 <span
                   style={{
@@ -458,15 +478,23 @@ const Dashboard = () => {
                     fontWeight: 400,
                     lineHeight: "27px",
                     color: "#111",
-                    wordBreak: "break-all",
+
                     marginBottom: 24,
                   }}
                 >
-                  Algolab’s retirement pension robo-advisor integrates &nbsp;
-                  <b>behavioral economics</b>&nbsp;and&nbsp;
-                  <b>cutting-edge financial technologies</b>&nbsp;  to
-                  provide&nbsp;<b>personalized pension management</b>
-                  &nbsp; solutions.
+                  Algolab’s retirement pension robo-advisor integrates
+                  <br />
+                  <span style={{ fontWeight: 600 }}>behavioral economics</span>
+                  &nbsp;and&nbsp;
+                  <span style={{ fontWeight: 600 }}>
+                    cutting-edge financial technologies
+                  </span>
+                  <br />
+                  to provide&nbsp;
+                  <span style={{ fontWeight: 600 }}>
+                    personalized pension management
+                  </span>
+                  &nbsp;solutions.
                 </span>
                 <ul style={{ marginLeft: 22 }}>
                   <li
@@ -476,11 +504,11 @@ const Dashboard = () => {
                       fontWeight: 400,
                       lineHeight: "27px",
                       color: "#111",
-                      wordBreak: "break-all",
                     }}
                   >
-                    Analyzes clients’ investment preferences
-                    and designs customized investment plans
+                    <b>Analyzes</b> clients’ investment preferences and&nbsp;
+                    <b>designs</b> customized
+                    <br /> investment plans
                   </li>
                   <li
                     style={{
@@ -489,11 +517,16 @@ const Dashboard = () => {
                       fontWeight: 400,
                       lineHeight: "27px",
                       color: "#111",
-                      wordBreak: "break-all",
                     }}
                   >
-                    Optimizes fund and global stock selection through the Global
-                    Theme Machine and NLP-based analysis
+                    <b>Optimizes</b> fund and global stock selection through
+                    the&nbsp;
+                    <b>
+                      Global Theme
+                      <br />
+                      Machine
+                    </b>
+                    &nbsp;and <b>NLP-based</b>&nbsp; analysis
                   </li>
                   <li
                     style={{
@@ -502,11 +535,14 @@ const Dashboard = () => {
                       fontWeight: 400,
                       lineHeight: "27px",
                       color: "#111",
-                      wordBreak: "break-all",
                     }}
                   >
-                    Ensures stable and effective pension management
-                    with personalized glide paths
+                    <b>Ensures</b> stable and effective pension management
+                    with&nbsp;
+                    <b>
+                      personalized
+                      <br /> glide paths
+                    </b>
                   </li>
                   <li
                     style={{
@@ -515,12 +551,16 @@ const Dashboard = () => {
                       fontWeight: 400,
                       lineHeight: "27px",
                       color: "#111",
-                      wordBreak: "break-all",
                     }}
                   >
-                    Proven track record, including successful collaborations
-                    with KB Securities’ MOA service and Kiwoom Asset
-                    Management’s TDF
+                    <b>Proven track record,</b> including successful
+                    collaborations with&nbsp;
+                    <b>
+                      KB
+                      <br />
+                      Securities’ MOA
+                    </b>
+                    &nbsp;service and&nbsp;<b>Kiwoom Asset Management’s TDF</b>
                   </li>
                 </ul>
               </div>
@@ -564,14 +604,24 @@ const Dashboard = () => {
                     fontWeight: 400,
                     lineHeight: "27px",
                     color: "#111",
-                    wordBreak: "break-all",
+
                     marginBottom: 24,
                   }}
                 >
                   Algolab’s early-stage company valuation solution
-                  combines&nbsp;<b>corporate data</b>&nbsp;and&nbsp;
-                  <b>financial information</b>&nbsp;to deliver&nbsp;
-                  <b>reliable, up-to-date valuations.</b>&nbsp;
+                  combines&nbsp;
+                  <span style={{ fontWeight: 600 }}>
+                    corporate
+                    <br />
+                    data
+                  </span>
+                  &nbsp;and&nbsp;
+                  <span style={{ fontWeight: 600 }}>financial information</span>
+                  &nbsp;to deliver&nbsp;
+                  <span style={{ fontWeight: 600 }}>
+                    reliable, up-to-date valuations.
+                  </span>
+                  &nbsp;
                 </span>
                 <ul style={{ marginLeft: 22, marginBottom: 24 }}>
                   <li
@@ -581,11 +631,16 @@ const Dashboard = () => {
                       fontWeight: 400,
                       lineHeight: "27px",
                       color: "#111",
-                      wordBreak: "break-all",
                     }}
                   >
-                    Conducts precise, data-driven valuations through ERP system
-                    integration
+                    <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
+                    &nbsp;valuations through
+                    <b>
+                      ERP
+                      <br />
+                      system
+                    </b>
+                    &nbsp;integration
                   </li>
                   <li
                     style={{
@@ -594,12 +649,16 @@ const Dashboard = () => {
                       fontWeight: 400,
                       lineHeight: "27px",
                       color: "#111",
-                      wordBreak: "break-all",
                     }}
                   >
-                    Streamlines the creation of investment proposals with an IR
-                    pitch deck publishing solution, facilitating investment
-                    attraction
+                    <b>Streamlines</b>&nbsp;the creation of investment proposals
+                    with an&nbsp;
+                    <b>
+                      IR pitch deck
+                      <br />
+                      publishing
+                    </b>
+                    solution, facilitating investment attraction
                   </li>
                   <li
                     style={{
@@ -608,11 +667,12 @@ const Dashboard = () => {
                       fontWeight: 400,
                       lineHeight: "27px",
                       color: "#111",
-                      wordBreak: "break-all",
                     }}
                   >
-                    Expands across Asia—including Korea, Japan, China, and
-                    Vietnam—fostering a global investment ecosystem
+                    <b>Expands</b> across <b>Asia</b>—including Korea, Japan,
+                    China, and Vietnam—
+                    <br />
+                    fostering a <b>global investment ecosystem</b>
                   </li>
                 </ul>
                 <span
@@ -621,10 +681,10 @@ const Dashboard = () => {
                     fontWeight: 400,
                     lineHeight: "27px",
                     color: "#111",
-                    wordBreak: "break-all",
                   }}
                 >
-                  Make clearer investment decisions with &nbsp;<b>Algolab’s</b>
+                  Make clearer investment decisions with &nbsp;
+                  <span style={{ fontWeight: 600 }}>Algolab’s</span>
                   &nbsp;valuation solutions.
                 </span>
               </div>
