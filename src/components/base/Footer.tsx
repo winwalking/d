@@ -80,14 +80,26 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                 © 2025 Algolab INC. All Rights Reserved.
               </span>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap:40 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
               <a
-                style={{ color: "#A5A7B1", fontSize: 18, fontWeight: 400, textDecoration:"underline" }}
+                style={{
+                  color: "#A5A7B1",
+                  fontSize: 18,
+                  fontWeight: 400,
+                  textDecoration: "underline",
+                }}
                 href=""
               >
                 Privacy Policy
               </a>
-              <a style={{ color: "#A5A7B1", fontSize: 18, fontWeight: 400, textDecoration:"underline" }}>
+              <a
+                style={{
+                  color: "#A5A7B1",
+                  fontSize: 18,
+                  fontWeight: 400,
+                  textDecoration: "underline",
+                }}
+              >
                 Terms of Service
               </a>
             </div>
@@ -102,14 +114,16 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                   lineHeight: "27px",
                 }}
               >
-                06134
+                100-0005
                 <br />
-                KG Tower 08-104, 7, Teheran-ro 5gil,
+                ALGOLAB Inc. Level 2, Marunouchi
                 <br />
-                Gangnam-gu, Seoul, Republic of Korea
+                Nijubashi Building, 3-2-2, Marunouchi,
+                <br />
+                Chiyoda-ku, Tokyo
               </span>
             </div>
-            <div style={{display:"flex" ,justifyContent:"flex-end"}}>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <span
                 style={{
                   color: "#A5A7B1",
