@@ -177,9 +177,9 @@ const WhyChooseUs = () => {
             }}
           >
             Algolab is a trusted partner that helps clients achieve their
-            financial goals through innovative financial technologies and
-            hyper-personalized services. As a leader in the Asian market, we are
-            shaping the future of finance together.
+            financial goals<br/> through innovative financial technologies and
+            hyper-personalized services.<br/> As a leader in the Asian market, we are
+            shaping the future of finance<br/> together.
           </p>
         </div>
       </div>

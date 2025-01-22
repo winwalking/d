@@ -149,7 +149,7 @@ const Timeline = () => {
 
   return (
     <div
-      className={`timeline-container ${activeYear ? "pt_84 pb_84" : ""}`}
+      className={`timeline-container ${activeYear ? "pt_160 pb_160" : ""}`}
       ref={containerRef}
     >
       {/* History Heading */}

@@ -229,8 +229,8 @@ const Dashboard = () => {
               <div
                 style={{
                   position: "absolute",
-                  bottom: 77,
-                  left: -195,
+                  bottom: 65,
+                  left: -214,
                 }}
               >
                 <div className="gradient-border-rounded">
