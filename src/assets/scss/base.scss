@@ -279,6 +279,7 @@
 /* 기본 스타일 */
 .styles_navigationItem {
   position: relative; /* 선의 위치를 상대적으로 지정 */
+  cursor: pointer;
 }
 
 .styles_navigationItem a {
@@ -291,6 +292,7 @@
 
 .styles_activeMenu a {
   color: #fff;
+ 
 }
 
 /* 가상 요소로 선 추가 */
@@ -1006,6 +1008,7 @@
   list-style-type: none;
   padding: 0px;
   margin: 0px;
+  cursor: pointer;
 }
 .styles_footer_navigationItem a {
   font-size: 20px;
@@ -1832,7 +1835,7 @@
 .gradient-border-rounded {
   display: flex;
   padding: 8px 20px 8px 8px;
-  align-items: center;
+  align-items: flex-start;
   font-size: 1.8rem;
   gap: 20px;
   background: rgba(255, 255, 255, 0.12);

@@ -223,7 +223,7 @@ const Dashboard = () => {
                 </span>
               </button>
             </div>
-           
+
             <div style={{ position: "relative" }}>
               <img src={MainImg} style={{ width: 420 }} />
               <div
@@ -233,10 +233,7 @@ const Dashboard = () => {
                   left: -195,
                 }}
               >
-                <div
-                  className="gradient-border-rounded"
-                 
-                >
+                <div className="gradient-border-rounded">
                   <img src={MainSmImg} />
                   <div
                     style={{
@@ -246,15 +243,18 @@ const Dashboard = () => {
                       lineHeight: "27px",
                     }}
                   >
-                    <p style={{ marginBottom: 18 }}>
+                    <p style={{ marginBottom: 18, marginTop: 8 }}>
                       Explore Our
                       <br />
                       Financial Solutions
                     </p>
                     <button
                       style={{
+                        position: "absolute",
+                        bottom: 16,
                         padding: 7,
                         borderRadius: "19px",
+                        cursor: "pointer",
                         border: "2px solid #FFF",
                       }}
                       onClick={() => scrollToSection("services")} // 키 값 "services" 전달
@@ -334,7 +334,7 @@ const Dashboard = () => {
                   }}
                 >
                   <span style={{ fontWeight: 600 }}>Algolab</span>&nbsp;is a
-                  financial technology company offering &nbsp;
+                  financial technology company offering&nbsp;
                   <span style={{ fontWeight: 600 }}>
                     personalized asset management
                   </span>
@@ -375,20 +375,21 @@ const Dashboard = () => {
                 Our services include:
                 <ul style={{ marginLeft: 8 }}>
                   <li style={{ listStyle: "inside" }}>
-                    <b>Robo-advisory solutions</b>for <b>pension planning</b>
-                    and <b>startup valuation</b>
+                    <b>Robo-advisory solutions</b>&nbsp;for&nbsp;
+                    <b>pension planning</b>&nbsp;and&nbsp;
+                    <b>startup valuation</b>
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    <b>Behavioral economics–based</b> personalized asset
+                    <b>Behavioral economics–based</b>&nbsp;personalized asset
                     management
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    <b>Tailored investment strategies</b> and <b>AI-driven</b>{" "}
-                    reporting
+                    <b>Tailored investment strategies</b>&nbsp;and&nbsp;
+                    <b>AI-driven</b>&nbsp;reporting
                   </li>
                   <li style={{ listStyle: "inside" }}>
-                    <b>Global theme analysis</b> and{" "}
-                    <b>alternative investment</b> solutions
+                    <b>Global theme analysis</b>&nbsp;and&nbsp;
+                    <b>alternative investment</b>&nbsp;solutions
                   </li>
                 </ul>
               </div>
@@ -400,15 +401,17 @@ const Dashboard = () => {
                   lineHeight: "27px",
                 }}
               >
-                As we expand beyond{" "}
+                As we expand beyond&nbsp;
                 <span style={{ fontWeight: 600 }}>
                   Korea into the Asian market,
-                </span>{" "}
-                we empower our clients to{" "}
+                </span>
+                &nbsp;we empower our clients to&nbsp;
                 <span style={{ fontWeight: 600 }}>
                   make better financial decisions.
                 </span>
-                <br /> Experience the future of{" "}
+                &nbsp;
+                <br />
+                Experience the future of&nbsp;
                 <span style={{ fontWeight: 600 }}>finance with Algolab.</span>
               </div>
             </div>
@@ -533,7 +536,7 @@ const Dashboard = () => {
                       <br />
                       Machine
                     </b>
-                    &nbsp;and <b>NLP-based</b>&nbsp; analysis
+                    &nbsp;and <b>NLP-based</b>&nbsp;analysis
                   </li>
                   <li
                     style={{
@@ -641,7 +644,7 @@ const Dashboard = () => {
                     }}
                   >
                     <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
-                    &nbsp;valuations through
+                    &nbsp;valuations through&nbsp;
                     <b>
                       ERP
                       <br />
@@ -665,7 +668,7 @@ const Dashboard = () => {
                       <br />
                       publishing
                     </b>
-                    solution, facilitating investment attraction
+                    &nbsp;solution, facilitating investment attraction
                   </li>
                   <li
                     style={{
@@ -690,7 +693,7 @@ const Dashboard = () => {
                     color: "#111",
                   }}
                 >
-                  Make clearer investment decisions with &nbsp;
+                  Make clearer investment decisions with&nbsp;
                   <span style={{ fontWeight: 600 }}>Algolab’s</span>
                   &nbsp;valuation solutions.
                 </span>
