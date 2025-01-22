@@ -123,7 +123,7 @@ const Dashboard = () => {
       alert("Failed to send message. Please try again later.");
     } finally {
       setLoading(false); // 로딩 종료
-      setIsFormValid(false)
+      setIsFormValid(false);
     }
   };
 
@@ -145,12 +145,18 @@ const Dashboard = () => {
               marginTop: 0,
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "center",
+              alignItems: "flex-start",
               paddingTop: 60,
               paddingBottom: 60,
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                paddingTop: 60,
+              }}
+            >
               <h1
                 style={{
                   fontWeight: "400",
@@ -216,7 +222,7 @@ const Dashboard = () => {
               </button>
             </div>
             <div style={{ position: "relative" }}>
-              <img src={MainImg} />
+              <img src={MainImg} style={{ width: 420 }} />
               <div
                 style={{
                   position: "absolute",
