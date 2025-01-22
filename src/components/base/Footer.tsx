@@ -57,7 +57,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
           style={{
             width: "100%",
             display: "flex",
-            alignItems: "flex-start",
+            alignItems: "flex-end",
             justifyContent: "space-between",
           }}
         >
