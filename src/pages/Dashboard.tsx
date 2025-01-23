@@ -225,7 +225,7 @@ const Dashboard = () => {
             </div>
 
             <div style={{ position: "relative" }}>
-              <img src={MainImg} style={{ width: 435 }} />
+              <img src={MainImg} style={{ width: 430 }} />
               <div
                 style={{
                   position: "absolute",
