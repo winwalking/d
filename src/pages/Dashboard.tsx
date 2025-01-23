@@ -250,12 +250,14 @@ const Dashboard = () => {
                     </p>
                     <button
                       style={{
+                        
                         position: "absolute",
                         bottom: 16,
                         padding: 7,
                         borderRadius: "19px",
                         cursor: "pointer",
                         border: "2px solid #FFF",
+                        backgroundColor:"rgba(255, 255, 255, 0.10)"
                       }}
                       onClick={() => scrollToSection("services")} // 키 값 "services" 전달
                     >
