@@ -680,8 +680,8 @@ const Dashboard = () => {
                       color: "#111",
                     }}
                   >
-                    <b>Expands</b> across <b>Asia</b>—including Korea, Japan,
-                    China, and Vietnam—
+                    <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea, Japan,
+                    China, and Vietnam&nbsp;-
                     <br />
                     fostering a <b>global investment ecosystem</b>
                   </li>
