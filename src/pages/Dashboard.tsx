@@ -225,12 +225,12 @@ const Dashboard = () => {
             </div>
 
             <div style={{ position: "relative" }}>
-              <img src={MainImg} style={{ width: 420 }} />
+              <img src={MainImg} style={{ width: 435 }} />
               <div
                 style={{
                   position: "absolute",
-                  bottom: 65,
-                  left: -214,
+                  bottom: 65, // 77
+                  left: -214, // -195
                 }}
               >
                 <div className="gradient-border-rounded">
