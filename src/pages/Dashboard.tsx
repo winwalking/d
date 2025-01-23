@@ -229,7 +229,7 @@ const Dashboard = () => {
               <div
                 style={{
                   position: "absolute",
-                  bottom: 65, // 77
+                  bottom: 60, //  65 / 77
                   left: -214, // -195
                 }}
               >
@@ -250,14 +250,13 @@ const Dashboard = () => {
                     </p>
                     <button
                       style={{
-                        
                         position: "absolute",
                         bottom: 16,
                         padding: 7,
-                        borderRadius: "19px",
+                        borderRadius: "50%",
                         cursor: "pointer",
                         border: "2px solid #FFF",
-                        backgroundColor:"rgba(255, 255, 255, 0.10)"
+                        backgroundColor: "rgba(255, 255, 255, 0.10)",
                       }}
                       onClick={() => scrollToSection("services")} // 키 값 "services" 전달
                     >
