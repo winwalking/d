@@ -463,7 +463,7 @@ const Dashboard = () => {
               </div>
               <div
                 style={{
-                  width: 610,
+                  minWidth: 610,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
@@ -591,7 +591,7 @@ const Dashboard = () => {
               </div>
               <div
                 style={{
-                  width: 610,
+                  minWidth: 610,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
@@ -662,7 +662,7 @@ const Dashboard = () => {
                       color: "#111",
                     }}
                   >
-                    <b>Streamlines</b>&nbsp;the creation of investment proposals
+                    <b>Streamlines</b>&nbsp;the&nbsp;creation of investment proposals
                     with an&nbsp;
                     <b>
                       IR pitch deck
@@ -776,7 +776,7 @@ const Dashboard = () => {
                   type="input"
                   name="name" // Add name prop
                   placeholder=""
-                  width="740px"
+                  width="690px"
                   height="50px"
                   value={formData.name}
                   onChange={handleChange}
@@ -794,7 +794,7 @@ const Dashboard = () => {
                   type="input"
                   name="email" // Add name prop
                   placeholder=""
-                  width="740px"
+                  width="690px"
                   height="50px"
                   value={formData.email}
                   onChange={handleChange}
@@ -804,7 +804,7 @@ const Dashboard = () => {
                   type="input"
                   name="company" // Add name prop
                   placeholder=""
-                  width="740px"
+                  width="690px"
                   height="50px"
                   value={formData.company}
                   onChange={handleChange}

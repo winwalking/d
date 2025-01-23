@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1520px;
+  max-width: 1420px;
   margin: 0 auto;
   padding: 12px 0px;
   &__N4Jni {
@@ -212,7 +212,7 @@
 }
 
 .styles_section {
-  max-width: 1520px;
+  max-width: 1420px;
   margin: 240px auto 0;
 }
 // .styles_section {
@@ -925,7 +925,7 @@
   }
 }
 .styles_inner_footer {
-  max-width: 1520px;
+  max-width: 1420px;
   margin: 0 auto;
   padding: 80px 0px;
 }
@@ -1813,7 +1813,9 @@
 }
 .team-grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 350px); /* 4 columns, each 350px wide */
+  grid-template-columns: repeat(4, 325px); 
+  // 350px === 1520px , 325px === 1420px
+  /* 4 columns, each 350px wide */
   // grid-auto-rows: 344px; /* Fixed row height of 344px */
   gap: 40px; /* 40px gap between items */
   justify-content: center; /* Center the grid horizontally */
