@@ -198,7 +198,7 @@ const Dashboard = () => {
                 <br /> cutting-edge financial technology and personalized
                 solutions
               </span>
-              <button
+              {/* <button
                 style={{
                   width: 352,
                   display: "inline-flex",
@@ -221,7 +221,7 @@ const Dashboard = () => {
                 >
                   Download Company Introduction
                 </span>
-              </button>
+              </button> */}
             </div>
 
             <div style={{ position: "relative" }}>
