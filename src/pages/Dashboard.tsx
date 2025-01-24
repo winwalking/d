@@ -13,6 +13,7 @@ import InputComp from "@components/InputComp";
 import Header from "@components/base/Header";
 import Footer from "@components/base/Footer";
 import sendMail from "../api/send-email";
+import Toast from "@components/Toast";
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState<
     | "home"
@@ -89,7 +90,18 @@ const Dashboard = () => {
 
   const [isFormValid, setIsFormValid] = useState(false); // 폼 유효성 상태
   const [loading, setLoading] = useState(false); // 로딩 상태 추가
-
+  const [toast, setToast] = useState<{
+    type: "success" | "warning" | "error" | "info"; // Restrict the type to specific values
+    title: string;
+    message: string;
+    visible: boolean;
+  }>({
+    type: "success", // Default type
+    title: "",
+    message: "",
+    visible: false,
+  });
+  
   // 입력 값 변경 핸들러
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -108,24 +120,40 @@ const Dashboard = () => {
       )
     );
   };
-
+  // Close toast handler
+  const closeToast = () => {
+    setToast({ ...toast, visible: false });
+  };
   // 폼 전송 함수
   const sendForm = async () => {
     if (!isFormValid || loading) return; // 폼이 유효하지 않거나 로딩 중일 때 실행 안 함
-
+  
     setLoading(true); // 로딩 시작
     try {
-      const response = await sendMail(formData);
+      const response = await sendMail(formData); // Replace with your API call
       console.log("Response from server:", response);
-      alert("Message sent successfully!");
+  
+      setToast({
+        type: "success", // Valid type
+        title: "Success",
+        message: "Message sent successfully!",
+        visible: true,
+      }); // Show success toast
+  
       setFormData({ name: "", email: "", company: "", message: "" }); // 폼 초기화
     } catch (error) {
-      alert("Failed to send message. Please try again later.");
+      setToast({
+        type: "error", // Valid type
+        title: "Error",
+        message: "Failed to send message. Please try again later.",
+        visible: true,
+      }); // Show error toast
     } finally {
       setLoading(false); // 로딩 종료
       setIsFormValid(false);
     }
   };
+  
 
   return (
     <div>
@@ -662,8 +690,8 @@ const Dashboard = () => {
                       color: "#111",
                     }}
                   >
-                    <b>Streamlines</b>&nbsp;the&nbsp;creation of investment proposals
-                    with an&nbsp;
+                    <b>Streamlines</b>&nbsp;the&nbsp;creation of investment
+                    proposals with an&nbsp;
                     <b>
                       IR pitch deck
                       <br />
@@ -680,8 +708,8 @@ const Dashboard = () => {
                       color: "#111",
                     }}
                   >
-                    <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea, Japan,
-                    China, and Vietnam&nbsp;-
+                    <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea,
+                    Japan, China, and Vietnam&nbsp;-
                     <br />
                     fostering a <b>global investment ecosystem</b>
                   </li>
@@ -746,7 +774,7 @@ const Dashboard = () => {
           ref={sectionRefs["contact-us"]}
           style={{
             width: "100%",
-            backgroundColor: "#F5F6FA",
+            backgroundColor: "#F5F6FA",position:"relative"
           }}
         >
           <div
@@ -829,6 +857,7 @@ Leave your message, and we’ll get back to you shortly."
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                
               }}
             >
               <button
@@ -853,11 +882,22 @@ Leave your message, and we’ll get back to you shortly."
                   {loading ? "Sending..." : "Submit"}
                 </span>
               </button>
+             
             </div>
           </div>
+           {/* Toast Component */}{toast.visible && (
+                <Toast
+                type={toast.type}
+                title={toast.title}
+                message={toast.message}
+                onClose={closeToast}
+                duration={5000} // Duration in milliseconds
+              />
+            )}
+           <Footer scrollToSection={scrollToSection} />
         </div>
       </div>
-      <Footer scrollToSection={scrollToSection} />
+      
     </div>
   );
 };

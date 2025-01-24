@@ -14,7 +14,7 @@ const Team = () => {
     const teamData = [
       {
         imgSrc: TeamProfileMayumi,
-        name: "Mayumi Naoko",
+        name: "Naoko Mayumi",
         title: "President & CEO",
       },
       {
