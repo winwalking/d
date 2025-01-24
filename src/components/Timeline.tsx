@@ -33,7 +33,7 @@ const Timeline = () => {
           Seoul Fintech Lab startups valuation & pitchbook.
           <br />
           Kiwoom NLP(Natural language process) global thematic investing
-          algorithm
+          algorithm.
         </p>
       </>
     ),
@@ -98,7 +98,7 @@ const Timeline = () => {
         <h3 className="history_date">October 2023</h3>
         <p className="history_description">
           KB sec. MOA (AI-driven Hyper-personalized wealth management solution)
-          service open{" "}
+          service open.
         </p>
         <h3 className="history_date">November 2023</h3>
         <p className="history_description">
