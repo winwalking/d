@@ -20,7 +20,7 @@ const Team = () => {
       {
         imgSrc: TeamProfileAbiko,
         name: "Yoshihiro Abiko",
-        title: "Director",
+        title: "CIO",
       },
       {
         imgSrc: TeamProfileSeungjong,
