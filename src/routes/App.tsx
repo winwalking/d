@@ -9,6 +9,7 @@ import {
 import BaseLayout from "../layouts/Base";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
+import TextMasker from "../pages/TextMasker";
 
 const App: React.FC = () => {
   return (
@@ -18,8 +19,8 @@ const App: React.FC = () => {
           <Route path="/" element={<Navigate replace to="/main" />} />
           <Route path="/dashboard" element={<Home />} />
           <Route path="/main" element={<Dashboard />} />
-          {/* <Route path="/" element={< />} /> */}
-          {/* <Route path="/" element={< />} /> */}
+          <Route path="/textmasker" element={< TextMasker/>} /> 
+          {/* <Route path="/" element={< />} /> */ }
         </Route>
       </Routes>
     </Router>

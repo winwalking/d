@@ -1,3 +1,8 @@
 node_modules
 dist
 package-lock.json
+src\components\hide
+src\pages\Home.tsx
+src\pages\Test.tsx
+src\assets\scss\theme-test.scss
+src\assets\scss\theme.scss

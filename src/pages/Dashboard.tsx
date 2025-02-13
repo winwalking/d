@@ -14,6 +14,7 @@ import Header from "@components/base/Header";
 import Footer from "@components/base/Footer";
 import sendMail from "../api/send-email";
 import Toast from "@components/Toast";
+import TrendBottomArrow from "assets/image/trends_bottom_arrow.svg"
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState<
     | "home"
@@ -87,7 +88,8 @@ const Dashboard = () => {
     company: "",
     message: "",
   });
-
+  const [isMobile, setIsMobile] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false); // 폼 유효성 상태
   const [loading, setLoading] = useState(false); // 로딩 상태 추가
   const [toast, setToast] = useState<{
@@ -101,7 +103,7 @@ const Dashboard = () => {
     message: "",
     visible: false,
   });
-  
+
   // 입력 값 변경 핸들러
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -127,19 +129,19 @@ const Dashboard = () => {
   // 폼 전송 함수
   const sendForm = async () => {
     if (!isFormValid || loading) return; // 폼이 유효하지 않거나 로딩 중일 때 실행 안 함
-  
+
     setLoading(true); // 로딩 시작
     try {
       const response = await sendMail(formData); // Replace with your API call
       console.log("Response from server:", response);
-  
+
       setToast({
         type: "success", // Valid type
         title: "Success",
         message: "Message sent successfully!",
         visible: true,
       }); // Show success toast
-  
+
       setFormData({ name: "", email: "", company: "", message: "" }); // 폼 초기화
     } catch (error) {
       setToast({
@@ -153,78 +155,49 @@ const Dashboard = () => {
       setIsFormValid(false);
     }
   };
-  
 
+  useEffect(() => {
+    // const handleResize = () => {
+    //   const width = window.innerWidth;
+    //   setIsMobile(width <= 1040);
+    //   setIsDesktop(width <= 1280 && width > 1040);
+    // };
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 1280);
+      setIsDesktop(width <= 1460);
+    };
+    handleResize(); // 초기 실행
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div>
       <Header scrollToSection={scrollToSection} activeMenu={activeMenu} />
-      <div className="styles_layout" style={{ marginTop: 0 }}>
+      <div className="styles_layout mt_0!">
         {/* Design Your Financial Future with ALGOLAB */}
-        <div
-          ref={sectionRefs.home}
-          style={{
-            backgroundColor: "#3260E7",
-            width: "100%",
-          }}
-        >
-          <div
-            className="styles_section"
-            style={{
-              marginTop: 0,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              paddingTop: 60,
-              paddingBottom: 60,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                paddingTop: 60,
-              }}
-            >
-              <h1
-                style={{
-                  fontWeight: "400",
-                  fontSize: 80,
-                  textAlign: "left",
-                  lineHeight: "120px",
-                  marginBottom: "40px",
-                  color: "#fff",
-                }}
-              >
-                Design Your Financial
-                <br />
-                Future with&nbsp;
-                <span
-                  style={{
-                    fontWeight: 600,
-                    padding: "4px 16px",
-                    borderRadius: 16,
-                    color: "#3260E7",
-                    backgroundColor: "#FFF",
-                    lineHeight: "108px",
-                  }}
-                >
+        <div className="bg_rgba(50,_96,_231,_1) w_100%" ref={sectionRefs.home}>
+          <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44!">
+            <div className="d_flex flex_column">
+              {/* pt_60 */}
+              <h1 className="fw_normal fs_80 leading_120px mb_80 text_white text-align_left lg:w_517">
+                Design Your{isDesktop && <br />}
+                {!isDesktop && !isMobile && "\u00A0"}Financial
+                {!isDesktop && <br />} Future with{isDesktop && "\u00A0"}
+                {!isDesktop && !isMobile && "\u00A0"}
+                {!isDesktop && <br />}
+                <span className="white-space_nowrap fw_bold px_16 py_4 rounded_16 bg_white leading_108px text_rgb(50,_96,_231)">
                   ALGOLAB
                 </span>
               </h1>
-              <span
-                style={{
-                  width: 780,
-                  color: "#fff",
-                  lineHeight: "30px",
-                  fontSize: 20,
-                  fontWeight: 400,
-                  marginBottom: 120,
-                }}
-              >
-                Unlock new possibilities in asset management and venture
-                valuation with
-                <br /> cutting-edge financial technology and personalized
-                solutions
+              <span className="text_white leading_30px fs_20 fw_normal mb_120 w_780 lg:w_517">
+                Unlock new possibilities in asset management and
+                {isMobile && <br />} venture valuation with
+                {!isDesktop && <br />} cutting-edge financial technology{isMobile && <br />} and
+                personalized solutions
               </span>
               {/* <button
                 style={{
@@ -252,26 +225,23 @@ const Dashboard = () => {
               </button> */}
             </div>
 
-            <div style={{ position: "relative" }}>
-              <img src={MainImg} style={{ width: 430 }} />
+            <div className="pos_relative">
+              <img src={MainImg} className="w_430 lg:min-w_367 lg:min-h_707" />
               <div
-                style={{
-                  position: "absolute",
-                  bottom: 60, //  65 / 77
-                  left: -214, // -195
-                }}
+                className="pos_absolute bottom_60 left_-214"
+                // style={{
+                //   position: "absolute",
+                //   bottom: 60, //  65 / 77
+                //   left: -214, // -195
+                // }}
               >
                 <div className="gradient-border-rounded">
                   <img src={MainSmImg} />
                   <div
-                    style={{
-                      color: "#fff",
-                      fontSize: 18,
-                      fontWeight: 600,
-                      lineHeight: "27px",
-                    }}
+                    className="text_white fs_18 fw_normal leading_28px"
+                    //   lineHeight: "27px",
                   >
-                    <p style={{ marginBottom: 18, marginTop: 8 }}>
+                    <p className="mt_8 mb_18">
                       Explore Our
                       <br />
                       Financial Solutions
@@ -297,154 +267,97 @@ const Dashboard = () => {
           </div>
         </div>
         {/* Real-Time Industry Trends */}
-        <div style={{ backgroundColor: "#fff", width: "100%" }}>
-          <div
-            className="styles_section"
-            style={{
-              marginTop: 0,
-
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              paddingTop: 40,
-              paddingBottom: 40,
-            }}
-          >
-            <span
-              style={{
-                color: "#3260E7",
-                fontSize: 20,
-                fontWeight: 600,
-                lineHeight: "36px",
-              }}
-            >
+        <div className="bg_white w_100%">
+          <div className="styles_section mt_0 d_flex items_center py_40! gap_8">
+            <span className="text_rgb(50,_96,_231) fs_20 fw_normal leading_36px">
               Real-Time Industry Trends
             </span>
+            <TrendBottomArrow/>
           </div>
         </div>
         <SwipeTextSilder />
         {/* About Us: Who we are */}
-        <div
-          style={{ width: "100%", backgroundColor: "#fff" }}
-          ref={sectionRefs["about-us"]}
-        >
-          <div
-            className="styles_section"
-            style={{
-              margin: "0 auto",
-              padding: "160px 0",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-            }}
-          >
-            <div>
+        <div className="bg_white w_100%" ref={sectionRefs["about-us"]}>
+          <div className="styles_section d_flex justify_between items_flex-end xl:items_flex-end lg:flex_column">
+            <div className="lg:mb_80">
               {/* About Us: Who we are */}
-              <div style={{ marginBottom: 24, width: 1040, paddingRight: 41 }}>
-                <h2
-                  style={{
-                    fontSize: 56,
-                    color: "#111",
-                    fontWeight: 400,
-                    lineHeight: "84px",
-                    marginBottom: 28,
-                  }}
-                >
+              <div className="mb_24 pr_41 w_1040 nm:w_100%">
+                <h2 className="section_cts_title leading_84px mb_28">
                   About Us:
                   <br /> Who we are
                 </h2>
                 <p
-                  style={{
-                    width: 999,
-                    fontSize: 18,
-                    fontWeight: 400,
-                    color: "#111",
-                    lineHeight: "27px",
-                  }}
+                  className="w_999 nm:w_100% fs_18 fw_normal text_dark leading_28px"
+                  //   lineHeight: "27px",
                 >
-                  <span style={{ fontWeight: 600 }}>Algolab</span>&nbsp;is a
-                  financial technology company offering&nbsp;
-                  <span style={{ fontWeight: 600 }}>
-                    personalized asset management
-                  </span>
+                  <span className="fw_bold">Algolab</span>&nbsp;is a financial
+                  technology company offering&nbsp;
+                  <span className="fw_bold">personalized asset management</span>
                   &nbsp;for investors and
                   <br />
-                  <span style={{ fontWeight: 600 }}>startup valuation</span>
+                  <span className="fw_bold">startup valuation</span>
                   &nbsp;services for emerging businesses, leveraging&nbsp;
-                  <span style={{ fontWeight: 600 }}>embedded finance</span>
+                  <span className="fw_bold">embedded finance</span>
                   &nbsp;and&nbsp;
-                  <span style={{ fontWeight: 600 }}>
+                  <span className="fw_bold">
                     innovative financial technologies.
                   </span>
                   <br />
                   We provide&nbsp;
-                  <span style={{ fontWeight: 600 }}>cutting-edge tools</span>
+                  <span className="fw_bold">cutting-edge tools</span>
                   &nbsp;to&nbsp;
-                  <span style={{ fontWeight: 600 }}>
-                    financial institutions,
-                  </span>
+                  <span className="fw_bold">financial institutions,</span>
                   &nbsp;
-                  <span style={{ fontWeight: 600 }}>investors,</span>
+                  <span className="fw_bold">investors,</span>
                   &nbsp;and&nbsp;
-                  <span style={{ fontWeight: 600 }}>startups,</span>&nbsp;and
-                  achieve their&nbsp;
-                  <span style={{ fontWeight: 600 }}>financial goals.</span>
+                  <span className="fw_bold">startups,</span>&nbsp;and achieve
+                  their&nbsp;
+                  <span className="fw_bold">financial goals.</span>
                 </p>
               </div>
               {/* Our services include */}
               <div
-                style={{
-                  marginBottom: 24,
-                  fontSize: 18,
-                  fontWeight: 400,
-                  color: "#111",
-                  lineHeight: "27px",
-                }}
+                className="mb_24 fs_18 fw_normal text_dark leading_28px"
+                //   lineHeight: "27px",
               >
                 Our services include:
-                <ul style={{ marginLeft: 8 }}>
-                  <li style={{ listStyle: "inside" }}>
+                <ul className="ml_8">
+                  <li className="list-type_inside">
                     <b>Robo-advisory solutions</b>&nbsp;for&nbsp;
                     <b>pension planning</b>&nbsp;and&nbsp;
                     <b>startup valuation</b>
                   </li>
-                  <li style={{ listStyle: "inside" }}>
+                  <li className="list-type_inside">
                     <b>Behavioral economics–based</b>&nbsp;personalized asset
                     management
                   </li>
-                  <li style={{ listStyle: "inside" }}>
+                  <li className="list-type_inside">
                     <b>Tailored investment strategies</b>&nbsp;and&nbsp;
                     <b>AI-driven</b>&nbsp;reporting
                   </li>
-                  <li style={{ listStyle: "inside" }}>
+                  <li className="list-type_inside">
                     <b>Global theme analysis</b>&nbsp;and&nbsp;
                     <b>alternative investment</b>&nbsp;solutions
                   </li>
                 </ul>
               </div>
               <div
-                style={{
-                  fontSize: 18,
-                  fontWeight: 400,
-                  color: "#111",
-                  lineHeight: "27px",
-                }}
+                className="fs_18 fw_normal text_dark leading_28px"
+                //   lineHeight: "27px",
               >
                 As we expand beyond&nbsp;
-                <span style={{ fontWeight: 600 }}>
-                  Korea into the Asian market,
-                </span>
+                <span className="fw_bold">Korea into the Asian market,</span>
                 &nbsp;we empower our clients to&nbsp;
-                <span style={{ fontWeight: 600 }}>
+                <span className="fw_bold">
                   make better financial decisions.
                 </span>
                 &nbsp;
                 <br />
                 Experience the future of&nbsp;
-                <span style={{ fontWeight: 600 }}>finance with Algolab.</span>
+                <span className="fw_bold">finance with Algolab.</span>
               </div>
             </div>
-            <div>
+            <div className="d_flex justify_flex-end w_100% lg:d_flex lg:justify_flex-end">
               <WhoWeAreBigArrow />
             </div>
           </div>
@@ -456,107 +369,53 @@ const Dashboard = () => {
 
         {/* Services */}
         <div
+          className="w_100% bg_white border-bottom_solid border-bottom-w_1 border_rgba(213,_219,_226,_1)"
           ref={sectionRefs.services}
-          style={{ width: "100%", backgroundColor: "#fff" }}
         >
-          <div
-            className="styles_section"
-            style={{
-              margin: "0 auto",
-              padding: "160px 0",
-            }}
-          >
-            <h2
-              style={{
-                fontSize: 56,
-                fontWeight: 400,
-                lineHeight: "84px",
-                color: "#111",
-                marginBottom: 80,
-              }}
-            >
-              Services
-            </h2>
+          <div className="styles_section mx_auto my_0 px_0 py_160">
+            <h2 className="section_cts_title leading_84px mb_80">Services</h2>
             {/* Retirement Pension Robo-Advisor */}
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                alignItems: "flex-start",
-                marginBottom: 160,
-              }}
-            >
-              <div style={{ marginRight: 160 }}>
-                <img src={RoboAdvisorImg} alt="" />
+            <div className="mb_160 d_flex w_100% items_flex-start nm:flex_column">
+              <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0!">
+                <img
+                  src={RoboAdvisorImg}
+                  alt=""
+                  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342"
+                />
               </div>
-              <div
-                style={{
-                  minWidth: 610,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  justifyContent: "space-between",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: 32,
-                    fontWeight: 400,
-                    lineHeight: "48px",
-                    color: "#111",
-                    marginBottom: 28,
-                  }}
-                >
+              <div className="min-w_610 d_flex flex_column items_flex-start justify_between">
+                <p className="fs_32 fw_normal leading_48px text_dark mb_28">
                   Retirement Pension
                   <br />
                   Robo-Advisor
                 </p>
-                <span
-                  style={{
-                    fontSize: 18,
-                    fontWeight: 400,
-                    lineHeight: "27px",
-                    color: "#111",
-
-                    marginBottom: 24,
-                  }}
-                >
+                <span className="fs_18 fw_normal leading_28px text_dark mb_24">
                   Algolab’s retirement pension robo-advisor integrates
                   <br />
-                  <span style={{ fontWeight: 600 }}>behavioral economics</span>
+                  <span className="fw_bold">behavioral economics</span>
                   &nbsp;and&nbsp;
-                  <span style={{ fontWeight: 600 }}>
+                  <span className="fw_bold">
                     cutting-edge financial technologies
                   </span>
                   <br />
                   to provide&nbsp;
-                  <span style={{ fontWeight: 600 }}>
+                  <span className="fw_bold">
                     personalized pension management
                   </span>
                   &nbsp;solutions.
                 </span>
-                <ul style={{ marginLeft: 22 }}>
+                <ul className="ml_22">
                   <li
-                    style={{
-                      listStyle: "outside",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      color: "#111",
-                    }}
+                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    // lineHeight: "27px",
                   >
                     <b>Analyzes</b> clients’ investment preferences and&nbsp;
                     <b>designs</b> customized
                     <br /> investment plans
                   </li>
                   <li
-                    style={{
-                      listStyle: "outside",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      color: "#111",
-                    }}
+                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    // lineHeight: "27px",
                   >
                     <b>Optimizes</b> fund and global stock selection through
                     the&nbsp;
@@ -568,13 +427,8 @@ const Dashboard = () => {
                     &nbsp;and <b>NLP-based</b>&nbsp;analysis
                   </li>
                   <li
-                    style={{
-                      listStyle: "outside",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      color: "#111",
-                    }}
+                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    // lineHeight: "27px",
                   >
                     <b>Ensures</b> stable and effective pension management
                     with&nbsp;
@@ -584,13 +438,8 @@ const Dashboard = () => {
                     </b>
                   </li>
                   <li
-                    style={{
-                      listStyle: "outside",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      color: "#111",
-                    }}
+                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    // lineHeight: "27px",
                   >
                     <b>Proven track record,</b> including successful
                     collaborations with&nbsp;
@@ -605,72 +454,36 @@ const Dashboard = () => {
               </div>
             </div>
             {/* Early-Stage Company Valuation */}
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                alignItems: "flex-start",
-                flexDirection: "row-reverse",
-                justifyContent: "space-between",
-              }}
-            >
-              <div style={{ marginLeft: 160 }}>
-                <img src={CompanyValueImg} alt="" />
+            <div className="d_flex w_100% items_flex-start flex_row-reverse justify_between nm:flex_column">
+              <div className="ml_160 xl:ml_80! lg:ml_40! nm:ml_0!">
+                <img src={CompanyValueImg} alt=""  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342"/>
               </div>
-              <div
-                style={{
-                  minWidth: 610,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  justifyContent: "space-between",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: 32,
-                    fontWeight: 400,
-                    lineHeight: "48px",
-                    color: "#111",
-                    marginBottom: 28,
-                  }}
-                >
+              <div className="min-w_610 d_flex flex_column items_flex-start justify_between">
+                <p className="fs_32 fw_normal leading_48px text_dark mb_28">
                   Early-Stage Company Valuation
                 </p>
                 <span
-                  style={{
-                    fontSize: 18,
-                    fontWeight: 400,
-                    lineHeight: "27px",
-                    color: "#111",
-
-                    marginBottom: 24,
-                  }}
+                  className="fs_18 fw_normal leading_28px text_dark mb_24" // lineHeight: "27px"
                 >
                   Algolab’s early-stage company valuation solution
                   combines&nbsp;
-                  <span style={{ fontWeight: 600 }}>
+                  <span className="fw_bold">
                     corporate
                     <br />
                     data
                   </span>
                   &nbsp;and&nbsp;
-                  <span style={{ fontWeight: 600 }}>financial information</span>
+                  <span className="fw_bold">financial information</span>
                   &nbsp;to deliver&nbsp;
-                  <span style={{ fontWeight: 600 }}>
+                  <span className="fw_bold">
                     reliable, up-to-date valuations.
                   </span>
                   &nbsp;
                 </span>
-                <ul style={{ marginLeft: 22, marginBottom: 24 }}>
+                <ul className="ml_22 mb_24">
                   <li
-                    style={{
-                      listStyle: "outside",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      color: "#111",
-                    }}
+                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    // lineHeight: "27px",
                   >
                     <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
                     &nbsp;valuations through&nbsp;
@@ -682,13 +495,8 @@ const Dashboard = () => {
                     &nbsp;integration
                   </li>
                   <li
-                    style={{
-                      listStyle: "outside",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      color: "#111",
-                    }}
+                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    // lineHeight: "27px",
                   >
                     <b>Streamlines</b>&nbsp;the&nbsp;creation of investment
                     proposals with an&nbsp;
@@ -700,13 +508,8 @@ const Dashboard = () => {
                     &nbsp;solution, facilitating investment attraction
                   </li>
                   <li
-                    style={{
-                      listStyle: "outside",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      color: "#111",
-                    }}
+                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    // lineHeight: "27px",
                   >
                     <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea,
                     Japan, China, and Vietnam&nbsp;-
@@ -715,15 +518,11 @@ const Dashboard = () => {
                   </li>
                 </ul>
                 <span
-                  style={{
-                    fontSize: 18,
-                    fontWeight: 400,
-                    lineHeight: "27px",
-                    color: "#111",
-                  }}
+                  className="fs_18 fw_normal leading_28px text_dark"
+                  // lineHeight: "27px",
                 >
                   Make clearer investment decisions with&nbsp;
-                  <span style={{ fontWeight: 600 }}>Algolab’s</span>
+                  <span className="fw_bold">Algolab’s</span>
                   &nbsp;valuation solutions.
                 </span>
               </div>
@@ -733,72 +532,33 @@ const Dashboard = () => {
         {/* History */}
         <div
           ref={sectionRefs.history}
-          style={{
-            width: "100%",
-            backgroundColor: "#fff",
-            borderTop: "1px solid #D5DBE2",
-            borderBottom: "1px solid #D5DBE2",
-          }}
+          className="w_100% bg_white border-bottom_solid border-bottom-w_1 border_rgba(213,_219,_226,_1)"
         >
-          <div
-            className="styles_section"
-            style={{
-              margin: "0 auto",
-            }}
-          >
+          <div className="styles_section mx_auto my_0 px_0! py_0!">
             <Timeline />
           </div>
         </div>
         {/* Team */}
         <div
+          className="w_100% bg_white border-bottom_solid border-bottom-w_1 border_rgba(213,_219,_226,_1)"
           ref={sectionRefs.team}
-          style={{
-            width: "100%",
-            backgroundColor: "#fff",
-            borderTop: "1px solid #D5DBE2",
-            borderBottom: "1px solid #D5DBE2",
-          }}
         >
-          <div
-            className="styles_section"
-            style={{
-              margin: "0 auto",
-              padding: "160px 0",
-            }}
-          >
+          <div className="styles_section">
             <Team />
           </div>
         </div>
         {/* Contact Us */}
         <div
+          className="w_100% bg_rgba(245,_246,_250,_1) pos_relative"
           ref={sectionRefs["contact-us"]}
-          style={{
-            width: "100%",
-            backgroundColor: "#F5F6FA",position:"relative"
-          }}
         >
-          <div
-            className="styles_section"
-            style={{
-              margin: "0 auto",
-              padding: "80px 0",
-            }}
-          >
-            <h2
-              style={{
-                textAlign: "center",
-                fontSize: 56,
-                fontWeight: 400,
-                lineHeight: "84px",
-                color: "#111",
-                marginBottom: 80,
-              }}
-            >
+          <div className="styles_section mx_auto my_0 px_0 py_80">
+            <h2 className="section_cts_title leading_84px mb_80 text-align_center">
               Contact Us
             </h2>
-            <div style={{ marginBottom: 80 }}>
+            <div className="mb_80">
               {/* Input Field */}
-              <div style={{ marginBottom: 40 }}>
+              <div className="mb_40">
                 <InputComp
                   label="Your Name"
                   type="input"
@@ -810,13 +570,7 @@ const Dashboard = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginBottom: 40,
-                }}
-              >
+              <div className="d_flex justify_between mb_40">
                 <InputComp
                   label="Work Email"
                   type="input"
@@ -852,52 +606,39 @@ Leave your message, and we’ll get back to you shortly."
                 onChange={handleChange}
               />
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                
-              }}
-            >
+            <div className="d_flex justify_center items_center">
               <button
-                style={{
-                  padding: "12px 24px",
-                  borderRadius: 5,
-                  backgroundColor:
-                    isFormValid && !loading ? "#111" : "rgba(17,17,17,0.5)",
-                  cursor: isFormValid && !loading ? "pointer" : "not-allowed",
-                }}
+                className={`px_24 py_12 rounded_5 ${
+                  isFormValid && !loading
+                    ? "bg_dark"
+                    : "bg_rgba(17,_17,_17,_0.5)"
+                } ${
+                  isFormValid && !loading
+                    ? "cursor_pointer"
+                    : "cursor_not-allowed"
+                }`}
                 onClick={sendForm}
                 disabled={!isFormValid || loading} // 버튼 비활성화
               >
-                <span
-                  style={{
-                    color: "#fff",
-                    fontSize: 20,
-                    fontWeight: 600,
-                    lineHeight: "30px",
-                  }}
-                >
+                <span className="text_white fs_20 fw_bold leading_30px">
                   {loading ? "Sending..." : "Submit"}
                 </span>
               </button>
-             
             </div>
           </div>
-           {/* Toast Component */}{toast.visible && (
-                <Toast
-                type={toast.type}
-                title={toast.title}
-                message={toast.message}
-                onClose={closeToast}
-                duration={5000} // Duration in milliseconds
-              />
-            )}
-           <Footer scrollToSection={scrollToSection} />
+          {/* Toast Component */}
+          {toast.visible && (
+            <Toast
+              type={toast.type}
+              title={toast.title}
+              message={toast.message}
+              onClose={closeToast}
+              duration={5000} // Duration in milliseconds
+            />
+          )}
+          <Footer scrollToSection={scrollToSection} />
         </div>
       </div>
-      
     </div>
   );
 };

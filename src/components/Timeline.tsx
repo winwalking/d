@@ -155,20 +155,15 @@ const Timeline = () => {
       {/* History Heading */}
       <div className="history-heading">
         <h2
-          style={{
-            fontSize: 56,
-            fontWeight: 400,
-            lineHeight: "84px",
-            color: "#111",
-            marginBottom: 80,
-          }}
+          className="section_cts_title leading_84px mb_80"
+      
         >
           History
         </h2>
       </div>
 
       {/* Timeline Content */}
-      <div className="timeline-content">
+      <div className="timeline-content sm:flex_column-reverse">
         {/* Content for the selected year */}
         <div className="left-content">
           {years.map((year) => (
@@ -187,7 +182,7 @@ const Timeline = () => {
           ))}
         </div>
         {/* Sidebar for years */}
-        <div className="right-sidebar">
+        <div className="right-sidebar sm:flex_row! sm:items_center! sm:justify_between! sm:p_0!">
           {years.map((year) => (
             <div
               key={year}

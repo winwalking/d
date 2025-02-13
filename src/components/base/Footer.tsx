@@ -54,65 +54,56 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
           </nav>
         </div>
         <div
-          style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-          }}
+          className="w_100% d_flex items_flex-end justify_between"
+          // style={{
+          //   width: "100%",
+          //   display: "flex",
+          //   alignItems: "flex-end",
+          //   justifyContent: "space-between",
+          // }}
         >
-          <div style={{ width: 390 }}>
+          <div className="w_390">
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: 20,
-                gap: 20,
-              }}
+              className="d_flex items_center mb_20 gap_20"
+              // style={{
+              //   display: "flex",
+              //   alignItems: "center",
+              //   marginBottom: 20,
+              //   gap: 20,
+              // }}
             >
               <LogoTextFooter />
-              <span style={{ color: "#767676", fontSize: 18, fontWeight: 400 }}>
+              <span className="text_rgb(118,_118,_118) fs_18 fw_400">
                 Powered by Dneuro
               </span>
             </div>
-            <div style={{ marginBottom: 20 }}>
-              <span style={{ color: "#767676", fontSize: 18, fontWeight: 400 }}>
+            <div className="mb_20">
+              <span className="text_rgb(118,_118,_118) fs_18 fw_400">
                 © 2025 Algolab INC. All Rights Reserved.
               </span>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
+            <div
+              className="d_flex items_center gap_40"
+              // style={{ display: "flex", alignItems: "center", gap: 40 }}
+            >
               <a
-                style={{
-                  color: "#A5A7B1",
-                  fontSize: 18,
-                  fontWeight: 400,
-                  textDecoration: "underline",
-                }}
+                className="text_rgb(165,_167,_177) fs_18 fw_normal text-decor_underline!"
                 href=""
               >
                 Privacy Policy
               </a>
-              <a
-                style={{
-                  color: "#A5A7B1",
-                  fontSize: 18,
-                  fontWeight: 400,
-                  textDecoration: "underline",
-                }}
-              >
+              <a className="text_rgb(165,_167,_177) fs_18 fw_normal text-decor_underline!">
                 Terms of Service
               </a>
             </div>
           </div>
-          <div style={{ width: 310 }}>
-            <div style={{ marginBottom: 20 }}>
+          <div className="w_310">
+            <div className="mb_20">
               <span
-                style={{
-                  color: "#A5A7B1",
-                  fontSize: 18,
-                  fontWeight: 400,
-                  lineHeight: "27px",
-                }}
+                className="fs_18 fw_400 leading_28px text_rgb(165,_167,_177)"
+                // style={{
+                //   lineHeight: "27px",
+                // }}
               >
                 100-0005
                 <br />
@@ -123,15 +114,8 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                 Chiyoda-ku, Tokyo
               </span>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <span
-                style={{
-                  color: "#A5A7B1",
-                  fontSize: 18,
-                  fontWeight: 400,
-                  textAlign: "right",
-                }}
-              >
+            <div className="d_flex justify_flex-end">
+              <span className="fs_18 fw_400 text-align_right text_rgb(165,_167,_177)">
                 +82 (02) 6274-0055
               </span>
             </div>
