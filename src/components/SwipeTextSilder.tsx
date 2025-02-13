@@ -26,16 +26,7 @@ const ImageSlider: React.FC = () => {
               text === "Artificial Intelligence" ? "wide" : ""
             }`}
           >
-            <span
-              style={{
-                color: "#3260E7",
-                fontSize: 56,
-                fontWeight: 400,
-                lineHeight: "84px",
-              }}
-            >
-              {text}
-            </span>
+            <span className="md:fw_bold">{text}</span>
           </div>
         ))}
         {texts.map((text, index) => (
@@ -45,16 +36,7 @@ const ImageSlider: React.FC = () => {
               text === "Artificial Intelligence" ? "wide" : ""
             }`}
           >
-            <span
-              style={{
-                color: "#3260E7",
-                fontSize: 56,
-                fontWeight: 400,
-                lineHeight: "84px",
-              }}
-            >
-              {text}
-            </span>
+            <span className="md:fw_bold">{text}</span>
           </div>
         ))}
         {texts.map((text, index) => (
@@ -64,16 +46,7 @@ const ImageSlider: React.FC = () => {
               text === "Artificial Intelligence" ? "wide" : ""
             }`}
           >
-            <span
-              style={{
-                color: "#3260E7",
-                fontSize: 56,
-                fontWeight: 400,
-                lineHeight: "84px",
-              }}
-            >
-              {text}
-            </span>
+            <span className="md:fw_bold">{text}</span>
           </div>
         ))}
       </div>

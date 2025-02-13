@@ -124,7 +124,7 @@ const InputComp: React.FC<InputCompProps> = ({
   };
 
   return (
-    <div style={{ marginBottom: "20px" }}>
+    <div style={{ marginBottom: "20px" , }} className="nm:w_100%">
       {/* Label */}
       <label
         style={{

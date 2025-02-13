@@ -14,7 +14,7 @@ import Header from "@components/base/Header";
 import Footer from "@components/base/Footer";
 import sendMail from "../api/send-email";
 import Toast from "@components/Toast";
-import TrendBottomArrow from "assets/image/trends_bottom_arrow.svg"
+import TrendBottomArrow from "assets/image/trends_bottom_arrow.svg";
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState<
     | "home"
@@ -88,8 +88,12 @@ const Dashboard = () => {
     company: "",
     message: "",
   });
-  const [isMobile, setIsMobile] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDisplayXS, setIsDisplayXs] = useState(false);
+  const [isDisplaySm, setIsDisplaySm] = useState(false);
+  const [isDisplayMd, setIsDisplayMd] = useState(false);
+  const [isDisplayNm, setIsDisplayNm] = useState(false);
+  const [isDisplayLg, setIsDisplayLg] = useState(false);
+  const [isDisplayXl, setIsDisplayXl] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false); // 폼 유효성 상태
   const [loading, setLoading] = useState(false); // 로딩 상태 추가
   const [toast, setToast] = useState<{
@@ -159,13 +163,17 @@ const Dashboard = () => {
   useEffect(() => {
     // const handleResize = () => {
     //   const width = window.innerWidth;
-    //   setIsMobile(width <= 1040);
-    //   setIsDesktop(width <= 1280 && width > 1040);
+    //   setIsDisplayLg(width <= 1040);
+    //   setIsDisplayXl(width <= 1280 && width > 1040);
     // };
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width <= 1280);
-      setIsDesktop(width <= 1460);
+      setIsDisplayXs(width <= 390);
+      setIsDisplaySm(width <= 675);
+      setIsDisplayMd(width <= 1040);
+      setIsDisplayNm(width <= 1180);
+      setIsDisplayLg(width <= 1280);
+      setIsDisplayXl(width <= 1460);
     };
     handleResize(); // 초기 실행
     window.addEventListener("resize", handleResize);
@@ -180,24 +188,27 @@ const Dashboard = () => {
       <div className="styles_layout mt_0!">
         {/* Design Your Financial Future with ALGOLAB */}
         <div className="bg_rgba(50,_96,_231,_1) w_100%" ref={sectionRefs.home}>
-          <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44! md:flex_column! md:items_center">
+          <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44! md:flex_column! md:items_center sm:items_flex-start!">
             <div className="d_flex flex_column">
               {/* pt_60 */}
-              <h1 className="fw_normal fs_80 leading_120px mb_80 text_white text-align_left lg:w_517">
-                Design Your{isDesktop && <br />}
-                {!isDesktop && !isMobile && "\u00A0"}Financial
-                {!isDesktop && <br />} Future with{isDesktop && "\u00A0"}
-                {!isDesktop && !isMobile && "\u00A0"}
-                {!isDesktop && <br />}
+              <h1 className="fw_normal fs_80 leading_120px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100%">
+                Design Your{isDisplayXl && <br />}
+                {!isDisplayXl && !isDisplayLg && "\u00A0"}Financial
+                {!isDisplayXl && <br />} {isDisplayMd && <br />}Future with
+                {isDisplayXl && "\u00A0"}
+                {isDisplayMd && !isDisplayLg && "\u00A0"}
+                {isDisplayMd && <br />}
                 <span className="white-space_nowrap fw_bold px_16 py_4 rounded_16 bg_white leading_108px text_rgb(50,_96,_231)">
                   ALGOLAB
                 </span>
               </h1>
-              <span className="text_white leading_30px fs_20 fw_normal mb_120 w_780 lg:w_517">
+              <span className="text_white leading_30px fs_20 fw_normal mb_120 nm:mb_48 w_780 lg:w_517 nm:w_100%">
                 Unlock new possibilities in asset management and
-                {isMobile && <br />} venture valuation with
-                {!isDesktop && <br />} cutting-edge financial technology{isMobile && <br />} and
-                personalized solutions
+                {isDisplayLg && <br />} venture valuation with
+                {!isDisplayXl && <br />} cutting-edge financial{" "}
+                {isDisplayMd && <br />}technology
+                {isDisplayLg && !isDisplayMd && <br />} and personalized
+                solutions
               </span>
               {/* <button
                 style={{
@@ -225,10 +236,13 @@ const Dashboard = () => {
               </button> */}
             </div>
 
-            <div className="pos_relative">
-              <img src={MainImg} className="w_430 lg:min-w_367 lg:min-h_707" />
+            <div className="pos_relative nm:w_100% nm:d_flex! nm:justify_center nm:w_100% sm:justify_start">
+              <img
+                src={MainImg}
+                className="w_430 lg:min-w_367 lg:h_707 md:w_289 md:h_471"
+              />
               <div
-                className="pos_absolute bottom_60 left_-214"
+                className="pos_absolute bottom_60 left_-214 md:left_400! md:bottom_30! sm:left_158!"
                 // style={{
                 //   position: "absolute",
                 //   bottom: 60, //  65 / 77
@@ -236,26 +250,18 @@ const Dashboard = () => {
                 // }}
               >
                 <div className="gradient-border-rounded">
-                  <img src={MainSmImg} />
+                  <img src={MainSmImg} className="md:w_80 md:h_80" />
                   <div
-                    className="text_white fs_18 fw_normal leading_28px"
+                    className="text_white fs_18 fw_normal leading_28px md:fs_16 md:leading_21px"
                     //   lineHeight: "27px",
                   >
-                    <p className="mt_8 mb_18">
+                    <p className="mt_8 mb_18 md:mt_0! md:mb_0!">
                       Explore Our
                       <br />
                       Financial Solutions
                     </p>
                     <button
-                      style={{
-                        position: "absolute",
-                        bottom: 16,
-                        padding: 7,
-                        borderRadius: "50%",
-                        cursor: "pointer",
-                        border: "2px solid #FFF",
-                        backgroundColor: "rgba(255, 255, 255, 0.10)",
-                      }}
+                      className="explore-solutions-btn"
                       onClick={() => scrollToSection("services")} // 키 값 "services" 전달
                     >
                       <BtnArrowWhite />
@@ -272,7 +278,7 @@ const Dashboard = () => {
             <span className="text_rgb(50,_96,_231) fs_20 fw_normal leading_36px">
               Real-Time Industry Trends
             </span>
-            <TrendBottomArrow/>
+            <TrendBottomArrow />
           </div>
         </div>
         <SwipeTextSilder />
@@ -282,7 +288,7 @@ const Dashboard = () => {
             <div className="lg:mb_80">
               {/* About Us: Who we are */}
               <div className="mb_24 pr_41 w_1040 nm:w_100%">
-                <h2 className="section_cts_title leading_84px mb_28">
+                <h2 className="section_cts_title leading_84px mb_28 nm:fw_bold">
                   About Us:
                   <br /> Who we are
                 </h2>
@@ -373,17 +379,17 @@ const Dashboard = () => {
           ref={sectionRefs.services}
         >
           <div className="styles_section mx_auto my_0 px_0 py_160">
-            <h2 className="section_cts_title leading_84px mb_80">Services</h2>
+            <h2 className="section_cts_title leading_84px mb_80 nm:fw_bold">Services</h2>
             {/* Retirement Pension Robo-Advisor */}
-            <div className="mb_160 d_flex w_100% items_flex-start nm:flex_column">
-              <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0!">
+            <div className="mb_160 d_flex w_100% items_flex-start nm:flex_column! nm:items_center! nm:w_100%">
+              <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0!  nm:w_100%">
                 <img
                   src={RoboAdvisorImg}
                   alt=""
-                  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342"
+                  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342 nm:min-w_100%! nm:min-h_100%!"
                 />
               </div>
-              <div className="min-w_610 d_flex flex_column items_flex-start justify_between">
+              <div className="min-w_610  nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
                 <p className="fs_32 fw_normal leading_48px text_dark mb_28">
                   Retirement Pension
                   <br />
@@ -454,11 +460,15 @@ const Dashboard = () => {
               </div>
             </div>
             {/* Early-Stage Company Valuation */}
-            <div className="d_flex w_100% items_flex-start flex_row-reverse justify_between nm:flex_column">
-              <div className="ml_160 xl:ml_80! lg:ml_40! nm:ml_0!">
-                <img src={CompanyValueImg} alt=""  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342"/>
+            <div className="d_flex w_100% items_flex-start flex_row-reverse justify_between nm:flex_column! nm:items_center!  nm:w_100%">
+              <div className="ml_160 xl:ml_80! lg:ml_40! nm:ml_0!  nm:w_100%">
+                <img
+                  src={CompanyValueImg}
+                  alt=""
+                  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342 nm:min-w_100%! nm:min-h_100%!"
+                />
               </div>
-              <div className="min-w_610 d_flex flex_column items_flex-start justify_between">
+              <div className="min-w_610 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
                 <p className="fs_32 fw_normal leading_48px text_dark mb_28">
                   Early-Stage Company Valuation
                 </p>
@@ -553,7 +563,7 @@ const Dashboard = () => {
           ref={sectionRefs["contact-us"]}
         >
           <div className="styles_section mx_auto my_0 px_0 py_80">
-            <h2 className="section_cts_title leading_84px mb_80 text-align_center">
+            <h2 className="section_cts_title leading_84px mb_80 text-align_center nm:fw_bold sm:text-align_left">
               Contact Us
             </h2>
             <div className="mb_80">
@@ -564,7 +574,7 @@ const Dashboard = () => {
                   type="input"
                   name="name" // Add name prop
                   placeholder=""
-                  width="690px"
+                  width={isDisplayMd?"100%":"690px" }
                   height="50px"
                   value={formData.name}
                   onChange={handleChange}
@@ -576,7 +586,7 @@ const Dashboard = () => {
                   type="input"
                   name="email" // Add name prop
                   placeholder=""
-                  width="690px"
+                  width={isDisplayMd?"100%":"690px" }
                   height="50px"
                   value={formData.email}
                   onChange={handleChange}
@@ -586,7 +596,7 @@ const Dashboard = () => {
                   type="input"
                   name="company" // Add name prop
                   placeholder=""
-                  width="690px"
+                  width={isDisplayMd?"100%":"690px" }
                   height="50px"
                   value={formData.company}
                   onChange={handleChange}

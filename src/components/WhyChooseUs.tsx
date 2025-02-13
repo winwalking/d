@@ -135,7 +135,7 @@ const WhyChooseUs = () => {
           ))}
         </div>
         <div className="w_610 xl:w_509 nm:w_100% nm:mb_40">
-          <h2 className="section_cts_title leading_84px mb_28">
+          <h2 className="section_cts_title leading_84px mb_28 nm:fw_bold">
             Why
             <br /> Choose Us?
           </h2>
