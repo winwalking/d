@@ -557,7 +557,7 @@
     margin-right: auto;
   }
   .styles_inner {
-    padding: 16px 40px;
+    padding: 16px 20px;
   }
   .styles_pcOnly {
     display: none;
@@ -805,7 +805,7 @@
   }
   .styles_waitlist {
     margin-left: auto;
-    margin-right: 16px;
+    // margin-right: 16px;
   }
 }
 @media screen and (max-width: 1480px) {
@@ -966,7 +966,8 @@
 @media screen and (max-width: 744px) {
   .styles_inner_footer {
     max-width: inherit;
-    padding: 60px 20px 40px;
+    // padding: 60px 20px 40px;
+    padding: 48px 20px;
   }
 }
 
@@ -982,12 +983,14 @@
   .styles_footer_mainNavigations {
     padding-left: 0;
     padding-top: 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
   }
 }
 
 @media screen and (max-width: 744px) {
   .styles_footer_mainNavigations {
-    flex-direction: column;
     gap: 40px;
     padding-top: 0;
   }

@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
   return (
     <footer className="styles_footer">
       <div className="styles_inner_footer">
-        <div className="styles_footer_mainNavigations">
+        <div className="styles_footer_mainNavigations md:items_flex-start">
           <LogoFooter />
           <nav className="styles_pcOnly">
             <ul className="styles_footer_navigationItems">
@@ -52,25 +52,28 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
               ))}
             </ul>
           </nav>
+          <nav className="styles_mobileOnly">
+            <ul className="styles_footer_navigationItems nm:flex_column!">
+              {predefinedMenus.map((menu) => (
+                <li
+                  key={menu.id}
+                  className={`styles_footer_navigationItem `}
+                  onClick={() => scrollToSection(menu.path)}
+                >
+                  <a>{menu.name}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
         <div
           className="w_100% d_flex items_flex-end justify_between"
-          // style={{
-          //   width: "100%",
-          //   display: "flex",
-          //   alignItems: "flex-end",
-          //   justifyContent: "space-between",
-          // }}
+
         >
           <div className="w_390">
             <div
               className="d_flex items_center mb_20 gap_20"
-              // style={{
-              //   display: "flex",
-              //   alignItems: "center",
-              //   marginBottom: 20,
-              //   gap: 20,
-              // }}
+            
             >
               <LogoTextFooter />
               <span className="text_rgb(118,_118,_118) fs_18 fw_400">

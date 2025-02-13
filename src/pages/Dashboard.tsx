@@ -180,7 +180,7 @@ const Dashboard = () => {
       <div className="styles_layout mt_0!">
         {/* Design Your Financial Future with ALGOLAB */}
         <div className="bg_rgba(50,_96,_231,_1) w_100%" ref={sectionRefs.home}>
-          <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44!">
+          <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44! md:flex_column! md:items_center">
             <div className="d_flex flex_column">
               {/* pt_60 */}
               <h1 className="fw_normal fs_80 leading_120px mb_80 text_white text-align_left lg:w_517">
@@ -570,7 +570,7 @@ const Dashboard = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="d_flex justify_between mb_40">
+              <div className="d_flex justify_between mb_40 xl:flex-wrap_wrap!">
                 <InputComp
                   label="Work Email"
                   type="input"
