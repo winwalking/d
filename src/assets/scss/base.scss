@@ -2255,6 +2255,12 @@
     .md\:flex_column\! {
       flex-direction: column !important;
     }
+    .md\:flex_column-reverse\! {
+      flex-direction: column-reverse !important;
+    }
+    .md\:d_flex{
+      display: flex;
+    }
     .md\:items_center {
       align-items: center !important;
     }
@@ -2293,6 +2299,21 @@
     }
     .md\:bottom_30\! {
       bottom: 30px !important;
+    }
+    .md\:text_rgb\(118\,_118\,_118\) {
+      color: rgb(118, 118, 118);
+    }
+    .md\:mb_20{
+      margin-bottom: 20px;
+    }
+    .md\:mb_28{
+      margin-bottom: 28px;
+    }
+    .md\:justify_flex-start{
+      justify-content: flex-start;
+    }
+    .md\:text-align_left{
+      text-align: left;
     }
   }
   @media screen and (max-width: 46.5rem) {

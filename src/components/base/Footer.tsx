@@ -66,36 +66,32 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </ul>
           </nav>
         </div>
-        <div
-          className="w_100% d_flex items_flex-end justify_between"
-
-        >
-          <div className="w_390">
-            <div
-              className="d_flex items_center mb_20 gap_20"
-            
-            >
-              <LogoTextFooter />
-              <span className="text_rgb(118,_118,_118) fs_18 fw_400">
-                Powered by Dneuro
-              </span>
-            </div>
-            <div className="mb_20">
-              <span className="text_rgb(118,_118,_118) fs_18 fw_400">
-                © 2025 Algolab INC. All Rights Reserved.
-              </span>
+        <div className="w_100% d_flex items_flex-end justify_between md:flex_column! md:items_flex-start">
+          <div className="w_390 md:d_flex md:flex_column-reverse!">
+            <div className="md:mb_28">
+              <div className="d_flex items_center mb_20 gap_20">
+                <LogoTextFooter />
+                <span className="text_rgb(118,_118,_118) fs_18 fw_400">
+                  Powered by Dneuro
+                </span>
+              </div>
+              <div className="mb_20">
+                <span className="text_rgb(118,_118,_118) fs_18 fw_400">
+                  © 2025 Algolab INC. All Rights Reserved.
+                </span>
+              </div>
             </div>
             <div
-              className="d_flex items_center gap_40"
+              className="d_flex items_center gap_40 md:mb_20"
               // style={{ display: "flex", alignItems: "center", gap: 40 }}
             >
               <a
-                className="text_rgb(165,_167,_177) fs_18 fw_normal text-decor_underline!"
+                className="text_rgb(165,_167,_177) md:text_rgb(118,_118,_118) fs_18 fw_normal text-decor_underline!"
                 href=""
               >
                 Privacy Policy
               </a>
-              <a className="text_rgb(165,_167,_177) fs_18 fw_normal text-decor_underline!">
+              <a className="text_rgb(165,_167,_177) md:text_rgb(118,_118,_118) fs_18 fw_normal text-decor_underline!">
                 Terms of Service
               </a>
             </div>
@@ -103,7 +99,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
           <div className="w_310">
             <div className="mb_20">
               <span
-                className="fs_18 fw_400 leading_28px text_rgb(165,_167,_177)"
+                className="fs_18 fw_400 leading_28px text_rgb(165,_167,_177) md:text_rgb(118,_118,_118)"
                 // style={{
                 //   lineHeight: "27px",
                 // }}
@@ -117,8 +113,8 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                 Chiyoda-ku, Tokyo
               </span>
             </div>
-            <div className="d_flex justify_flex-end">
-              <span className="fs_18 fw_400 text-align_right text_rgb(165,_167,_177)">
+            <div className="d_flex justify_flex-end md:justify_flex-start">
+              <span className="fs_18 fw_400 text-align_right md:text-align_left text_rgb(165,_167,_177) md:text_rgb(118,_118,_118)">
                 +82 (02) 6274-0055
               </span>
             </div>
