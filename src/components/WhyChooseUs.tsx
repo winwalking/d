@@ -139,11 +139,11 @@ const WhyChooseUs = () => {
           ))}
         </div>
         <div className="w_610 xl:w_509 nm:w_100% nm:mb_40">
-          <h2 className="section_cts_title leading_84px mb_28 nm:fw_bold">
+          <h2 className="section_cts_title leading_84px mb_28 sm:mb_20 nm:fw_bold">
             Why
             <br /> Choose Us?
           </h2>
-          <p className="fs_18 fw_400 leading_28px text_#33322e">
+          <p className="fs_18 md:fs_16 fw_400 leading_28px text_#33322e">
             Algolab is a trusted partner that helps clients achieve their
             financial goals {!isDisplayXl && <br />}through innovative financial
             technologies and hyper-personalized services.

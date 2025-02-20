@@ -70,7 +70,7 @@ const Team = () => {
       <div className="w_766 my_0 mx_auto text-align_center sm:w_100%">
         <h2 className="section_cts_title leading_84px mb_28 nm:fw_bold sm:text-align_left">Team</h2>
         <p
-          className="fs_18 fw_400 leading_28px text_dark mb_80"
+          className="fs_18 md:fs_16 fw_400 leading_28px md:leading_24px text_dark mb_80 md:mb_40 sm:text-align_left"
           //   lineHeight: "27px",
         >
           The Algolab team designs the future alongside our clients, realizing

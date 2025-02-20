@@ -194,9 +194,9 @@ const Dashboard = () => {
               <h1 className="fw_normal fs_80 leading_120px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100%">
                 Design Your{isDisplayXl && <br />}
                 {!isDisplayXl && !isDisplayLg && "\u00A0"}Financial
-                {!isDisplayXl && <br />} {isDisplayMd && <br />}Future with 
+                {!isDisplayXl && <br />} {isDisplayMd && <br />}Future with
                 {isDisplayXl && "\u00A0"}
-                {isDisplayMd || !isDisplayLg && "\u00A0"}
+                {isDisplayMd || (!isDisplayLg && "\u00A0")}
                 {isDisplayMd && <br />}
                 <span className="white-space_nowrap fw_bold px_16 py_4 rounded_16 bg_white leading_108px text_rgb(50,_96,_231)">
                   ALGOLAB
@@ -379,12 +379,12 @@ const Dashboard = () => {
           ref={sectionRefs.services}
         >
           <div className="styles_section mx_auto my_0 px_0 py_160">
-            <h2 className="section_cts_title leading_84px mb_80 nm:fw_bold">
+            <h2 className="section_cts_title leading_84px mb_80 md:mb_40 sm:mb_20 nm:fw_bold">
               Services
             </h2>
             {/* Retirement Pension Robo-Advisor */}
-            <div className="mb_160 d_flex w_100% items_flex-start nm:flex_column! nm:items_center! nm:w_100%">
-              <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0!  nm:w_100%">
+            <div className="mb_160 nm:mb_80 md:mb:40 sm:mb_20 d_flex w_100% items_flex-start nm:flex_column! nm:items_center! nm:w_100%">
+              <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0! nm:w_100%">
                 <img
                   src={RoboAdvisorImg}
                   alt=""
@@ -392,12 +392,12 @@ const Dashboard = () => {
                 />
               </div>
               <div className="min-w_610 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
-                <p className="fs_32 md:fs_26 sm:fs_20 fw_normal leading_48px md:leading_39px sm:leading_30px text_dark md:mt_20 mb_28 md:mb_22 sm:mb_16">
+                <p className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
                   Retirement Pension
                   <br />
                   Robo-Advisor
                 </p>
-                <span className="fs_18 fw_normal leading_28px text_dark mb_24">
+                <span className="fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px text_dark mb_24 fw_normal">
                   Algolab’s retirement pension robo-advisor integrates
                   <br />
                   <span className="fw_bold">behavioral economics</span>
@@ -414,7 +414,7 @@ const Dashboard = () => {
                 </span>
                 <ul className="ml_22">
                   <li
-                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                     // lineHeight: "27px",
                   >
                     <b>Analyzes</b> clients’ investment preferences and&nbsp;
@@ -422,7 +422,7 @@ const Dashboard = () => {
                     <br /> investment plans
                   </li>
                   <li
-                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                     // lineHeight: "27px",
                   >
                     <b>Optimizes</b> fund and global stock selection through
@@ -435,7 +435,7 @@ const Dashboard = () => {
                     &nbsp;and <b>NLP-based</b>&nbsp;analysis
                   </li>
                   <li
-                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                     // lineHeight: "27px",
                   >
                     <b>Ensures</b> stable and effective pension management
@@ -446,7 +446,7 @@ const Dashboard = () => {
                     </b>
                   </li>
                   <li
-                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                     // lineHeight: "27px",
                   >
                     <b>Proven track record,</b> including successful
@@ -462,8 +462,8 @@ const Dashboard = () => {
               </div>
             </div>
             {/* Early-Stage Company Valuation */}
-            <div className="d_flex w_100% items_flex-start flex_row-reverse justify_between nm:flex_column! nm:items_center!  nm:w_100%">
-              <div className="ml_160 xl:ml_80! lg:ml_40! nm:ml_0!  nm:w_100%">
+            <div className="d_flex w_100% items_flex-start flex_row-reverse justify_between nm:flex_column! nm:items_center! nm:w_100%">
+              <div className="ml_160 xl:ml_80! lg:ml_40! nm:ml_0! nm:w_100%">
                 <img
                   src={CompanyValueImg}
                   alt=""
@@ -471,11 +471,11 @@ const Dashboard = () => {
                 />
               </div>
               <div className="min-w_610 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
-                <p className="fs_32 fw_normal leading_48px text_dark mb_28">
+                <p className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
                   Early-Stage Company Valuation
                 </p>
                 <span
-                  className="fs_18 fw_normal leading_28px text_dark mb_24" // lineHeight: "27px"
+                  className="fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px text_dark mb_24 fw_normal" // lineHeight: "27px"
                 >
                   Algolab’s early-stage company valuation solution
                   combines&nbsp;
@@ -494,7 +494,7 @@ const Dashboard = () => {
                 </span>
                 <ul className="ml_22 mb_24">
                   <li
-                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                     // lineHeight: "27px",
                   >
                     <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
@@ -507,7 +507,7 @@ const Dashboard = () => {
                     &nbsp;integration
                   </li>
                   <li
-                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                     // lineHeight: "27px",
                   >
                     <b>Streamlines</b>&nbsp;the&nbsp;creation of investment
@@ -520,7 +520,7 @@ const Dashboard = () => {
                     &nbsp;solution, facilitating investment attraction
                   </li>
                   <li
-                    className="list-type_outside fs_18 fw_normal leading_28px text_dark"
+                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                     // lineHeight: "27px",
                   >
                     <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea,
@@ -530,7 +530,7 @@ const Dashboard = () => {
                   </li>
                 </ul>
                 <span
-                  className="fs_18 fw_normal leading_28px text_dark"
+                  className="fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
                   // lineHeight: "27px",
                 >
                   Make clearer investment decisions with&nbsp;
