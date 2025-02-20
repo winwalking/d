@@ -2258,7 +2258,7 @@
     .md\:flex_column-reverse\! {
       flex-direction: column-reverse !important;
     }
-    .md\:d_flex{
+    .md\:d_flex {
       display: flex;
     }
     .md\:items_center {
@@ -2274,10 +2274,16 @@
       height: 471px !important;
     }
     .md\:fs_16 {
-      font-size: 16px !important;
+      font-size: 16px;
+    }
+    .md\:fs_26 {
+      font-size: 26px;
     }
     .md\:leading_21px {
       line-height: 21px !important;
+    }
+    .md\:leading_39px {
+      line-height: 39px 
     }
     .md\:fw_bold {
       font-weight: 600 !important;
@@ -2287,6 +2293,12 @@
     }
     .md\:h_80 {
       height: 80px;
+    }
+    .md\:w_60 {
+      width: 60px;
+    }
+    .md\:h_60 {
+      height: 60px;
     }
     .md\:mt_0\! {
       margin-top: 0px !important;
@@ -2303,18 +2315,40 @@
     .md\:text_rgb\(118\,_118\,_118\) {
       color: rgb(118, 118, 118);
     }
-    .md\:mb_20{
+    .md\:mt_20 {
+      margin-top: 20px;
+    }
+    .md\:mb_20 {
       margin-bottom: 20px;
     }
-    .md\:mb_28{
+    .md\:mb_22 {
+      margin-bottom: 22px;
+    }
+    .md\:mb_28 {
       margin-bottom: 28px;
     }
-    .md\:justify_flex-start{
+    .md\:mb_40\! {
+      margin-bottom: 40px !important;
+    }
+    .md\:gap_16\! {
+      gap: 16px !important;
+    }
+    .md\:justify_flex-start {
       justify-content: flex-start;
     }
-    .md\:text-align_left{
+    .md\:justify_center {
+      justify-content: center;
+    }
+    .md\:text-align_left {
       text-align: left;
     }
+    .md\:p_0 {
+      padding: 0px !important;
+    }
+    .md\:min-w_none\!{
+      min-width: 0 !important;
+    }
+
   }
   @media screen and (max-width: 46.5rem) {
     // 744 // sm
@@ -2346,7 +2380,7 @@
       width: 100%;
     }
     .sm\:min-w_100\%\! {
-     min-width: 100% !important;
+      min-width: 100% !important;
     }
     .sm\:flex_column-reverse {
       flex-direction: column-reverse;
@@ -2355,7 +2389,9 @@
     .sm\:flex_row\! {
       flex-direction: row !important;
     }
-
+    .sm\:fs_20 {
+      font-size: 20px;
+    }
     .sm\:items_center\! {
       align-items: center !important;
     }
@@ -2364,6 +2400,25 @@
     }
     .sm\:p_0\! {
       padding: 0px !important;
+    }
+    .sm\:fs_12 {
+      font-size: 12px;
+    }
+    .sm\:fs_14 {
+      font-size: 14px;
+    }
+    .sm\:leading_18px {
+      line-height: 18px;
+    }
+    .sm\:mb_16 {
+      margin-bottom: 16px;
+    }
+    .sm\:leading_21px {
+      line-height: 21px;
+    }       .sm\:leading_30px {
+      line-height: 30px;
+    } .sm\:w_fit-content{
+      width: fit-content;
     }
   }
 

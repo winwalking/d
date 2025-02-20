@@ -194,9 +194,9 @@ const Dashboard = () => {
               <h1 className="fw_normal fs_80 leading_120px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100%">
                 Design Your{isDisplayXl && <br />}
                 {!isDisplayXl && !isDisplayLg && "\u00A0"}Financial
-                {!isDisplayXl && <br />} {isDisplayMd && <br />}Future with
+                {!isDisplayXl && <br />} {isDisplayMd && <br />}Future with 
                 {isDisplayXl && "\u00A0"}
-                {isDisplayMd && !isDisplayLg && "\u00A0"}
+                {isDisplayMd || !isDisplayLg && "\u00A0"}
                 {isDisplayMd && <br />}
                 <span className="white-space_nowrap fw_bold px_16 py_4 rounded_16 bg_white leading_108px text_rgb(50,_96,_231)">
                   ALGOLAB
@@ -379,7 +379,9 @@ const Dashboard = () => {
           ref={sectionRefs.services}
         >
           <div className="styles_section mx_auto my_0 px_0 py_160">
-            <h2 className="section_cts_title leading_84px mb_80 nm:fw_bold">Services</h2>
+            <h2 className="section_cts_title leading_84px mb_80 nm:fw_bold">
+              Services
+            </h2>
             {/* Retirement Pension Robo-Advisor */}
             <div className="mb_160 d_flex w_100% items_flex-start nm:flex_column! nm:items_center! nm:w_100%">
               <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0!  nm:w_100%">
@@ -389,8 +391,8 @@ const Dashboard = () => {
                   className="xl:w_620 xl:h_423 lg:w_500 lg:h_342 nm:min-w_100%! nm:min-h_100%!"
                 />
               </div>
-              <div className="min-w_610  nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
-                <p className="fs_32 fw_normal leading_48px text_dark mb_28">
+              <div className="min-w_610 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
+                <p className="fs_32 md:fs_26 sm:fs_20 fw_normal leading_48px md:leading_39px sm:leading_30px text_dark md:mt_20 mb_28 md:mb_22 sm:mb_16">
                   Retirement Pension
                   <br />
                   Robo-Advisor
@@ -574,7 +576,7 @@ const Dashboard = () => {
                   type="input"
                   name="name" // Add name prop
                   placeholder=""
-                  width={isDisplayMd?"100%":"690px" }
+                  width={isDisplayMd ? "100%" : "690px"}
                   height="50px"
                   value={formData.name}
                   onChange={handleChange}
@@ -586,7 +588,7 @@ const Dashboard = () => {
                   type="input"
                   name="email" // Add name prop
                   placeholder=""
-                  width={isDisplayMd?"100%":"690px" }
+                  width={isDisplayMd ? "100%" : "690px"}
                   height="50px"
                   value={formData.email}
                   onChange={handleChange}
@@ -596,7 +598,7 @@ const Dashboard = () => {
                   type="input"
                   name="company" // Add name prop
                   placeholder=""
-                  width={isDisplayMd?"100%":"690px" }
+                  width={isDisplayMd ? "100%" : "690px"}
                   height="50px"
                   value={formData.company}
                   onChange={handleChange}
