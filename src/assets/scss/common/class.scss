@@ -843,6 +843,7 @@
     font-size: 42px;
     line-height: 62px;
   }
+  
 }
 
 @media screen and (max-width: 46.5rem) {
@@ -1767,10 +1768,16 @@
     line-height: 84px;
   }
 }
+
 .slide + .wide {
   width: 555px;
 }
-
+@media screen and (max-width: 65rem) {
+  // 1040 // md
+  .slide, .slider {
+    height: 98px;
+  }
+}
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -1833,7 +1840,20 @@
   line-height: 48px;
   // transform: scale(1.6); /* Target scale */
 }
-
+@media screen and (max-width: 65rem) {
+  // 1040 // md
+  .right-sidebar {
+    align-items: flex-start;
+  }
+  .year {
+    font-size: 18px;
+  }
+  .year.active {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  
+}
 .left-content {
   flex: 3;
   width: 100%;
@@ -1864,6 +1884,20 @@
   line-height: 27px;
   margin-bottom: 40px;
 }
+@media screen and (max-width: 65rem) {
+  // 1040 // md
+  .history_date {
+    font-size: 14px;
+    margin-bottom: 8px; // 12
+  }
+  .history_description {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 16px; // 40
+  }
+  
+}
+
 .year-section .history_description:last-child {
   margin-bottom: 0px;
 }
@@ -1893,7 +1927,6 @@
   // 675 // sm
   .why-us-grid-container {
     grid-template-columns: repeat(auto-fit, 185px);
-
   }
 }
 .why-us-grid-item {

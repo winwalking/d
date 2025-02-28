@@ -83,7 +83,7 @@
 // };
 
 // export default InputComp;
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface InputCompProps {
   label: string; // Label text
@@ -93,8 +93,12 @@ interface InputCompProps {
   height?: string; // Height of the input/textarea (only for textarea)
   resize?: "none" | "both" | "horizontal" | "vertical"; // Resize behavior (only for textarea)
   value?: string; // Value of the input/textarea
-  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void; // Change event handler
-  onBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void; // Blur event handler
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void; // Change event handler
+  onBlur?: (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void; // Blur event handler
   name?: string; // Name attribute to identify the field
 }
 
@@ -112,7 +116,9 @@ const InputComp: React.FC<InputCompProps> = ({
 }) => {
   const [error, setError] = useState(false); // State to manage error
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     if (!value) {
       setError(true); // Show error if value is empty
     } else {
@@ -122,15 +128,42 @@ const InputComp: React.FC<InputCompProps> = ({
       onBlur(e); // Call the external onBlur handler if provided
     }
   };
+  const [isDisplayXS, setIsDisplayXs] = useState(false);
+  const [isDisplaySm, setIsDisplaySm] = useState(false);
+  const [isDisplayMd, setIsDisplayMd] = useState(false);
+  const [isDisplayNm, setIsDisplayNm] = useState(false);
+  const [isDisplayLg, setIsDisplayLg] = useState(false);
+  const [isDisplayXl, setIsDisplayXl] = useState(false);
+  useEffect(() => {
+    // const handleResize = () => {
+    //   const width = window.innerWidth;
+    //   setIsDisplayLg(width <= 1040);
+    //   setIsDisplayXl(width <= 1280 && width > 1040);
+    // };
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsDisplayXs(width <= 390);
+      setIsDisplaySm(width <= 675);
+      setIsDisplayMd(width <= 1040);
+      setIsDisplayNm(width <= 1180);
+      setIsDisplayLg(width <= 1280);
+      setIsDisplayXl(width <= 1460);
+    };
+    handleResize(); // 초기 실행
+    window.addEventListener("resize", handleResize);
 
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
-    <div style={{ marginBottom: "20px" , }} className="nm:w_100%">
+    <div className="nm:w_100% mb_20">
       {/* Label */}
       <label
         style={{
           display: "block",
-          marginBottom: "16px",
-          fontSize: "18px",
+          marginBottom: isDisplayMd ? "8px" : "16px",
+          fontSize: isDisplayMd ? "16px" : "18px",
           fontWeight: 400,
           color: "#111",
         }}
@@ -151,7 +184,7 @@ const InputComp: React.FC<InputCompProps> = ({
             width: width,
             color: "#767676",
             padding: "10px",
-            fontSize: "18px",
+            fontSize: isDisplayMd ? "16px" : "18px",
             border: error ? "1px solid red" : "1px solid #D5DBE2", // Highlight border if error
             borderRadius: "4px",
             backgroundColor: "#fff",
@@ -170,7 +203,7 @@ const InputComp: React.FC<InputCompProps> = ({
             height: height,
             color: "#767676",
             padding: "20px",
-            fontSize: "18px",
+            fontSize: isDisplayMd ? "16px" : "18px",
             lineHeight: "27px",
             border: error ? "1px solid red" : "1px solid #D5DBE2", // Highlight border if error
             borderRadius: "4px",
@@ -183,7 +216,14 @@ const InputComp: React.FC<InputCompProps> = ({
 
       {/* Error Message */}
       {error && (
-        <span style={{ color: "red", fontSize: "14px", marginTop: "8px", display: "block" }}>
+        <span
+          style={{
+            color: "red",
+            fontSize: isDisplayMd ? "12px" : "14px",
+            marginTop: "8px",
+            display: "block",
+          }}
+        >
           This field is required.
         </span>
       )}

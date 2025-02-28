@@ -143,13 +143,13 @@ const WhyChooseUs = () => {
             Why
             <br /> Choose Us?
           </h2>
-          <p className="fs_18 md:fs_16 fw_400 leading_28px text_#33322e">
-            Algolab is a trusted partner that helps clients achieve their
-            financial goals {!isDisplayXl && <br />}through innovative financial
-            technologies and hyper-personalized services.
+          <p className="fs_18 md:fs_16 fw_400 leading_28px text_#33322e md:break_break-all">
+            Algolab is a trusted partner that helps clients achieve{isDisplaySm && <br />} their
+            financial goals {!isDisplayXl && <br />}through innovative financial {isDisplaySm && <br />}
+             technologies and hyper-personalized services.
             {!isDisplayXl && <br />}
             {isDisplayXl && "\u00A0"}
-            As a leader in the Asian market, we are shaping the future of
+            As a{isDisplaySm && <br />} leader in the Asian market, we are shaping the future{isDisplaySm && <br />} of
             finance{!isDisplayXl && <br />}
             {isDisplayXl && "\u00A0"}together.
           </p>

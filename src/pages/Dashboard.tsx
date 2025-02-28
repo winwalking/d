@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import SwipeTextSilder from "@components/SwipeTextSilder";
 import MainImg from "assets/image/main_img.png";
+import MainImgMd from "assets/image/main_img_md.png";
 import MainSmImg from "assets/image/main_sm_img.png";
 import BtnArrowWhite from "assets/image/btn_arrow_white.svg";
 import WhoWeAreBigArrow from "assets/image/who_we_are_big_arrow.svg";
@@ -191,7 +192,7 @@ const Dashboard = () => {
           <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44! md:flex_column! md:items_center sm:items_flex-start!">
             <div className="d_flex flex_column">
               {/* pt_60 */}
-              <h1 className="fw_normal fs_80 leading_120px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100%">
+              <h1 className="fw_normal fs_80 md:fs_60 leading_120px md:leading_90px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100%">
                 Design Your{isDisplayXl && <br />}
                 {!isDisplayXl && !isDisplayLg && "\u00A0"}Financial
                 {!isDisplayXl && <br />} {isDisplayMd && <br />}Future with
@@ -202,10 +203,10 @@ const Dashboard = () => {
                   ALGOLAB
                 </span>
               </h1>
-              <span className="text_white leading_30px fs_20 fw_normal mb_120 nm:mb_48 w_780 lg:w_517 nm:w_100%">
+              <span className="text_white leading_30px fs_20 md:fs_16 fw_normal mb_120 nm:mb_48 w_780 lg:w_517 nm:w_100%">
                 Unlock new possibilities in asset management and
                 {isDisplayLg && <br />} venture valuation with
-                {!isDisplayXl && <br />} cutting-edge financial{" "}
+                {!isDisplayXl && <br />} cutting-edge financial
                 {isDisplayMd && <br />}technology
                 {isDisplayLg && !isDisplayMd && <br />} and personalized
                 solutions
@@ -238,7 +239,7 @@ const Dashboard = () => {
 
             <div className="pos_relative nm:w_100% nm:d_flex! nm:justify_center nm:w_100% sm:justify_start">
               <img
-                src={MainImg}
+                src={isDisplayMd ? MainImgMd : MainImg}
                 className="w_430 lg:min-w_367 lg:h_707 md:w_289 md:h_471"
               />
               <div
@@ -274,8 +275,8 @@ const Dashboard = () => {
         </div>
         {/* Real-Time Industry Trends */}
         <div className="bg_white w_100%">
-          <div className="styles_section mt_0 d_flex items_center py_40! gap_8">
-            <span className="text_rgb(50,_96,_231) fs_20 fw_normal leading_36px">
+          <div className="styles_section mt_0 d_flex items_center py_40! md:py_16! gap_8">
+            <span className="text_rgb(50,_96,_231) fs_20 md:fs_16 fw_normal leading_36px md:leading_21px">
               Real-Time Industry Trends
             </span>
             <TrendBottomArrow />
@@ -284,83 +285,101 @@ const Dashboard = () => {
         <SwipeTextSilder />
         {/* About Us: Who we are */}
         <div className="bg_white w_100%" ref={sectionRefs["about-us"]}>
-          <div className="styles_section d_flex justify_between items_flex-end xl:items_flex-end lg:flex_column">
+          <div className="styles_section d_flex justify_between items_flex-end xl:items_flex-end lg:flex_column md:items_flex-start">
             <div className="lg:mb_80">
               {/* About Us: Who we are */}
-              <div className="mb_24 pr_41 w_1040 nm:w_100%">
-                <h2 className="section_cts_title leading_84px mb_28 nm:fw_bold">
+              <div className="mb_24 pr_41 md:pr_30 w_1040 nm:w_100%">
+                <h2 className="section_cts_title leading_84px mb_28 sm:mb_20 nm:fw_bold">
                   About Us:
                   <br /> Who we are
                 </h2>
                 <p
-                  className="w_999 nm:w_100% fs_18 fw_normal text_dark leading_28px"
+                  className="w_999 nm:w_100% fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
                   //   lineHeight: "27px",
                 >
                   <span className="fw_bold">Algolab</span>&nbsp;is a financial
-                  technology company offering&nbsp;
+                  technology company offering{!isDisplaySm && "\u00A0"}
+                  {isDisplaySm && <br />}
                   <span className="fw_bold">personalized asset management</span>
                   &nbsp;for investors and
-                  <br />
-                  <span className="fw_bold">startup valuation</span>
-                  &nbsp;services for emerging businesses, leveraging&nbsp;
-                  <span className="fw_bold">embedded finance</span>
-                  &nbsp;and&nbsp;
+                  {!isDisplaySm && "\u00A0"}
+                  {isDisplaySm && <br />}
+                  <span className="fw_bold">startup valuation </span>
+                  services for emerging businesses,{isDisplaySm && <br />}
+                  leveraging
+                  <span className="fw_bold"> embedded finance </span>
+                  and &nbsp;
                   <span className="fw_bold">
-                    innovative financial technologies.
+                    innovative{isDisplaySm && <br />} financial technologies.
                   </span>
                   <br />
                   We provide&nbsp;
                   <span className="fw_bold">cutting-edge tools</span>
                   &nbsp;to&nbsp;
-                  <span className="fw_bold">financial institutions,</span>
+                  <span className="fw_bold">
+                    financial{isDisplaySm && <br />} institutions,
+                  </span>
                   &nbsp;
                   <span className="fw_bold">investors,</span>
                   &nbsp;and&nbsp;
                   <span className="fw_bold">startups,</span>&nbsp;and achieve
-                  their&nbsp;
+                  {isDisplaySm && <br />}their&nbsp;
                   <span className="fw_bold">financial goals.</span>
                 </p>
               </div>
               {/* Our services include */}
               <div
-                className="mb_24 fs_18 fw_normal text_dark leading_28px"
+                className="mb_24 fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
                 //   lineHeight: "27px",
               >
                 Our services include:
                 <ul className="ml_8">
-                  <li className="list-type_inside">
+                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
                     <b>Robo-advisory solutions</b>&nbsp;for&nbsp;
-                    <b>pension planning</b>&nbsp;and&nbsp;
-                    <b>startup valuation</b>
+                    <b>pension planning</b>
+                    {isDisplaySm && <br />}&nbsp;
+                    <span>
+                      and&nbsp;
+                      <b>startup valuation</b>
+                    </span>
                   </li>
-                  <li className="list-type_inside">
-                    <b>Behavioral economics–based</b>&nbsp;personalized asset
-                    management
+                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
+                    <b>Behavioral economics–based</b>&nbsp;personalized{" "}
+                    {isDisplaySm && <br />} <span>asset management</span>
                   </li>
-                  <li className="list-type_inside">
+                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
                     <b>Tailored investment strategies</b>&nbsp;and&nbsp;
-                    <b>AI-driven</b>&nbsp;reporting
+                    <b>AI-driven</b>&nbsp;{isDisplaySm && <br />}
+                    <span>reporting</span>
                   </li>
-                  <li className="list-type_inside">
+                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
                     <b>Global theme analysis</b>&nbsp;and&nbsp;
-                    <b>alternative investment</b>&nbsp;solutions
+                    <b>alternative</b> {isDisplaySm && <br />}
+                    <span>
+                      <b>investment</b>&nbsp;solutions
+                    </span>
                   </li>
                 </ul>
               </div>
               <div
-                className="fs_18 fw_normal text_dark leading_28px"
+                className="fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
                 //   lineHeight: "27px",
               >
-                As we expand beyond&nbsp;
-                <span className="fw_bold">Korea into the Asian market,</span>
-                &nbsp;we empower our clients to&nbsp;
+                As we{" "}
                 <span className="fw_bold">
-                  make better financial decisions.
+                  expand beyond&nbsp; Korea into the Asian market,
+                </span>
+                {isDisplaySm && <br />}
+                {!isDisplaySm && "\u00A0"}we empower our clients to&nbsp;
+                <span className="fw_bold">
+                  make better financial {isDisplaySm && <br />}decisions.
                 </span>
                 &nbsp;
-                <br />
+                {!isDisplaySm && <br />}
                 Experience the future of&nbsp;
-                <span className="fw_bold">finance with Algolab.</span>
+                <span className="fw_bold">
+                  finance with {isDisplaySm && <br />}Algolab.
+                </span>
               </div>
             </div>
             <div className="d_flex justify_flex-end w_100% lg:d_flex lg:justify_flex-end">
@@ -383,7 +402,7 @@ const Dashboard = () => {
               Services
             </h2>
             {/* Retirement Pension Robo-Advisor */}
-            <div className="mb_160 nm:mb_80 md:mb:40 sm:mb_20 d_flex w_100% items_flex-start nm:flex_column! nm:items_center! nm:w_100%">
+            <div className="mb_160 nm:mb_80 md:mb_60 d_flex w_100% items_flex-start nm:flex_column! nm:items_center! nm:w_100%">
               <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0! nm:w_100%">
                 <img
                   src={RoboAdvisorImg}
@@ -397,66 +416,71 @@ const Dashboard = () => {
                   <br />
                   Robo-Advisor
                 </p>
-                <span className="fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px text_dark mb_24 fw_normal">
+                <span className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all">
                   Algolab’s retirement pension robo-advisor integrates
                   <br />
                   <span className="fw_bold">behavioral economics</span>
                   &nbsp;and&nbsp;
                   <span className="fw_bold">
-                    cutting-edge financial technologies
+                    cutting-edge financial{isDisplaySm && <br />} technologies
                   </span>
-                  <br />
+                  {!isDisplaySm && <br />}
+                  {isDisplaySm && "\u00A0"}
                   to provide&nbsp;
                   <span className="fw_bold">
-                    personalized pension management
+                    personalized pension {isDisplaySm && <br />}management
                   </span>
                   &nbsp;solutions.
                 </span>
                 <ul className="ml_22">
                   <li
-                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
+                    className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Analyzes</b> clients’ investment preferences and&nbsp;
+                    <b>Analyzes</b> clients’ investment preferences
+                    {isDisplaySm && <br />} and&nbsp;
                     <b>designs</b> customized
-                    <br /> investment plans
+                    {!isDisplaySm && <br />} investment plans
                   </li>
                   <li
-                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
+                    className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
                     <b>Optimizes</b> fund and global stock selection through
-                    the&nbsp;
+                    {isDisplaySm && <br />}the&nbsp;
                     <b>
-                      Global Theme
-                      <br />
+                      Global Theme{isDisplaySm && "\u00A0"}
+                      {!isDisplaySm && <br />}
                       Machine
                     </b>
-                    &nbsp;and <b>NLP-based</b>&nbsp;analysis
+                    &nbsp;and <b>NLP-based</b>&nbsp;{isDisplaySm && <br />}
+                    analysis
                   </li>
                   <li
-                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
+                    className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
                     <b>Ensures</b> stable and effective pension management
                     with&nbsp;
                     <b>
                       personalized
-                      <br /> glide paths
+                      {!isDisplaySm && <br />} glide paths
                     </b>
                   </li>
                   <li
-                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
+                    className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
                     <b>Proven track record,</b> including successful
+                    {isDisplaySm && <br />}
                     collaborations with&nbsp;
                     <b>
-                      KB
-                      <br />
+                      KB{isDisplaySm && "\u00A0"}
+                      {!isDisplaySm && <br />}
                       Securities’ MOA
                     </b>
-                    &nbsp;service and&nbsp;<b>Kiwoom Asset Management’s TDF</b>
+                    &nbsp;service {isDisplaySm && <br />}and&nbsp;
+                    <b>Kiwoom Asset Management’s TDF</b>
                   </li>
                 </ul>
               </div>
@@ -475,18 +499,19 @@ const Dashboard = () => {
                   Early-Stage Company Valuation
                 </p>
                 <span
-                  className="fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px text_dark mb_24 fw_normal" // lineHeight: "27px"
+                  className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all" // lineHeight: "27px"
                 >
                   Algolab’s early-stage company valuation solution
+                  {isDisplaySm && <br />}
                   combines&nbsp;
                   <span className="fw_bold">
                     corporate
-                    <br />
+                    {!isDisplaySm && <br />}
                     data
                   </span>
                   &nbsp;and&nbsp;
                   <span className="fw_bold">financial information</span>
-                  &nbsp;to deliver&nbsp;
+                  &nbsp;to{isDisplaySm && <br />} deliver&nbsp;
                   <span className="fw_bold">
                     reliable, up-to-date valuations.
                   </span>
@@ -494,49 +519,53 @@ const Dashboard = () => {
                 </span>
                 <ul className="ml_22 mb_24">
                   <li
-                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
+                    className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
                     <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
-                    &nbsp;valuations through&nbsp;
+                    &nbsp;valuations{isDisplaySm && <br />} through&nbsp;
                     <b>
-                      ERP
-                      <br />
+                      ERP{isDisplaySm && "\u00A0"}
+                      {!isDisplaySm && <br />}
                       system
                     </b>
                     &nbsp;integration
                   </li>
                   <li
-                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
+                    className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
                     <b>Streamlines</b>&nbsp;the&nbsp;creation of investment
                     proposals with an&nbsp;
                     <b>
-                      IR pitch deck
-                      <br />
+                      IR pitch deck{isDisplaySm && "\u00A0"}
+                      {!isDisplaySm && <br />}
                       publishing
                     </b>
-                    &nbsp;solution, facilitating investment attraction
+                    &nbsp;solution,{isDisplaySm && <br />} facilitating
+                    investment attraction
                   </li>
                   <li
-                    className="list-type_outside fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
+                    className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
                     <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea,
-                    Japan, China, and Vietnam&nbsp;-
-                    <br />
-                    fostering a <b>global investment ecosystem</b>
+                    Japan,{isDisplaySm && <br />} China, and Vietnam&nbsp;-
+                    {!isDisplaySm && <br />}
+                    fostering a{" "}
+                    <b>global investment{isDisplaySm && <br />} ecosystem</b>
                   </li>
                 </ul>
-                <span
-                  className="fs_18 md:fs_16 sm:fs_14 leading_28px md:leading_26px sm:leading_24px fw_normal text_dark"
-                  // lineHeight: "27px",
-                >
-                  Make clearer investment decisions with&nbsp;
-                  <span className="fw_bold">Algolab’s</span>
-                  &nbsp;valuation solutions.
-                </span>
+                {!(isDisplaySm || isDisplayNm) && (
+                  <span
+                    className="fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
+                    // lineHeight: "27px",
+                  >
+                    Make clearer investment decisions with&nbsp;
+                    <span className="fw_bold">Algolab’s</span>
+                    &nbsp;valuation solutions.
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -565,12 +594,12 @@ const Dashboard = () => {
           ref={sectionRefs["contact-us"]}
         >
           <div className="styles_section mx_auto my_0 px_0 py_80">
-            <h2 className="section_cts_title leading_84px mb_80 text-align_center nm:fw_bold sm:text-align_left">
+            <h2 className="section_cts_title leading_84px mb_80  md:mb_20 text-align_center nm:fw_bold sm:text-align_left">
               Contact Us
             </h2>
-            <div className="mb_80">
+            <div className="mb_80 md:mb_40">
               {/* Input Field */}
-              <div className="mb_40">
+              <div className="mb_40 md:mb_20">
                 <InputComp
                   label="Your Name"
                   type="input"
@@ -582,7 +611,7 @@ const Dashboard = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="d_flex justify_between mb_40 xl:flex-wrap_wrap!">
+              <div className="d_flex justify_between mb_40 md:mb_20 xl:flex-wrap_wrap!">
                 <InputComp
                   label="Work Email"
                   type="input"

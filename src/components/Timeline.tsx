@@ -130,23 +130,43 @@ const Timeline = () => {
   const years = Object.keys(yearContent);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
+  const [scrollOffset, setScrollOffset] = useState<number>(-220); 
   // Handle click-based navigation
+  // const handleYearClick = (year: string) => {
+  //   setActiveYear(year);
+  //   // Scroll the timeline-container into view
+  //   containerRef.current?.scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "start",
+  //   });
+
+  //   // Scroll to the specific year section within the timeline
+  //   sectionRefs.current[year]?.scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "start",
+  //   });
+  // };
   const handleYearClick = (year: string) => {
     setActiveYear(year);
-    // Scroll the timeline-container into view
-    containerRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
 
-    // Scroll to the specific year section within the timeline
-    sectionRefs.current[year]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+    requestAnimationFrame(() => {
+      if (containerRef.current) {
+        const containerTop = containerRef.current.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: containerTop + scrollOffset,
+          behavior: "smooth",
+        });
+      }
+
+      if (sectionRefs.current[year]) {
+        const sectionTop = sectionRefs.current[year]?.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: sectionTop + scrollOffset,
+          behavior: "smooth",
+        });
+      }
     });
   };
-
   return (
     <div
       className={`timeline-container ${activeYear ? "pt_160 pb_160 nm:pt_48! nm:pb_48!" : ""}`}
@@ -155,7 +175,7 @@ const Timeline = () => {
       {/* History Heading */}
       <div className="history-heading">
         <h2
-          className="section_cts_title leading_84px mb_80 nm:fw_bold"
+          className="section_cts_title leading_84px mb_80 md:mb_40 sm:mb_20 nm:fw_bold"
       
         >
           History
@@ -182,7 +202,7 @@ const Timeline = () => {
           ))}
         </div>
         {/* Sidebar for years */}
-        <div className="right-sidebar sm:flex_row! sm:items_center! sm:justify_between! sm:p_0!">
+        <div className="right-sidebar sm:flex_row! sm:items_center! sm:gap_24 md:items_flex-end sm:justify_start sm:p_0!">
           {years.map((year) => (
             <div
               key={year}

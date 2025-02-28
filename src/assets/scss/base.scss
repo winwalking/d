@@ -2199,7 +2199,8 @@
     }
     .nm\:flex_column-reverse {
       flex-direction: column-reverse;
-    }    .nm\:mt_40 {
+    }
+    .nm\:mt_40 {
       margin-top: 40px;
     }
     .nm\:mb_20 {
@@ -2272,17 +2273,29 @@
     .md\:items_flex-start {
       align-items: flex-start !important;
     }
+    .md\:items_flex-end {
+      align-items: flex-end !important;
+    }
     .md\:w_289 {
       width: 289px !important;
     }
     .md\:h_471 {
       height: 471px !important;
     }
+    .md\:fs_14 {
+      font-size: 14px;
+    }
     .md\:fs_16 {
       font-size: 16px;
     }
     .md\:fs_26 {
       font-size: 26px;
+    }
+    .md\:fs_28\! {
+      font-size: 28px !important;
+    }
+    .md\:fs_60 {
+      font-size: 60px;
     }
     .md\:leading_21px {
       line-height: 21px !important;
@@ -2295,6 +2308,11 @@
     }
     .md\:leading_39px {
       line-height: 39px;
+    }
+    .md\:leading_42px\! {
+      line-height: 42px !important;
+    }   .md\:leading_90px {
+      line-height: 90px;
     }
     .md\:fw_bold {
       font-weight: 600 !important;
@@ -2342,7 +2360,13 @@
       margin-bottom: 40px !important;
     }
     .md\:mb_40 {
-      margin-bottom: 40px 
+      margin-bottom: 40px;
+    }
+    .md\:mb_60 {
+      margin-bottom: 60px;
+    }
+    .md\:gap_20 {
+      gap: 20px;
     }
     .md\:gap_16\! {
       gap: 16px !important;
@@ -2350,6 +2374,7 @@
     .md\:justify_flex-start {
       justify-content: flex-start;
     }
+
     .md\:justify_center {
       justify-content: center;
     }
@@ -2361,6 +2386,15 @@
     }
     .md\:min-w_none\! {
       min-width: 0 !important;
+    }
+    .md\:break_break-all {
+      word-break: break-all;
+    }
+    .md\:pr_30 {
+      padding-right: 30px;
+    }
+    .md\:py_16\! {
+      padding-block: 16px !important;
     }
   }
   @media screen and (max-width: 46.5rem) {
@@ -2405,11 +2439,17 @@
     .sm\:fs_20 {
       font-size: 20px;
     }
+    .sm\:gap_24 {
+      gap: 24px;
+    }
     .sm\:items_center\! {
       align-items: center !important;
     }
     .sm\:justify_between\! {
       justify-content: space-between !important;
+    }
+    .sm\:justify_start {
+      justify-content: flex-start;
     }
     .sm\:p_0\! {
       padding: 0px !important;
@@ -2440,6 +2480,10 @@
     }
     .sm\:w_fit-content {
       width: fit-content;
+    }
+    .sm\:list-type_inside\:\:marker span {
+      position: relative;
+      left: 20px;
     }
   }
 
