@@ -810,7 +810,7 @@
 }
 @media screen and (max-width: 91.25rem) {
   // 1460 // xl
-  .styles_section {
+  .styles_section , .timeline-container {
     max-width: 100%;
     margin-left: 40px;
     margin-right: 40px;
@@ -818,7 +818,7 @@
 }
 @media screen and (max-width: 80rem) {
   // 1280 // lg
-  .styles_section {
+  .styles_section, .timeline-container {
     padding: 80px 0;
     max-width: 100%;
     margin-left: 40px;
@@ -827,7 +827,7 @@
 }
 @media screen and (max-width: 73.75rem) {
   // 1180 // nm
-  .styles_section {
+  .styles_section, .timeline-container {
     padding: 60px 0;
     max-width: 100%;
     margin-left: 40px;
@@ -836,10 +836,12 @@
 }
 @media screen and (max-width: 65rem) {
   // 1040 // md
-  .styles_section {
-    padding: 48px 0;
+  .styles_section, .timeline-container {
+    padding: 48px 20px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
-  .section_cts_title {
+  .section_cts_title, .timeline-container {
     font-size: 42px;
     line-height: 62px;
   }
@@ -1974,6 +1976,8 @@
   // 744 // sm  before 796
   .team-grid-container {
     grid-template-columns: repeat(2, auto);
+    margin:20px;
+    gap: 16px;
   }
   .team-info-box {
     width: auto !important;
