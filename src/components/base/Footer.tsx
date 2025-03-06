@@ -3,15 +3,17 @@ import React, { useState, useEffect } from "react";
 import LogoFooter from "assets/image/logo_footer.svg";
 import LogoTextFooter from "assets/image/logo_text_footer.svg";
 import LogoTextFooterMd from "assets/image/logo_text_footer_md.svg";
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18n"; // i18n 설정 불러오기
 // Predefined menu items
 const predefinedMenus = [
-  { id: 1, name: "Home", path: "home" },
-  { id: 2, name: "About Us", path: "about-us" },
-  { id: 3, name: "Why Choose Us", path: "why-choose-us" },
-  { id: 4, name: "Services", path: "services" },
-  { id: 5, name: "History", path: "history" },
-  { id: 6, name: "Team", path: "team" },
-  { id: 7, name: "Contact Us", path: "contact-us" },
+  { id: 1, name: "Home", path: "home", key: "home" },
+  { id: 2, name: "About Us", path: "about-us", key: "aboutUs" },
+  { id: 3, name: "Why Choose Us", path: "why-choose-us", key: "whyChooseUs" },
+  { id: 4, name: "Services", path: "services", key: "services" },
+  { id: 5, name: "History", path: "history", key: "history" },
+  { id: 6, name: "Team", path: "team", key: "team" },
+  { id: 7, name: "Contact Us", path: "contact-us", key: "contactUs" },
 ] as const;
 
 type MenuPath = (typeof predefinedMenus)[number]["path"];
@@ -20,6 +22,7 @@ interface FooterProps {
   scrollToSection: (id: MenuPath) => void;
 }
 const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
+  const { t } = useTranslation();
   // const [menus, setMenus] = useState<Menu[]>([]);
 
   // // API로부터 메뉴 데이터 가져오기
@@ -35,42 +38,48 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
 
   //   fetchMenus();
   // }, []);
-    const [isDisplayXS, setIsDisplayXs] = useState(false);
-    const [isDisplaySm, setIsDisplaySm] = useState(false);
-    const [isDisplayMd, setIsDisplayMd] = useState(false);
-    const [isDisplayNm, setIsDisplayNm] = useState(false);
-    const [isDisplayLg, setIsDisplayLg] = useState(false);
-    const [isDisplayXl, setIsDisplayXl] = useState(false);
-    useEffect(() => {
-      // const handleResize = () => {
-      //   const width = window.innerWidth;
-      //   setIsDisplayLg(width <= 1040);
-      //   setIsDisplayXl(width <= 1280 && width > 1040);
-      // };
-      const handleResize = () => {
-        const width = window.innerWidth;
-        setIsDisplayXs(width <= 390);
-        setIsDisplaySm(width <= 675);
-        setIsDisplayMd(width <= 1040);
-        setIsDisplayNm(width <= 1180);
-        setIsDisplayLg(width <= 1280);
-        setIsDisplayXl(width <= 1460);
-      };
-      handleResize(); // 초기 실행
-      window.addEventListener("resize", handleResize);
-  
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
+  const [isDisplayXS, setIsDisplayXs] = useState(false);
+  const [isDisplaySm, setIsDisplaySm] = useState(false);
+  const [isDisplayMd, setIsDisplayMd] = useState(false);
+  const [isDisplayNm, setIsDisplayNm] = useState(false);
+  const [isDisplayLg, setIsDisplayLg] = useState(false);
+  const [isDisplayXl, setIsDisplayXl] = useState(false);
+  useEffect(() => {
+    // const handleResize = () => {
+    //   const width = window.innerWidth;
+    //   setIsDisplayLg(width <= 1040);
+    //   setIsDisplayXl(width <= 1280 && width > 1040);
+    // };
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsDisplayXs(width <= 390);
+      setIsDisplaySm(width <= 675);
+      setIsDisplayMd(width <= 1040);
+      setIsDisplayNm(width <= 1180);
+      setIsDisplayLg(width <= 1280);
+      setIsDisplayXl(width <= 1460);
+    };
+    handleResize(); // 초기 실행
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Translate menu names
+  const translatedMenus = predefinedMenus.map((menu) => ({
+    ...menu,
+    name: t(`layouts.top.menus.landing.${menu.key}`),
+  }));
   return (
     <footer className="styles_footer">
       <div className="styles_inner_footer">
         <div className="styles_footer_mainNavigations md:items_flex-start md:mb_40!">
-         <LogoFooter />
+          <LogoFooter />
           <nav className="styles_pcOnly">
             <ul className="styles_footer_navigationItems">
-              {predefinedMenus.map((menu) => (
+              {translatedMenus.map((menu) => (
                 <li
                   key={menu.id}
                   className={`styles_footer_navigationItem `}
@@ -83,7 +92,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
           </nav>
           <nav className="styles_mobileOnly">
             <ul className="styles_footer_navigationItems md:flex_column! md:gap_16!">
-              {predefinedMenus.map((menu) => (
+              {translatedMenus.map((menu) => (
                 <li
                   key={menu.id}
                   className={`styles_footer_navigationItem `}
@@ -99,7 +108,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
           <div className="w_390 md:d_flex md:flex_column-reverse!">
             <div className="md:mb_28">
               <div className="d_flex items_center mb_20 gap_20">
-              {isDisplayMd ?<LogoTextFooterMd/>: <LogoTextFooter />}
+                {isDisplayMd ? <LogoTextFooterMd /> : <LogoTextFooter />}
                 <span className="text_rgb(118,_118,_118) fs_18 md:fs_14 fw_400">
                   Powered by Dneuro
                 </span>
@@ -118,10 +127,10 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                 className="text_rgb(165,_167,_177) md:text_rgb(118,_118,_118) fs_18 md:fs_14 fw_normal text-decor_underline!"
                 href=""
               >
-                Privacy Policy
+                {t("layouts.footer.privacyPolicy")}
               </a>
               <a className="text_rgb(165,_167,_177) md:text_rgb(118,_118,_118) fs_18 md:fs_14 fw_normal text-decor_underline!">
-                Terms of Service
+                {t("layouts.footer.termsOfService")}
               </a>
             </div>
           </div>
@@ -133,15 +142,16 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                 //   lineHeight: "27px",
                 // }}
               >
-                100-0005
+                {t("layouts.footer.address1")}
                 <br />
-                ALGOLAB Inc. Level 2, Marunouchi
+                {t("layouts.footer.address2")}
                 {isDisplayMd && "\u00A0"}
                 {!isDisplayMd && <br />}
-                Nijubashi{isDisplayMd && <br />} Building, 3-2-2, Marunouchi,
+                {t("layouts.footer.address3")}
+                {isDisplayMd && <br />} {t("layouts.footer.address4")}
                 {isDisplayMd && "\u00A0"}
                 {!isDisplayMd && <br />}
-                Chiyoda-ku, Tokyo
+                {t("layouts.footer.address5")}
               </span>
             </div>
             <div className="d_flex justify_flex-end md:justify_flex-start">

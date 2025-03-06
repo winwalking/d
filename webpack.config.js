@@ -19,6 +19,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      react: path.resolve("./node_modules/react"),
       "@": path.resolve(__dirname, "./src"),
       "@components": path.resolve(__dirname, "./src/components"),
       "@scss": path.resolve(__dirname, "./src/assets/scss"),

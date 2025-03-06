@@ -7,8 +7,11 @@ import FinancialTechnologiesMini from "assets/image/why_choose_us_finanicial_tec
 import HyperPersonlizedMini from "assets/image/why_choose_us_hyper_personali_responsive.svg";
 import ProvenTrustMini from "assets/image/why_choose_us_proven_trust_responsive.svg";
 import LeadershipMini from "assets/image/why_choose_us_leadership_responsive.svg";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n"; // i18n 설정 불러오기
 
 const WhyChooseUs = () => {
+  const { t } = useTranslation();
   const [isDisplayXS, setIsDisplayXs] = useState(false);
   const [isDisplaySm, setIsDisplaySm] = useState(false);
   const [isDisplayMd, setIsDisplayMd] = useState(false);
@@ -45,65 +48,69 @@ const WhyChooseUs = () => {
       ) : (
         <FinancialTechnologies />
       ),
-      title: "Innovative Financial Technologies",
+      title: `${t("pages.dashboard.innofinancial")}`,
       article: (
         <span
-          className="fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
+          className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
           //   lineHeight: "27px",
         >
-          We deliver precise asset {isDisplayXl && <br />}
+          {t("pages.dashboard.innofinancialDesc")}
+          {/* We deliver precise asset {isDisplayXl && <br />}
           {!isDisplayXl && <br />} management using {isDisplayXl && <br />}
           Embedded
           {!isDisplayXl && <br />} Finance and{isDisplayXl && <br />} advanced
-          technologies.
+          technologies. */}
         </span>
       ),
     },
     {
       img: isDisplayMd ? <HyperPersonlizedMini /> : <HyperPersonlized />,
-      title: "Hyper-Personalized Services",
+      title: `${t("pages.dashboard.hyperPersonlized")}`,
       article: (
         <span
-          className="fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
+          className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
           //   lineHeight: "27px",
         >
-          We help achieve financial{isDisplayXl && <br />} goals with
+          {t("pages.dashboard.hyperPersonlizedDesc")}
+          {/* We help achieve financial{isDisplayXl && <br />} goals with
           {!isDisplayXl && <br />} customized{isDisplayXl && <br />} investment
           plans and
           {!isDisplayXl && <br />}
-          global{isDisplayXl && <br />} theme insights.
+          global{isDisplayXl && <br />} theme insights. */}
         </span>
       ),
     },
     {
       img: isDisplayMd ? <ProvenTrustMini /> : <ProvenTrust />,
-      title: "Proven Trust and Reliability",
+      title: `${t("pages.dashboard.provenTrust")}`,
       article: (
-        <span className="fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px">
-          Our domestic and{isDisplayXl && <br />} international
+        <span className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px">
+          {t("pages.dashboard.provenTrustDesc")}
+          {/* Our domestic and{isDisplayXl && <br />} international
           {!isDisplayXl && <br />} success
           {isDisplayMd && <br />} stories
           {isDisplayXl || (!isDisplayMd && <br />)} showcase our
-          {!isDisplayXl || (isDisplayMd && <br />)} expertise and{" "}
+          {!isDisplayXl || (isDisplayMd && <br />)} expertise and
           {isDisplayXl || (!isDisplayMd && <br />)}
-          reliability.
+          reliability. */}
         </span>
       ),
     },
     {
       img: isDisplayMd ? <LeadershipMini /> : <Leadership />,
-      title: "Leadership in the Asian Market",
+      title: `${t("pages.dashboard.leadershipMarket")}`,
       article: (
         <span
-          className="fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
+          className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
           //   lineHeight: "27px",
         >
-          Expanding from Korea, {!isDisplayXl || (isDisplayMd && <br />)}we are
+          {t("pages.dashboard.leadershipMarketDesc")}
+          {/* Expanding from Korea, {!isDisplayXl || (isDisplayMd && <br />)}we are
           {isDisplayXl || (!isDisplayMd && <br />)} shaping the global
           {isDisplayXl && <br />}
           financial
           {!isDisplayXl && <br />} ecosystem
-          {!isDisplayXl || (isDisplayMd && <br />)} across Asia.
+          {!isDisplayXl || (isDisplayMd && <br />)} across Asia. */}
         </span>
       ),
     },
@@ -140,18 +147,22 @@ const WhyChooseUs = () => {
         </div>
         <div className="w_610 xl:w_509 nm:w_100% nm:mb_40">
           <h2 className="section_cts_title leading_84px mb_28 sm:mb_20 nm:fw_bold">
-            Why
-            <br /> Choose Us?
+            {t("pages.dashboard.why")}
+            <br />{t("pages.dashboard.ChooseUs")}
           </h2>
           <p className="fs_18 md:fs_16 fw_400 leading_28px text_#33322e md:break_break-all">
-            Algolab is a trusted partner that helps clients achieve{isDisplaySm && <br />} their
-            financial goals {!isDisplayXl && <br />}through innovative financial {isDisplaySm && <br />}
-             technologies and hyper-personalized services.
+          {t("pages.dashboard.whyChooseUsDesc")}
+            {/* Algolab is a trusted partner that helps clients achieve
+            {isDisplaySm && <br />} their financial goals
+            {!isDisplayXl && <br />}through innovative financial
+            {isDisplaySm && <br />}
+            technologies and hyper-personalized services.
             {!isDisplayXl && <br />}
             {isDisplayXl && "\u00A0"}
-            As a{isDisplaySm && <br />} leader in the Asian market, we are shaping the future{isDisplaySm && <br />} of
-            finance{!isDisplayXl && <br />}
-            {isDisplayXl && "\u00A0"}together.
+            As a{isDisplaySm && <br />} leader in the Asian market, we are
+            shaping the future{isDisplaySm && <br />} of finance
+            {!isDisplayXl && <br />}
+            {isDisplayXl && "\u00A0"}together. */}
           </p>
         </div>
       </div>

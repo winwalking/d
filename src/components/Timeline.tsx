@@ -1,127 +1,214 @@
 import React, { useState, useRef } from "react";
-
+import { useTranslation, Trans } from "react-i18next";
+import i18n from "../i18n"; // i18n 설정 불러오기
 const Timeline = () => {
   const [activeYear, setActiveYear] = useState<string>("2020");
+  const { t } = useTranslation();
 
   const yearContent: { [key: string]: React.ReactNode } = {
     "2020": (
       <>
-        <h3 className="history_date">January 2020</h3>
-        <p className="history_description">Establishment.</p>
-        <h3 className="history_date">May 2020</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20201")}
+        </h3>
         <p className="history_description">
-          Kiwoom sec. GBI portfolio investment solution.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20201"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">June 2020</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20202")}
+        </h3>
         <p className="history_description">
-          K-Global Program (Min. of Science & Tech.).
-          <br />
-          Kiwoom AM, TDF Glidepath simulator.
-          <br />
-          Hanhwa Life insurance open stage partnership.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20202"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">July 2020</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20203")}
+        </h3>
         <p className="history_description">
-          Seoul Fintech Lab accelerating program selected.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20203"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">September 2020</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20204")}
+        </h3>
         <p className="history_description">
-          Yonsei Univ. coding fintech education.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20204"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">October 2020</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20205")}
+        </h3>
         <p className="history_description">
-          Seoul Fintech Lab startups valuation & pitchbook.
-          <br />
-          Kiwoom NLP(Natural language process) global thematic investing
-          algorithm.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20205"
+            components={{ br: <br /> }}
+          />
+        </p>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20206")}
+        </h3>
+        <p className="history_description">
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20206"
+            components={{ br: <br /> }}
+          />
         </p>
       </>
     ),
     "2021": (
       <>
-        <h3 className="history_date">February 2021</h3>
-        <p className="history_description">Shinhan bank Futures lab.</p>
-        <h3 className="history_date">April 2021</h3>
-        <p className="history_description">Eugene sec. PB solution.</p>
-        <h3 className="history_date">September 2021</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20211")}
+        </h3>
         <p className="history_description">
-          Seoul Venture Hub Space and accelerating program.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20211"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">October 2021</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20212")}
+        </h3>
         <p className="history_description">
-          Kodit(Korea credit guarantee fund) Innovative Startup.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20212"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">December 2021</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20213")}
+        </h3>
         <p className="history_description">
-          Kiwoom sec. Market Regime Index/ Factor allocation model.
-          <br /> KB Sec. Hyper-personalized portfolio solution Research MOU.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20213"
+            components={{ br: <br /> }}
+          />
+        </p>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20214")}
+        </h3>
+        <p className="history_description">
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20214"
+            components={{ br: <br /> }}
+          />
+        </p>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20215")}
+        </h3>
+        <p className="history_description">
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20215"
+            components={{ br: <br /> }}
+          />
         </p>
       </>
     ),
     "2022": (
       <>
-        <h3 className="history_date">March 2022</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20221")}
+        </h3>
         <p className="history_description">
-          Kiwoom AM, LDI portfolio OCIO simulator.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20221"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">July 2022</h3>
-        <p className="history_description">Douzon Strategic partnership.</p>
-        <h3 className="history_date">August 2022</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20222")}
+        </h3>
         <p className="history_description">
-          TIPS(Technical Incubation Program fot Startup Korea), 55 million yen
-          support.
+          {t("pages.dashboard.historyDesc20222")}
         </p>
-        <h3 className="history_date">September 2022</h3>
-        <p className="history_description">Venture business certification.</p>
-        <h3 className="history_date">October 2022</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20223")}
+        </h3>
         <p className="history_description">
-          KB sec. AI-driven Hyper-personalized wealth management solution
-          project.
+          {t("pages.dashboard.historyDesc20223")}
+        </p>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20224")}
+        </h3>
+        <p className="history_description">
+          {t("pages.dashboard.historyDesc20224")}
+        </p>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20225")}
+        </h3>
+        <p className="history_description">
+          {t("pages.dashboard.historyDesc20225")}
         </p>
       </>
     ),
     "2023": (
       <>
-        <h3 className="history_date">February 2023</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20231")}
+        </h3>
         <p className="history_description">
-          KQC(Korea Quantum Computing) Research.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20231"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">March 2023</h3>
-        <p className="history_description">IBM QC Subcriber.</p>
-        <h3 className="history_date">August 2023</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20232")}
+        </h3>
         <p className="history_description">
-          Eugene sec. Private equity valuation and STO research.
-          <br />
-          Creww(JP, CN, KR), StartupDB(JP), 36kr(CN) Asia startup and private
-          equity valuation & investment platform MOU.
+          {t("pages.dashboard.historyDesc20232")}
         </p>
-        <h3 className="history_date">October 2023</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20233")}
+        </h3>
         <p className="history_description">
-          KB sec. MOA (AI-driven Hyper-personalized wealth management solution)
-          service open.
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20233"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">November 2023</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20234")}
+        </h3>
         <p className="history_description">
-          Vietnam Vietin bank sec. MOU.
-          <br />
-          TIPS commercialization program, 11 million yen.
+          {t("pages.dashboard.historyDate20234")}
+        </p>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20235")}
+        </h3>
+        <p className="history_description">
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20235"
+            components={{ br: <br /> }}
+          />
         </p>
       </>
     ),
     "2024": (
       <>
-        <h3 className="history_date">February 2024</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20241")}
+        </h3>
         <p className="history_description">
-          Douzon ERP/groupware SME embedded finance Research MOU.
-          <br />
-          KOTRA(Korea Trade Investment Promotion Agency) startup, Digital
-          pitchbook.
-          <br />
-          Eugene sec. Private equity STO platform development (Open API).
+          <Trans
+            i18nKey="pages.dashboard.historyDesc20241"
+            components={{ br: <br /> }}
+          />
         </p>
-        <h3 className="history_date">March 2024</h3>
+        <h3 className="history_date">
+          {t("pages.dashboard.historyDate20241")}
+        </h3>
         <p className="history_description">
-          A super gap venture business, Digital pitchbook.
+          {t("pages.dashboard.historyDesc20242")}
         </p>
       </>
     ),
@@ -130,28 +217,15 @@ const Timeline = () => {
   const years = Object.keys(yearContent);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  const [scrollOffset, setScrollOffset] = useState<number>(-220); 
-  // Handle click-based navigation
-  // const handleYearClick = (year: string) => {
-  //   setActiveYear(year);
-  //   // Scroll the timeline-container into view
-  //   containerRef.current?.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "start",
-  //   });
+  const [scrollOffset, setScrollOffset] = useState<number>(-220);
 
-  //   // Scroll to the specific year section within the timeline
-  //   sectionRefs.current[year]?.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "start",
-  //   });
-  // };
   const handleYearClick = (year: string) => {
     setActiveYear(year);
 
     requestAnimationFrame(() => {
       if (containerRef.current) {
-        const containerTop = containerRef.current.getBoundingClientRect().top + window.scrollY;
+        const containerTop =
+          containerRef.current.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
           top: containerTop + scrollOffset,
           behavior: "smooth",
@@ -159,7 +233,9 @@ const Timeline = () => {
       }
 
       if (sectionRefs.current[year]) {
-        const sectionTop = sectionRefs.current[year]?.getBoundingClientRect().top + window.scrollY;
+        const sectionTop =
+          sectionRefs.current[year]?.getBoundingClientRect().top +
+          window.scrollY;
         window.scrollTo({
           top: sectionTop + scrollOffset,
           behavior: "smooth",
@@ -169,16 +245,15 @@ const Timeline = () => {
   };
   return (
     <div
-      className={`timeline-container ${activeYear ? "pt_160 pb_160 nm:pt_48! nm:pb_48!" : ""}`}
+      className={`timeline-container ${
+        activeYear ? "pt_160 pb_160 nm:pt_48! nm:pb_48!" : ""
+      }`}
       ref={containerRef}
     >
       {/* History Heading */}
       <div className="history-heading">
-        <h2
-          className="section_cts_title leading_84px mb_80 md:mb_40 sm:mb_20 nm:fw_bold"
-      
-        >
-          History
+        <h2 className="section_cts_title leading_84px mb_80 md:mb_40 sm:mb_20 nm:fw_bold">
+          {t("pages.dashboard.history")}
         </h2>
       </div>
 
@@ -203,15 +278,17 @@ const Timeline = () => {
         </div>
         {/* Sidebar for years */}
         <div className="right-sidebar sm:flex_row! sm:items_center! sm:gap_24 md:items_flex-end sm:justify_start sm:p_0!">
-          {years.map((year) => (
-            <div
-              key={year}
-              className={`year ${year === activeYear ? "active" : ""}`}
-              onClick={() => handleYearClick(year)}
-            >
-              {year}
-            </div>
-          ))}
+          {years
+            .filter((year) => !(i18n.language === "ja-JP" && year === "2024")) // 🔥 2024 숨기기
+            .map((year) => (
+              <div
+                key={year}
+                className={`year ${year === activeYear ? "active" : ""}`}
+                onClick={() => handleYearClick(year)}
+              >
+                {year}
+              </div>
+            ))}
         </div>
       </div>
     </div>

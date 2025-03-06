@@ -719,6 +719,14 @@
   .w_500 {
     width: 500px;
   }
+
+  .w_620 {
+    width: 620px;
+  }
+  .max-width_fit_content {
+    max-width: fit-content;
+  }
+
   .w_1040 {
     width: 1040px;
   }
@@ -821,9 +829,16 @@
   .word-wrap_break-word {
     word-wrap: break-word;
   }
-
   .overflow-wrap_break-word {
     overflow-wrap: break-word;
+  }
+
+  .line-clamp_three {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .tracking_0\.05em {
@@ -2109,16 +2124,18 @@
     .xl\:h_389 {
       height: 389px;
     }
-    .xl\:w_620 {
+    .xl\:min-w_620 {
       min-width: 620px; // service - image
     }
-    .xl\:h_423 {
+    .xl\:min-h_423 {
       min-height: 423px; // service - image
     }
     .lg\:w_367 {
       width: 367px;
     }
-
+    .xl\:min-w_0 {
+      min-width: 0px;
+    }
     .lg\:h_707 {
       height: 707px;
     }
@@ -2131,6 +2148,7 @@
     .xl\:flex-wrap_wrap\! {
       flex-wrap: wrap !important;
     }
+
   }
   @media screen and (max-width: 80rem) {
     // 1280 // lg
@@ -2152,14 +2170,23 @@
     .lg\:flex_column {
       flex-direction: column;
     }
-    .lg\:w_500 {
+    .lg\:flex_column\! {
+      flex-direction: column !important;
+    }
+    .lg\:min-w_500 {
       min-width: 500px; // service - image
     }
-    .lg\:h_342 {
+    .lg\:min-h_342 {
       min-height: 342px; // service - image
     }
     .lg\:d_flex {
       display: flex;
+    }
+    .lg\:items_flex-start{
+      align-items: flex-start;
+    }
+    .lg\:items_center {
+      align-items: center;
     }
     .lg\:justify_flex-end {
       justify-content: flex-end;
@@ -2175,6 +2202,15 @@
     }
     .lg\:ml_40\! {
       margin-left: 40px !important;
+    }
+    .lg\:mb_40 {
+      margin-bottom: 40px;
+    }
+    .lg\:ml_0\! {
+      margin-left: 0px !important;
+    }
+    .lg\:mr_0\! {
+      margin-right: 0px !important;
     }
   }
   @media screen and (max-width: 73.75rem) {
@@ -2203,6 +2239,9 @@
     .nm\:mt_40 {
       margin-top: 40px;
     }
+    .nm\:mb_0 {
+      margin-bottom: 0px;
+    }
     .nm\:mb_20 {
       margin-bottom: 20px;
     }
@@ -2227,7 +2266,6 @@
     .nm\:min-w_500\! {
       min-width: 500px !important;
     }
-
     .nm\:d_flex\! {
       display: flex !important;
     }
@@ -2482,9 +2520,8 @@
     .sm\:w_fit-content {
       width: fit-content;
     }
-    .sm\:list-type_inside\:\:marker span {
-      position: relative;
-      left: 20px;
+    .sm\:white-space_normal {
+      white-space: normal;
     }
   }
 

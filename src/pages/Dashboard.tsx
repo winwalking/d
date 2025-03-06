@@ -16,7 +16,11 @@ import Footer from "@components/base/Footer";
 import sendMail from "../api/send-email";
 import Toast from "@components/Toast";
 import TrendBottomArrow from "assets/image/trends_bottom_arrow.svg";
+import { useTranslation, Trans } from "react-i18next";
+import i18n from "../i18n"; // i18n 설정 불러오기
+
 const Dashboard = () => {
+  const { t } = useTranslation();
   const [activeMenu, setActiveMenu] = useState<
     | "home"
     | "about-us"
@@ -47,13 +51,15 @@ const Dashboard = () => {
   };
 
   const [scrolling, setScrolling] = useState(false); // 스크롤 잠금 상태 추가
-
+  const [isShadowOn, setIsShadowOn] = useState(false); // 🛠 상태 추가
   const scrollToSection = (id: keyof typeof sectionRefs) => {
     const section = sectionRefs[id]?.current;
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setActiveMenu(id); // 클릭한 메뉴로 활성화
+      console.log(id);
       setScrolling(true); // 스크롤 잠금 활성화
+      console.log(id);
 
       setTimeout(() => {
         setScrolling(false); // 잠금 해제
@@ -185,31 +191,65 @@ const Dashboard = () => {
   }, []);
   return (
     <div>
-      <Header scrollToSection={scrollToSection} activeMenu={activeMenu} />
+      <Header
+        scrollToSection={scrollToSection}
+        activeMenu={activeMenu}
+        shadowOn={setIsShadowOn}
+      />
       <div className="styles_layout mt_0!">
+        {isShadowOn && <div className="overlay" />}{" "}
+        {/* 🛠 조건부로 Shadow 표시 */}
         {/* Design Your Financial Future with ALGOLAB */}
         <div className="bg_rgba(50,_96,_231,_1) w_100%" ref={sectionRefs.home}>
           <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44! md:flex_column! md:items_center sm:items_flex-start!">
             <div className="d_flex flex_column">
               {/* pt_60 */}
               <h1 className="fw_normal fs_80 md:fs_60 leading_120px md:leading_90px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100%">
-                Design Your{isDisplayXl && <br />}
-                {!isDisplayXl && !isDisplayLg && "\u00A0"}Financial
-                {!isDisplayXl && <br />} {isDisplayMd && <br />}Future with
-                {isDisplayXl && "\u00A0"}
-                {isDisplayMd || (!isDisplayLg && "\u00A0")}
-                {isDisplayMd && <br />}
-                <span className="white-space_nowrap fw_bold px_16 py_4 rounded_16 bg_white leading_108px text_rgb(50,_96,_231)">
-                  ALGOLAB
+                {t("pages.dashboard.ttFirst")}
+                {isDisplayXl && <br />}
+                {i18n.language === "ja-jP" ||
+                  (!isDisplayXl && !isDisplayLg && "\u00A0")}
+                {t("pages.dashboard.ttSecond")}
+                {!isDisplayXl && <br />} {isDisplayMd && <br />}
+                <span
+                  className={
+                    i18n.language === "ko-KR"
+                      ? "white-space_nowrap fw_bold px_16 py_4 rounded_16 bg_white leading_108px text_rgb(50,_96,_231)"
+                      : ""
+                  }
+                >
+                  {t("pages.dashboard.ttThird")}
                 </span>
+                {i18n.language === "ja-jP" || (isDisplayXl && "\u00A0")}
+                {i18n.language === "ja-jP" ||
+                  isDisplayMd ||
+                  (!isDisplayLg && "\u00A0")}
+                {isDisplayMd && <br />}
+                <span
+                  className={
+                    i18n.language !== "ko-KR"
+                      ? "white-space_nowrap fw_bold px_16 py_4 rounded_16 bg_white leading_108px text_rgb(50,_96,_231) sm:white-space_normal"
+                      : ""
+                  }
+                >
+                  {t("pages.dashboard.ttFourth")}
+                </span>
+                <br />
+                {t("pages.dashboard.ttFifth")}
               </h1>
               <span className="text_white leading_30px fs_20 md:fs_16 fw_normal mb_120 nm:mb_48 w_780 lg:w_517 nm:w_100%">
-                Unlock new possibilities in asset management and
-                {isDisplayLg && <br />} venture valuation with
-                {!isDisplayXl && <br />} cutting-edge financial
-                {isDisplayMd && <br />}technology
-                {isDisplayLg && !isDisplayMd && <br />} and personalized
-                solutions
+                {t("pages.dashboard.subDescFirst")}
+                {i18n.language === "ja-JP" ||
+                  i18n.language === "ko-KR" ||
+                  (isDisplayLg && <br />)}
+                {t("pages.dashboard.subDescSecond")}
+                {i18n.language === "ja-JP" || (!isDisplayXl && <br />)}
+                {t("pages.dashboard.subDescThird")}
+                {i18n.language === "ja-JP" || (isDisplayMd && <br />)}
+                {t("pages.dashboard.subDescFourth")}
+                {i18n.language === "ja-JP" ||
+                  (isDisplayLg && !isDisplayMd && <br />)}
+                {t("pages.dashboard.subDescFifth")}
               </span>
               {/* <button
                 style={{
@@ -257,9 +297,10 @@ const Dashboard = () => {
                     //   lineHeight: "27px",
                   >
                     <p className="mt_8 mb_18 md:mt_0! md:mb_0!">
-                      Explore Our
-                      <br />
-                      Financial Solutions
+                      <Trans
+                        i18nKey="pages.dashboard.exploreBox"
+                        components={{ br: <br /> }}
+                      />
                     </p>
                     <button
                       className="explore-solutions-btn"
@@ -277,7 +318,7 @@ const Dashboard = () => {
         <div className="bg_white w_100%">
           <div className="styles_section mt_0 d_flex items_center py_40! md:py_16! gap_8">
             <span className="text_rgb(50,_96,_231) fs_20 md:fs_16 fw_normal leading_36px md:leading_21px">
-              Real-Time Industry Trends
+              {t("pages.dashboard.realTimeTrends")}
             </span>
             <TrendBottomArrow />
           </div>
@@ -285,46 +326,86 @@ const Dashboard = () => {
         <SwipeTextSilder />
         {/* About Us: Who we are */}
         <div className="bg_white w_100%" ref={sectionRefs["about-us"]}>
-          <div className="styles_section d_flex justify_between items_flex-end xl:items_flex-end lg:flex_column md:items_flex-start">
+          <div className="styles_section d_flex justify_between items_flex-end lg:items_flex-start lg:flex_column md:items_flex-start">
             <div className="lg:mb_80">
               {/* About Us: Who we are */}
               <div className="mb_24 pr_41 md:pr_30 w_1040 nm:w_100%">
                 <h2 className="section_cts_title leading_84px mb_28 sm:mb_20 nm:fw_bold">
-                  About Us:
-                  <br /> Who we are
+                  {t("pages.dashboard.aboutUs")}
+                  {i18n.language === "en-US" && ":"}
+                  <br /> {i18n.language === "en-US" && "Who we are"}
                 </h2>
                 <p
                   className="w_999 nm:w_100% fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
                   //   lineHeight: "27px",
                 >
-                  <span className="fw_bold">Algolab</span>&nbsp;is a financial
-                  technology company offering{!isDisplaySm && "\u00A0"}
-                  {isDisplaySm && <br />}
-                  <span className="fw_bold">personalized asset management</span>
-                  &nbsp;for investors and
-                  {!isDisplaySm && "\u00A0"}
-                  {isDisplaySm && <br />}
-                  <span className="fw_bold">startup valuation </span>
-                  services for emerging businesses,{isDisplaySm && <br />}
-                  leveraging
-                  <span className="fw_bold"> embedded finance </span>
-                  and &nbsp;
                   <span className="fw_bold">
-                    innovative{isDisplaySm && <br />} financial technologies.
+                    {t("pages.dashboard.aboutUsDescFirstBold")}
                   </span>
-                  <br />
-                  We provide&nbsp;
-                  <span className="fw_bold">cutting-edge tools</span>
-                  &nbsp;to&nbsp;
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.aboutUsDescFirst")}
+                  {i18n.language === "en-US" && !isDisplaySm && "\u00A0"}
+                  {i18n.language === "en-US" && isDisplaySm && <br />}
                   <span className="fw_bold">
-                    financial{isDisplaySm && <br />} institutions,
+                    {t("pages.dashboard.aboutUsDescSecondBold")}
                   </span>
-                  &nbsp;
-                  <span className="fw_bold">investors,</span>
-                  &nbsp;and&nbsp;
-                  <span className="fw_bold">startups,</span>&nbsp;and achieve
-                  {isDisplaySm && <br />}their&nbsp;
-                  <span className="fw_bold">financial goals.</span>
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.aboutUsDescSecond")}
+                  {i18n.language === "en-US" && !isDisplaySm && "\u00A0"}
+                  {i18n.language === "en-US" && isDisplaySm && <br />}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.aboutUsDescThirdBold")}
+                  </span>
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.aboutUsDescThird")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {i18n.language === "en-US" && isDisplaySm && <br />}
+                  {t("pages.dashboard.aboutUsDescFourth")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.aboutUsDescFourthBold")}
+                  </span>
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.aboutUsDescFifth")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {/* innovative {isDisplaySm && <br />}  */}
+                    {t("pages.dashboard.aboutUsDescFifthBold")}
+                  </span>
+                  {i18n.language === "en-US" && <br />}
+                  {t("pages.dashboard.aboutUsDescSixth")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.aboutUsDescSixthBold")}
+                  </span>
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.aboutUsDescSeventh")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.aboutUsDescSeventhBold")}
+                    {i18n.language === "en-US" && isDisplaySm && <br />}
+                  </span>
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.aboutUsDescEighth")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.aboutUsDescEighthBold")}
+                  </span>
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {i18n.language === "en-US" && isDisplaySm && <br />}
+                  {t("pages.dashboard.aboutUsDescNinth")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.aboutUsDescNinthBold")}
+                  </span>
+                  {i18n.language === "ja-JP" && <br />}
+                  {i18n.language === "ja-JP" && (
+                    <span>{t("pages.dashboard.aboutUsDescOnlyJP")}</span>
+                  )}
+                  {i18n.language === "ko-KR" && <br />}
+                  {i18n.language === "ko-KR" && (
+                    <span>{t("pages.dashboard.aboutUsDescOnlyJP")}</span>
+                  )}
                 </p>
               </div>
               {/* Our services include */}
@@ -332,55 +413,71 @@ const Dashboard = () => {
                 className="mb_24 fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
                 //   lineHeight: "27px",
               >
-                Our services include:
-                <ul className="ml_8">
-                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
-                    <b>Robo-advisory solutions</b>&nbsp;for&nbsp;
-                    <b>pension planning</b>
-                    {isDisplaySm && <br />}&nbsp;
+                {t("pages.dashboard.ourServices")}:
+                <ul className="ml_22 mb_24">
+                  <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
+                    <b>{t("pages.dashboard.ourServicesFirstBold1")}</b>&nbsp;
+                    {t("pages.dashboard.ourServicesFirst1")}
+                    {i18n.language === "ja-JP" && "\u00A0"}
+                    <b>{t("pages.dashboard.ourServicesFirstBold2")}</b>
+                    {i18n.language !== "ko-KR" && isDisplaySm && <br />}&nbsp;
                     <span>
-                      and&nbsp;
-                      <b>startup valuation</b>
+                      {t("pages.dashboard.ourServicesFirst2")}&nbsp;
+                      <b>{t("pages.dashboard.ourServicesFirstBold3")}</b>
                     </span>
                   </li>
-                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
-                    <b>Behavioral economics–based</b>&nbsp;personalized{" "}
-                    {isDisplaySm && <br />} <span>asset management</span>
+                  <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
+                    <b>{t("pages.dashboard.ourServicesSecondBold")}</b>&nbsp;
+                    {/* personalized {isDisplaySm && <br />} */}
+                    <span>{t("pages.dashboard.ourServicesSecond")}</span>
                   </li>
-                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
-                    <b>Tailored investment strategies</b>&nbsp;and&nbsp;
-                    <b>AI-driven</b>&nbsp;{isDisplaySm && <br />}
-                    <span>reporting</span>
+                  <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
+                    <b>{t("pages.dashboard.ourServicesThirdBold1")}</b>&nbsp;
+                    {t("pages.dashboard.ourServicesThird1")}&nbsp;
+                    <b>{t("pages.dashboard.ourServicesThirdBold2")}</b>&nbsp;
+                    {isDisplaySm && <br />}
+                    <span>{t("pages.dashboard.ourServicesThird2")}</span>
                   </li>
-                  <li className="list-type_inside md:fs_16 md:leading_24px sm:list-type_inside::marker">
-                    <b>Global theme analysis</b>&nbsp;and&nbsp;
-                    <b>alternative</b> {isDisplaySm && <br />}
+                  <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
+                    <b>{t("pages.dashboard.ourServicesFourthBold1")}</b>&nbsp;
+                    {t("pages.dashboard.ourServicesFourth1")}&nbsp;
+                    <b>{t("pages.dashboard.ourServicesFourthBold2")}</b>
+                    {isDisplaySm && <br />}
                     <span>
-                      <b>investment</b>&nbsp;solutions
+                      <b>{t("pages.dashboard.ourServicesFourthBold3")}</b>&nbsp;
+                      {t("pages.dashboard.ourServicesFourth3")}
                     </span>
                   </li>
+                  {i18n.language === "ja-JP" && (
+                    <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
+                      <b>{t("pages.dashboard.ourServicesFifthBold")}</b>&nbsp;
+                      <span>{t("pages.dashboard.ourServicesFifth")}</span>
+                    </li>
+                  )}
                 </ul>
               </div>
-              <div
-                className="fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
-                //   lineHeight: "27px",
-              >
-                As we{" "}
-                <span className="fw_bold">
-                  expand beyond&nbsp; Korea into the Asian market,
-                </span>
-                {isDisplaySm && <br />}
-                {!isDisplaySm && "\u00A0"}we empower our clients to&nbsp;
-                <span className="fw_bold">
-                  make better financial {isDisplaySm && <br />}decisions.
-                </span>
-                &nbsp;
-                {!isDisplaySm && <br />}
-                Experience the future of&nbsp;
-                <span className="fw_bold">
-                  finance with {isDisplaySm && <br />}Algolab.
-                </span>
-              </div>
+              {i18n.language === "en-US" && (
+                <div
+                  className="fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
+                  //   lineHeight: "27px",
+                >
+                  As we&nbsp;
+                  <span className="fw_bold">
+                    expand beyond&nbsp;Korea into the Asian market,
+                  </span>
+                  {isDisplaySm && <br />}
+                  {!isDisplaySm && "\u00A0"}we empower our clients to&nbsp;
+                  <span className="fw_bold">
+                    make better financial {isDisplaySm && <br />}decisions.
+                  </span>
+                  &nbsp;
+                  {!isDisplaySm && <br />}
+                  Experience the future of&nbsp;
+                  <span className="fw_bold">
+                    finance with {isDisplaySm && <br />}Algolab.
+                  </span>
+                </div>
+              )}
             </div>
             <div className="d_flex justify_flex-end w_100% lg:d_flex lg:justify_flex-end">
               <WhoWeAreBigArrow />
@@ -391,7 +488,6 @@ const Dashboard = () => {
         <div ref={sectionRefs["why-choose-us"]}>
           <WhyChooseUs />
         </div>
-
         {/* Services */}
         <div
           className="w_100% bg_white border-bottom_solid border-bottom-w_1 border_rgba(213,_219,_226,_1)"
@@ -399,54 +495,82 @@ const Dashboard = () => {
         >
           <div className="styles_section mx_auto my_0 px_0 py_160">
             <h2 className="section_cts_title leading_84px mb_80 md:mb_40 sm:mb_20 nm:fw_bold">
-              Services
+              {t("pages.dashboard.services")}
             </h2>
             {/* Retirement Pension Robo-Advisor */}
-            <div className="mb_160 nm:mb_80 md:mb_60 d_flex w_100% items_flex-start nm:flex_column! nm:items_center! nm:w_100%">
-              <div className="mr_160 xl:mr_80! lg:mr_40! nm:mr_0! nm:w_100%">
+            <div className="mb_160 nm:mb_80 md:mb_60 d_flex w_100% items_flex-start lg:flex_column! nm:items_center! nm:w_100%">
+              <div className="mr_160 xl:mr_80! lg:mr_0! lg:mb_40 nm:mb_0 nm:w_100% lg:d_flex lg:items_center">
                 <img
                   src={RoboAdvisorImg}
                   alt=""
-                  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342 nm:min-w_100%! nm:min-h_100%!"
+                  className={`${
+                    isDisplaySm === true ? "" : "max-width_fit_content"
+                  } w_620 xl:min-w_620 xl:min-h_423 lg:min-w_500 lg:min-h_342 lg:mr_40! nm:mr_0! nm:min-w_100%! nm:min-h_100%! sm:w_fit-content`}
                 />
+                {!isDisplayNm && isDisplayLg ? (
+                  <div className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
+                    {t("pages.dashboard.retirementPension")}
+                    {<br />}
+                    {t("pages.dashboard.roboAdvisor")}
+                  </div>
+                ) : null}
               </div>
-              <div className="min-w_610 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
-                <p className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
-                  Retirement Pension
-                  <br />
-                  Robo-Advisor
-                </p>
+
+              <div className="min-w_610 xl:min-w_0 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
+                {!isDisplayLg ||
+                isDisplayNm ||
+                isDisplayMd ||
+                isDisplaySm ||
+                isDisplayXS ? (
+                  <p className="h_342 fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
+                    {t("pages.dashboard.retirementPension")}
+                    {<br />}
+                    {t("pages.dashboard.roboAdvisor")}
+                  </p>
+                ) : null}
                 <span className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all">
-                  Algolab’s retirement pension robo-advisor integrates
-                  <br />
-                  <span className="fw_bold">behavioral economics</span>
-                  &nbsp;and&nbsp;
+                  {t("pages.dashboard.retirementPensionDesc1")}
+                  {i18n.language === "en-US" && <br />}
                   <span className="fw_bold">
-                    cutting-edge financial{isDisplaySm && <br />} technologies
+                    {t("pages.dashboard.retirementPensionDesc2")}
                   </span>
-                  {!isDisplaySm && <br />}
+                  &nbsp;{t("pages.dashboard.retirementPensionDesc3")}&nbsp;
+                  <span className="fw_bold">
+                    {t("pages.dashboard.retirementPensionDesc4")}
+                    {i18n.language === "en-US" && isDisplaySm && <br />}
+                  </span>
+                  {i18n.language === "en-US" && !isDisplaySm && <br />}
                   {isDisplaySm && "\u00A0"}
-                  to provide&nbsp;
+                  {t("pages.dashboard.retirementPensionDesc5")}&nbsp;
                   <span className="fw_bold">
-                    personalized pension {isDisplaySm && <br />}management
+                    {t("pages.dashboard.retirementPensionDesc6")}
+                    {isDisplaySm && <br />}
                   </span>
-                  &nbsp;solutions.
+                  &nbsp;{t("pages.dashboard.retirementPensionDesc7")}
                 </span>
                 <ul className="ml_22">
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Analyzes</b> clients’ investment preferences
+                    <Trans
+                      i18nKey="pages.dashboard.retirementPensionList1"
+                      components={{ b: <b /> }}
+                    />
+                    {/*<b>Analyzes</b> clients’ investment preferences
                     {isDisplaySm && <br />} and&nbsp;
                     <b>designs</b> customized
-                    {!isDisplaySm && <br />} investment plans
+                    {!isDisplaySm && <br />} investment plans */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Optimizes</b> fund and global stock selection through
+                    <Trans
+                      i18nKey="pages.dashboard.retirementPensionList2"
+                      components={{ b: <b /> }}
+                    />
+                    {/* <b>Optimizes</b> fund and global stock selection through
                     {isDisplaySm && <br />}the&nbsp;
                     <b>
                       Global Theme{isDisplaySm && "\u00A0"}
@@ -454,24 +578,32 @@ const Dashboard = () => {
                       Machine
                     </b>
                     &nbsp;and <b>NLP-based</b>&nbsp;{isDisplaySm && <br />}
-                    analysis
+                    analysis */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Ensures</b> stable and effective pension management
+                    <Trans
+                      i18nKey="pages.dashboard.retirementPensionList3"
+                      components={{ b: <b /> }}
+                    />
+                    {/* <b>Ensures</b> stable and effective pension management
                     with&nbsp;
                     <b>
                       personalized
                       {!isDisplaySm && <br />} glide paths
-                    </b>
+                    </b> */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Proven track record,</b> including successful
+                    <Trans
+                      i18nKey="pages.dashboard.retirementPensionList4"
+                      components={{ b: <b /> }}
+                    />
+                    {/* <b>Proven track record,</b> including successful
                     {isDisplaySm && <br />}
                     collaborations with&nbsp;
                     <b>
@@ -480,62 +612,93 @@ const Dashboard = () => {
                       Securities’ MOA
                     </b>
                     &nbsp;service {isDisplaySm && <br />}and&nbsp;
-                    <b>Kiwoom Asset Management’s TDF</b>
+                    <b>Kiwoom Asset Management’s TDF</b> */}
                   </li>
                 </ul>
               </div>
             </div>
             {/* Early-Stage Company Valuation */}
-            <div className="d_flex w_100% items_flex-start flex_row-reverse justify_between nm:flex_column! nm:items_center! nm:w_100%">
-              <div className="ml_160 xl:ml_80! lg:ml_40! nm:ml_0! nm:w_100%">
+            <div className="d_flex w_100% items_flex-start flex_row-reverse justify_between lg:flex_column! nm:items_center! nm:w_100%">
+              <div className="ml_160 xl:ml_80! lg:ml_0! lg:mb_40 nm:mb_0 nm:w_100% lg:d_flex lg:items_center">
+                {!isDisplayNm && isDisplayLg ? (
+                  <div className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
+                    {t("pages.dashboard.earlyStageCompanyValuation")}
+                  </div>
+                ) : null}
                 <img
                   src={CompanyValueImg}
                   alt=""
-                  className="xl:w_620 xl:h_423 lg:w_500 lg:h_342 nm:min-w_100%! nm:min-h_100%!"
+                  className={`${
+                    isDisplaySm === true ? "" : "max-width_fit_content"
+                  } w_620 xl:min-w_620 xl:min-h_423 lg:min-w_500 lg:min-h_342 lg:ml_40! nm:ml_0! nm:min-w_100%! nm:min-h_100%! sm:w_fit-content`}
                 />
               </div>
-              <div className="min-w_610 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
-                <p className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
-                  Early-Stage Company Valuation
-                </p>
+              <div className="min-w_610 xl:min-w_0 nm:w_100% sm:min-w_100%! d_flex flex_column items_flex-start justify_between">
+                {!isDisplayLg ||
+                isDisplayNm ||
+                isDisplayMd ||
+                isDisplaySm ||
+                isDisplayXS ? (
+                  <p className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
+                    {t("pages.dashboard.earlyStageCompanyValuation")}
+                  </p>
+                ) : null}
                 <span
                   className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all" // lineHeight: "27px"
                 >
-                  Algolab’s early-stage company valuation solution
+                  {t("pages.dashboard.companyValuationDesc1")}
+                  {i18n.language === "en-US" && isDisplaySm && <br />}
+                  {i18n.language === "ja-JP" && "\u00A0"}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.companyValuationDesc2")}
+                  </span>
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.companyValuationDesc3")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  <span className="fw_bold">
+                    {t("pages.dashboard.companyValuationDesc4")}
+                  </span>
                   {isDisplaySm && <br />}
-                  combines&nbsp;
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.companyValuationDesc5")}
+                  {i18n.language === "en-US" && "\u00A0"}
                   <span className="fw_bold">
-                    corporate
-                    {!isDisplaySm && <br />}
-                    data
+                    {t("pages.dashboard.companyValuationDesc6")}
                   </span>
-                  &nbsp;and&nbsp;
-                  <span className="fw_bold">financial information</span>
-                  &nbsp;to{isDisplaySm && <br />} deliver&nbsp;
+                  {i18n.language === "en-US" && "\u00A0"}
                   <span className="fw_bold">
-                    reliable, up-to-date valuations.
+                    {t("pages.dashboard.companyValuationDesc7")}
                   </span>
-                  &nbsp;
+                  {i18n.language === "en-US" && "\u00A0"}
                 </span>
                 <ul className="ml_22 mb_24">
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
+                    <Trans
+                      i18nKey="pages.dashboard.companyValuationList1"
+                      components={{ b: <b /> }}
+                    />
+                    {/* <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
                     &nbsp;valuations{isDisplaySm && <br />} through&nbsp;
                     <b>
                       ERP{isDisplaySm && "\u00A0"}
                       {!isDisplaySm && <br />}
                       system
                     </b>
-                    &nbsp;integration
+                    &nbsp;integration */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Streamlines</b>&nbsp;the&nbsp;creation of investment
+                    <Trans
+                      i18nKey="pages.dashboard.companyValuationList2"
+                      components={{ b: <b /> }}
+                    />
+                    {/* <b>Streamlines</b>&nbsp;the&nbsp;creation of investment
                     proposals with an&nbsp;
                     <b>
                       IR pitch deck{isDisplaySm && "\u00A0"}
@@ -543,17 +706,21 @@ const Dashboard = () => {
                       publishing
                     </b>
                     &nbsp;solution,{isDisplaySm && <br />} facilitating
-                    investment attraction
+                    investment attraction */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea,
+                    <Trans
+                      i18nKey="pages.dashboard.companyValuationList3"
+                      components={{ b: <b /> }}
+                    />
+                    {/* <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea,
                     Japan,{isDisplaySm && <br />} China, and Vietnam&nbsp;-
                     {!isDisplaySm && <br />}
-                    fostering a{" "}
-                    <b>global investment{isDisplaySm && <br />} ecosystem</b>
+                    fostering a
+                    <b>global investment{isDisplaySm && <br />} ecosystem</b> */}
                   </li>
                 </ul>
                 {!(isDisplaySm || isDisplayNm) && (
@@ -561,9 +728,13 @@ const Dashboard = () => {
                     className="fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
                     // lineHeight: "27px",
                   >
-                    Make clearer investment decisions with&nbsp;
+                    <Trans
+                      i18nKey="pages.dashboard.companyValuationList4"
+                      components={{ b: <b /> }}
+                    />
+                    {/* Make clearer investment decisions with&nbsp;
                     <span className="fw_bold">Algolab’s</span>
-                    &nbsp;valuation solutions.
+                    &nbsp;valuation solutions. */}
                   </span>
                 )}
               </div>
@@ -595,13 +766,13 @@ const Dashboard = () => {
         >
           <div className="styles_section mx_auto my_0 px_0 py_80">
             <h2 className="section_cts_title leading_84px mb_80  md:mb_20 text-align_center nm:fw_bold sm:text-align_left">
-              Contact Us
+              {t("pages.dashboard.contactUs")}
             </h2>
             <div className="mb_80 md:mb_40">
               {/* Input Field */}
               <div className="mb_40 md:mb_20">
                 <InputComp
-                  label="Your Name"
+                  label={t("pages.dashboard.contactUsName")}
                   type="input"
                   name="name" // Add name prop
                   placeholder=""
@@ -613,7 +784,7 @@ const Dashboard = () => {
               </div>
               <div className="d_flex justify_between mb_40 md:mb_20 xl:flex-wrap_wrap!">
                 <InputComp
-                  label="Work Email"
+                  label={t("pages.dashboard.contactUsWorkEmail")}
                   type="input"
                   name="email" // Add name prop
                   placeholder=""
@@ -623,7 +794,7 @@ const Dashboard = () => {
                   onChange={handleChange}
                 />
                 <InputComp
-                  label="Company Name"
+                  label={t("pages.dashboard.contactUsCompanyName")}
                   type="input"
                   name="company" // Add name prop
                   placeholder=""
@@ -636,11 +807,10 @@ const Dashboard = () => {
 
               {/* Textarea Field */}
               <InputComp
-                label="Message"
+                label={t("pages.dashboard.contactUsMessage")}
                 type="textarea"
                 name="message" // Add name prop
-                placeholder="Tell us how can we help!
-Leave your message, and we’ll get back to you shortly."
+                placeholder={t("pages.dashboard.contactUsMsgPlaceholder")}
                 height="250px"
                 resize="none"
                 value={formData.message}
@@ -662,7 +832,9 @@ Leave your message, and we’ll get back to you shortly."
                 disabled={!isFormValid || loading} // 버튼 비활성화
               >
                 <span className="text_white fs_20 fw_bold leading_30px">
-                  {loading ? "Sending..." : "Submit"}
+                  {loading
+                    ? `${t("pages.dashboard.contactUsSending")}...`
+                    : `${t("pages.dashboard.contactUsSubmit")}`}
                 </span>
               </button>
             </div>

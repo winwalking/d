@@ -88,7 +88,7 @@ import React, { useState, useEffect } from "react";
 interface InputCompProps {
   label: string; // Label text
   type: "input" | "textarea"; // Type of element to render
-  placeholder?: string; // Placeholder for the input/textarea
+  placeholder?: string | React.ReactNode; // 🔥 React 요소도 허용
   width?: string; // Width of the input/textarea
   height?: string; // Height of the input/textarea (only for textarea)
   resize?: "none" | "both" | "horizontal" | "vertical"; // Resize behavior (only for textarea)
@@ -175,7 +175,7 @@ const InputComp: React.FC<InputCompProps> = ({
       {type === "input" ? (
         <input
           type="text"
-          placeholder={placeholder}
+          placeholder={typeof placeholder === "string" ? placeholder : undefined} // 🚀 문자열만 placeholder로 설정
           value={value}
           onChange={onChange}
           onBlur={handleBlur} // Trigger error check on blur
@@ -191,9 +191,10 @@ const InputComp: React.FC<InputCompProps> = ({
             boxSizing: "border-box",
           }}
         />
+        
       ) : (
         <textarea
-          placeholder={placeholder}
+        placeholder={typeof placeholder === "string" ? placeholder : undefined} // 🚀 문자열만 placeholder로 설정
           value={value}
           onChange={onChange}
           onBlur={handleBlur} // Trigger error check on blur

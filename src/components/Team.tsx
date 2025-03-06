@@ -9,58 +9,62 @@ import TeamProfileDonguk from "assets/image/team_donguk.png";
 import TeamProfileSeungjin from "assets/image/team_seungjin.png";
 import TeamProfileSeoyoung from "assets/image/team_seoyoung.png";
 import TeamProfileHyunji from "assets/image/team_hyunji.png";
+import { useTranslation, Trans } from "react-i18next";
+import i18n from "../i18n"; // i18n 설정 불러오기
 const Team = () => {
+  const { t } = useTranslation();
+
   // Array containing data for each team member
   const teamData = [
     {
       imgSrc: TeamProfileMayumi,
-      name: "Naoko Mayumi",
-      title: "President & CEO",
+      name: `${t("pages.dashboard.teamMayumi")}`,
+      title: `${t("pages.dashboard.mayumiTitle")}`,
     },
     {
       imgSrc: TeamProfileAbiko,
-      name: "Yoshihiro Abiko",
-      title: "CIO",
+      name: `${t("pages.dashboard.teamAbiko")}`,
+      title: `${t("pages.dashboard.abikoTitle")}`,
     },
     {
       imgSrc: TeamProfileSeungjong,
-      name: "Kim Seung Jong",
-      title: "CTO",
+      name: `${t("pages.dashboard.teamSeungjong")}`,
+      title: `${t("pages.dashboard.seungjongTitle")}`,
     },
     {
       imgSrc: TeamProfileDongho,
-      name: "Suk Dong Ho",
-      title: "Director",
+      name: `${t("pages.dashboard.teamDongho")}`,
+      title: `${t("pages.dashboard.donghoTitle")}`,
     },
     {
       imgSrc: TeamProfileSeyoung,
-      name: "Kim Se Young",
-      title: "Assistant Manager",
+      name: `${t("pages.dashboard.teamSeyoung")}`,
+      title: `${t("pages.dashboard.seyoungTitle")}`,
     },
     {
       imgSrc: TeamProfileJonghyun,
-      name: "Park Jong Hyun",
-      title: "Associate Director",
+      name: `${t("pages.dashboard.teamJonghyun")}`,
+      title: `${t("pages.dashboard.jonghyunTitle")}`,
     },
     {
       imgSrc: TeamProfileDonguk,
-      name: "Shin Dong Uk",
-      title: "Assistant Manager",
+      name: `${t("pages.dashboard.teamDonguk")}`,
+      title: `${t("pages.dashboard.dongukTitle")}`,
     },
     {
       imgSrc: TeamProfileSeungjin,
-      name: "Kim Seung Jin",
-      title: "Assistant Manager",
+      name: `${t("pages.dashboard.teamSeungjin")}`,
+      title: `${t("pages.dashboard.seungjinTitle")}`,
     },
     {
       imgSrc: TeamProfileSeoyoung,
-      name: "Lee Seo Yeong",
-      title: "Manager",
+      name: `${t("pages.dashboard.teamSeoyoung")}`,
+      title: `${t("pages.dashboard.seoyoungTitle")}`,
     },
     {
       imgSrc: TeamProfileHyunji,
-      name: "Song Hyun Ji",
-      title: "Assistant Manager",
+      name: `${t("pages.dashboard.teamHyunji")}`,
+      title: `${t("pages.dashboard.hyunjiTitle")}`,
     },
   ];
 
@@ -68,14 +72,14 @@ const Team = () => {
     <div>
       {/* Team Section Header */}
       <div className="w_766 my_0 mx_auto text-align_center sm:w_100%">
-        <h2 className="section_cts_title leading_84px mb_28 md:mb_20 nm:fw_bold sm:text-align_left">Team</h2>
+        <h2 className="section_cts_title leading_84px mb_28 md:mb_20 nm:fw_bold sm:text-align_left">
+          {t("pages.dashboard.team")}
+        </h2>
         <p
           className="fs_18 md:fs_16 fw_400 leading_28px md:leading_24px text_dark mb_80 md:mb_40 sm:text-align_left"
           //   lineHeight: "27px",
         >
-          The Algolab team designs the future alongside our clients, realizing
-          new possibilities in finance. Our journey is driven by the success of
-          our clients.
+          {t("pages.dashboard.teamDesc")}
         </p>
       </div>
 

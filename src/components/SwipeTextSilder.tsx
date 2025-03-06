@@ -1,18 +1,21 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n"; // i18n 설정 불러오기
 
 const ImageSlider: React.FC = () => {
+    const { t } = useTranslation();
   const texts = [
-    "Data Analytics",
+    `${t("pages.dashboard.slideDataAnalytics")}`,
     " \u00A0\u2022\u00A0 ", // Add non-breaking spaces around "•"
-    "Platform",
+    `${t("pages.dashboard.slidePlatform")}`,
     " \u00A0\u2022\u00A0 ",
-    "Healthcare",
+   `${t("pages.dashboard.slideHealthcare")}`,
     " \u00A0\u2022\u00A0 ",
-    "Artificial Intelligence",
+   `${t("pages.dashboard.slideArtifiIntelli")}`,
     " \u00A0\u2022\u00A0 ",
-    "Mobility",
+    `${t("pages.dashboard.slideMobility")}`,
     " \u00A0\u2022\u00A0 ",
-    "Software",
+   `${t("pages.dashboard.slideSoftware")}`,
     " \u00A0\u2022\u00A0 ",
   ];
 
