@@ -108,7 +108,7 @@ const enUS: International = {
         "Our domestic and international success stories showcase our expertise and reliability.",
       leadershipMarket: "Leadership in the Asian Market",
       leadershipMarketDesc:
-        "Expanding from Korea, we are shaping the globalfinancial ecosystem across Asia.",
+        "We are shaping the globalfinancial ecosystem across Asia.",
       services: "Services",
       retirementPension: "Retirement Pension",
       roboAdvisor: "Robo-Advisor",

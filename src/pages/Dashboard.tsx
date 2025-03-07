@@ -463,7 +463,7 @@ const Dashboard = () => {
                 >
                   As we&nbsp;
                   <span className="fw_bold">
-                    expand beyond&nbsp;Korea into the Asian market,
+                    expand into the Asian market,
                   </span>
                   {isDisplaySm && <br />}
                   {!isDisplaySm && "\u00A0"}we empower our clients to&nbsp;
