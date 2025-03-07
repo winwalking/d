@@ -193,6 +193,7 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       </div>
+      {isOpen && <div className="overlay" />}{" "}
     </div>
   );
 };

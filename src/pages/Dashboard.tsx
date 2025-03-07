@@ -3,7 +3,8 @@ import SwipeTextSilder from "@components/SwipeTextSilder";
 import MainImg from "assets/image/main_img.png";
 import MainImgMd from "assets/image/main_img_md.png";
 import MainSmImg from "assets/image/main_sm_img.png";
-import BtnArrowWhite from "assets/image/btn_arrow_white.svg";
+import BtnArrowWhite from "assets/image/test_arrow.png";
+// import BtnArrowWhite from "assets/image/btn_arrow_white.svg";
 import WhoWeAreBigArrow from "assets/image/who_we_are_big_arrow.svg";
 import RoboAdvisorImg from "assets/image/services_robo_advisor.png";
 import CompanyValueImg from "assets/image/services_early_stage_comp_value.png";
@@ -197,18 +198,16 @@ const Dashboard = () => {
         shadowOn={setIsShadowOn}
       />
       <div className="styles_layout mt_0!">
-        {isShadowOn && <div className="overlay" />}{" "}
         {/* 🛠 조건부로 Shadow 표시 */}
         {/* Design Your Financial Future with ALGOLAB */}
         <div className="bg_rgba(50,_96,_231,_1) w_100%" ref={sectionRefs.home}>
           <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44! md:flex_column! md:items_center sm:items_flex-start!">
             <div className="d_flex flex_column">
               {/* pt_60 */}
-              <h1 className="fw_normal fs_80 md:fs_60 leading_120px md:leading_90px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100%">
+              <h1 className="fw_normal fs_80 md:fs_60 leading_120px md:leading_90px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100% xs:tracking_-0.08em">
                 {t("pages.dashboard.ttFirst")}
                 {isDisplayXl && <br />}
-                {i18n.language === "ja-jP" ||
-                  (!isDisplayXl && !isDisplayLg && "\u00A0")}
+                {!isDisplayXl && !isDisplayLg && "\u00A0"}
                 {t("pages.dashboard.ttSecond")}
                 {!isDisplayXl && <br />} {isDisplayMd && <br />}
                 <span
@@ -220,10 +219,8 @@ const Dashboard = () => {
                 >
                   {t("pages.dashboard.ttThird")}
                 </span>
-                {i18n.language === "ja-jP" || (isDisplayXl && "\u00A0")}
-                {i18n.language === "ja-jP" ||
-                  isDisplayMd ||
-                  (!isDisplayLg && "\u00A0")}
+                {isDisplayXl && "\u00A0"}
+                {isDisplayMd || (!isDisplayLg && "\u00A0")}
                 {isDisplayMd && <br />}
                 <span
                   className={
@@ -234,21 +231,22 @@ const Dashboard = () => {
                 >
                   {t("pages.dashboard.ttFourth")}
                 </span>
-                <br />
+                {!isDisplayMd && <br />}
+                {isDisplayMd && "\u00A0"}
                 {t("pages.dashboard.ttFifth")}
               </h1>
               <span className="text_white leading_30px fs_20 md:fs_16 fw_normal mb_120 nm:mb_48 w_780 lg:w_517 nm:w_100%">
-                {t("pages.dashboard.subDescFirst")}
-                {i18n.language === "ja-JP" ||
-                  i18n.language === "ko-KR" ||
-                  (isDisplayLg && <br />)}
+                <Trans
+                  i18nKey="pages.dashboard.subDescFirst"
+                  components={{ br: isDisplayXS ? <br /> : <></> }}
+                />
+                {i18n.language === "ko-KR" || (isDisplayLg && <br />)}
                 {t("pages.dashboard.subDescSecond")}
-                {i18n.language === "ja-JP" || (!isDisplayXl && <br />)}
+                {!isDisplayXl && <br />}
                 {t("pages.dashboard.subDescThird")}
-                {i18n.language === "ja-JP" || (isDisplayMd && <br />)}
+                {isDisplayMd && <br />}
                 {t("pages.dashboard.subDescFourth")}
-                {i18n.language === "ja-JP" ||
-                  (isDisplayLg && !isDisplayMd && <br />)}
+                {isDisplayLg && !isDisplayMd && <br />}
                 {t("pages.dashboard.subDescFifth")}
               </span>
               {/* <button
@@ -283,7 +281,7 @@ const Dashboard = () => {
                 className="w_430 lg:min-w_367 lg:h_707 md:w_289 md:h_471"
               />
               <div
-                className="pos_absolute bottom_60 left_-214 md:left_400! md:bottom_30! sm:left_158!"
+                className="pos_absolute bottom_60 left_-214 md:left_400! md:bottom_30! sm:left_158! xs:min-w_243 xs:left_80!"
                 // style={{
                 //   position: "absolute",
                 //   bottom: 60, //  65 / 77
@@ -306,7 +304,8 @@ const Dashboard = () => {
                       className="explore-solutions-btn"
                       onClick={() => scrollToSection("services")} // 키 값 "services" 전달
                     >
-                      <BtnArrowWhite />
+                      {/* <BtnArrowWhite /> */}
+                      {/* <img src={BtnArrowWhite} alt="" /> */}
                     </button>
                   </div>
                 </div>
@@ -404,7 +403,7 @@ const Dashboard = () => {
                   )}
                   {i18n.language === "ko-KR" && <br />}
                   {i18n.language === "ko-KR" && (
-                    <span>{t("pages.dashboard.aboutUsDescOnlyJP")}</span>
+                    <span>{t("pages.dashboard.aboutUsDescOnlyKR")}</span>
                   )}
                 </p>
               </div>
@@ -417,8 +416,11 @@ const Dashboard = () => {
                 <ul className="ml_22 mb_24">
                   <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
                     <b>{t("pages.dashboard.ourServicesFirstBold1")}</b>&nbsp;
-                    {t("pages.dashboard.ourServicesFirst1")}
-                    {i18n.language === "ja-JP" && "\u00A0"}
+                    <Trans
+                      i18nKey="pages.dashboard.ourServicesFirst1"
+                      components={{ br: <br /> }}
+                    />
+                    &nbsp;
                     <b>{t("pages.dashboard.ourServicesFirstBold2")}</b>
                     {i18n.language !== "ko-KR" && isDisplaySm && <br />}&nbsp;
                     <span>
@@ -456,15 +458,21 @@ const Dashboard = () => {
                   )}
                 </ul>
               </div>
-              {i18n.language === "en-US" && (
-                <div
-                  className="fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
-                  //   lineHeight: "27px",
-                >
-                  As we&nbsp;
-                  <span className="fw_bold">
-                    expand into the Asian market,
-                  </span>
+
+              <div
+                className="fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
+                //   lineHeight: "27px",
+              >
+                <Trans
+                  i18nKey="pages.dashboard.ourServicesOtherDesc"
+                  components={{
+                    b: <b />,
+                    nsbr: !isDisplaySm ? <br /> : <></>,
+                    sbr: isDisplaySm ? <br /> : <></>,
+                  }}
+                />
+                {/* As we&nbsp;
+                  <span className="fw_bold">expand into the Asian market,</span>
                   {isDisplaySm && <br />}
                   {!isDisplaySm && "\u00A0"}we empower our clients to&nbsp;
                   <span className="fw_bold">
@@ -475,9 +483,8 @@ const Dashboard = () => {
                   Experience the future of&nbsp;
                   <span className="fw_bold">
                     finance with {isDisplaySm && <br />}Algolab.
-                  </span>
-                </div>
-              )}
+                  </span> */}
+              </div>
             </div>
             <div className="d_flex justify_flex-end w_100% lg:d_flex lg:justify_flex-end">
               <WhoWeAreBigArrow />
@@ -529,24 +536,31 @@ const Dashboard = () => {
                   </p>
                 ) : null}
                 <span className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all">
-                  {t("pages.dashboard.retirementPensionDesc1")}
+                  <Trans
+                    i18nKey="pages.dashboard.retirementPensionDesc1"
+                    components={{ b: <b /> }}
+                  />
                   {i18n.language === "en-US" && <br />}
                   <span className="fw_bold">
                     {t("pages.dashboard.retirementPensionDesc2")}
                   </span>
-                  &nbsp;{t("pages.dashboard.retirementPensionDesc3")}&nbsp;
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.retirementPensionDesc3")}{" "}
+                  {i18n.language === "en-US" && "\u00A0"}
                   <span className="fw_bold">
                     {t("pages.dashboard.retirementPensionDesc4")}
                     {i18n.language === "en-US" && isDisplaySm && <br />}
                   </span>
                   {i18n.language === "en-US" && !isDisplaySm && <br />}
                   {isDisplaySm && "\u00A0"}
-                  {t("pages.dashboard.retirementPensionDesc5")}&nbsp;
+                  {t("pages.dashboard.retirementPensionDesc5")}{" "}
+                  {i18n.language === "en-US" && "\u00A0"}
                   <span className="fw_bold">
                     {t("pages.dashboard.retirementPensionDesc6")}
                     {isDisplaySm && <br />}
                   </span>
-                  &nbsp;{t("pages.dashboard.retirementPensionDesc7")}
+                  {i18n.language === "en-US" && "\u00A0"}
+                  {t("pages.dashboard.retirementPensionDesc7")}
                 </span>
                 <ul className="ml_22">
                   <li
@@ -555,12 +569,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.retirementPensionList1"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/*<b>Analyzes</b> clients’ investment preferences
-                    {isDisplaySm && <br />} and&nbsp;
-                    <b>designs</b> customized
-                    {!isDisplaySm && <br />} investment plans */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
@@ -568,17 +581,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.retirementPensionList2"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/* <b>Optimizes</b> fund and global stock selection through
-                    {isDisplaySm && <br />}the&nbsp;
-                    <b>
-                      Global Theme{isDisplaySm && "\u00A0"}
-                      {!isDisplaySm && <br />}
-                      Machine
-                    </b>
-                    &nbsp;and <b>NLP-based</b>&nbsp;{isDisplaySm && <br />}
-                    analysis */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
@@ -586,14 +593,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.retirementPensionList3"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/* <b>Ensures</b> stable and effective pension management
-                    with&nbsp;
-                    <b>
-                      personalized
-                      {!isDisplaySm && <br />} glide paths
-                    </b> */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
@@ -601,18 +605,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.retirementPensionList4"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/* <b>Proven track record,</b> including successful
-                    {isDisplaySm && <br />}
-                    collaborations with&nbsp;
-                    <b>
-                      KB{isDisplaySm && "\u00A0"}
-                      {!isDisplaySm && <br />}
-                      Securities’ MOA
-                    </b>
-                    &nbsp;service {isDisplaySm && <br />}and&nbsp;
-                    <b>Kiwoom Asset Management’s TDF</b> */}
                   </li>
                 </ul>
               </div>
@@ -646,7 +643,13 @@ const Dashboard = () => {
                 <span
                   className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all" // lineHeight: "27px"
                 >
-                  {t("pages.dashboard.companyValuationDesc1")}
+                  <Trans
+                    i18nKey="pages.dashboard.companyValuationDesc1"
+                    components={{
+                      b: <b />,
+                      br: isDisplayXS ? <br /> : <></>,
+                    }}
+                  />
                   {i18n.language === "en-US" && isDisplaySm && <br />}
                   {i18n.language === "ja-JP" && "\u00A0"}
                   {i18n.language === "en-US" && "\u00A0"}
@@ -679,16 +682,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList1"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/* <b>Conducts</b>&nbsp;precise,&nbsp;<b>data-driven</b>
-                    &nbsp;valuations{isDisplaySm && <br />} through&nbsp;
-                    <b>
-                      ERP{isDisplaySm && "\u00A0"}
-                      {!isDisplaySm && <br />}
-                      system
-                    </b>
-                    &nbsp;integration */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
@@ -696,17 +694,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList2"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/* <b>Streamlines</b>&nbsp;the&nbsp;creation of investment
-                    proposals with an&nbsp;
-                    <b>
-                      IR pitch deck{isDisplaySm && "\u00A0"}
-                      {!isDisplaySm && <br />}
-                      publishing
-                    </b>
-                    &nbsp;solution,{isDisplaySm && <br />} facilitating
-                    investment attraction */}
                   </li>
                   <li
                     className="list-type_outside fs_18 md:fs_16 leading_28px md:leading_24px fw_normal text_dark md:break_break-all"
@@ -714,13 +706,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList3"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/* <b>Expands</b> across <b>Asia -</b>&nbsp;including Korea,
-                    Japan,{isDisplaySm && <br />} China, and Vietnam&nbsp;-
-                    {!isDisplaySm && <br />}
-                    fostering a
-                    <b>global investment{isDisplaySm && <br />} ecosystem</b> */}
                   </li>
                 </ul>
                 {!(isDisplaySm || isDisplayNm) && (
@@ -730,11 +720,11 @@ const Dashboard = () => {
                   >
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList4"
-                      components={{ b: <b /> }}
+                      components={{
+                        b: <b />,
+                        br: isDisplayXS ? <br /> : <></>,
+                      }}
                     />
-                    {/* Make clearer investment decisions with&nbsp;
-                    <span className="fw_bold">Algolab’s</span>
-                    &nbsp;valuation solutions. */}
                   </span>
                 )}
               </div>

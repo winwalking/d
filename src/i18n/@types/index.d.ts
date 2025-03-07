@@ -91,6 +91,7 @@ export interface International {
       ourServicesFourth3: string;
       ourServicesFifth: string;
       ourServicesFifthBold: string;
+      ourServicesOtherDesc: string;
       why: string;
       ChooseUs: string;
       whyChooseUsDesc: string;

@@ -1200,7 +1200,7 @@
   .tracking_0\.05rem {
     letter-spacing: 0.05rem;
   }
-
+  
   .obj-fit_contain {
     object-fit: contain;
   }
@@ -2527,6 +2527,15 @@
 
   @media screen and (max-width: 24.375rem) {
     // 390 // xs
+    .xs\:min-w_243{
+      min-width: 243px;
+    }
+    .xs\:left_80\!{
+      left: 80px !important;
+    }
+    .xs\:tracking_\-0\.08em {
+      letter-spacing: -0.08em;
+    }
   }
 }
 *,

@@ -12,7 +12,7 @@ import i18n from "../i18n"; // i18n 설정 불러오기
 
 const WhyChooseUs = () => {
   const { t } = useTranslation();
-  const [isDisplayXS, setIsDisplayXs] = useState(false);
+  const [isDisplayXs, setIsDisplayXs] = useState(false);
   const [isDisplaySm, setIsDisplaySm] = useState(false);
   const [isDisplayMd, setIsDisplayMd] = useState(false);
   const [isDisplayNm, setIsDisplayNm] = useState(false);
@@ -51,8 +51,9 @@ const WhyChooseUs = () => {
       title: `${t("pages.dashboard.innofinancial")}`,
       article: (
         <span
-          className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
-          //   lineHeight: "27px",
+          className={`${
+            isDisplayXs ? "" : "line-clamp_three"
+          } fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px`} //   lineHeight: "27px",
         >
           {t("pages.dashboard.innofinancialDesc")}
           {/* We deliver precise asset {isDisplayXl && <br />}
@@ -68,7 +69,9 @@ const WhyChooseUs = () => {
       title: `${t("pages.dashboard.hyperPersonlized")}`,
       article: (
         <span
-          className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
+          className={`${
+            isDisplayXs ? "" : "line-clamp_three"
+          } fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px`}
           //   lineHeight: "27px",
         >
           {t("pages.dashboard.hyperPersonlizedDesc")}
@@ -84,7 +87,11 @@ const WhyChooseUs = () => {
       img: isDisplayMd ? <ProvenTrustMini /> : <ProvenTrust />,
       title: `${t("pages.dashboard.provenTrust")}`,
       article: (
-        <span className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px">
+        <span
+          className={`${
+            isDisplayXs ? "" : "line-clamp_three"
+          } fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px`}
+        >
           {t("pages.dashboard.provenTrustDesc")}
           {/* Our domestic and{isDisplayXl && <br />} international
           {!isDisplayXl && <br />} success
@@ -101,8 +108,9 @@ const WhyChooseUs = () => {
       title: `${t("pages.dashboard.leadershipMarket")}`,
       article: (
         <span
-          className="line-clamp_three fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px"
-          //   lineHeight: "27px",
+          className={`${
+            isDisplayXs ? "" : "line-clamp_three"
+          } fs_18 fw_normal leading_28px text-align_left break_break-all sm:fs_12 sm:leading_18px`} //   lineHeight: "27px",
         >
           {t("pages.dashboard.leadershipMarketDesc")}
           {/* Expanding from Korea, {!isDisplayXl || (isDisplayMd && <br />)}we are
@@ -148,10 +156,11 @@ const WhyChooseUs = () => {
         <div className="w_610 xl:w_509 nm:w_100% nm:mb_40">
           <h2 className="section_cts_title leading_84px mb_28 sm:mb_20 nm:fw_bold">
             {t("pages.dashboard.why")}
-            <br />{t("pages.dashboard.ChooseUs")}
+            <br />
+            {t("pages.dashboard.ChooseUs")}
           </h2>
           <p className="fs_18 md:fs_16 fw_400 leading_28px text_#33322e md:break_break-all">
-          {t("pages.dashboard.whyChooseUsDesc")}
+            {t("pages.dashboard.whyChooseUsDesc")}
             {/* Algolab is a trusted partner that helps clients achieve
             {isDisplaySm && <br />} their financial goals
             {!isDisplayXl && <br />}through innovative financial

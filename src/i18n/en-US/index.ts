@@ -93,6 +93,7 @@ const enUS: International = {
       ourServicesFourth3: "solutions",
       ourServicesFifth: "",
       ourServicesFifthBold: "",
+      ourServicesOtherDesc:"As we <b>expand into the Asian market,</b><sbr /> we empower our clients to<b> make better financial decisions.</b><nsbr /> Experience the <b>future of finance</b> with <b>Algolab.</b>",
       why: "Why",
       ChooseUs: "Choose Us?",
       whyChooseUsDesc:

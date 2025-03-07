@@ -12,7 +12,7 @@
   background: rgba(0, 0, 0, 0.2); /* 검은색 Opacity 20% */
   z-index: 33;
 }
-.overlay_header{
+.overlay_header {
   position: fixed;
   top: 0;
   left: 0;
@@ -401,7 +401,7 @@
   li {
     padding: 5px;
     cursor: pointer;
-    img{
+    img {
       width: 20px;
     }
     span {
@@ -862,7 +862,7 @@
 }
 @media screen and (max-width: 91.25rem) {
   // 1460 // xl
-  .styles_section{
+  .styles_section {
     max-width: 100%;
     margin-left: 40px;
     margin-right: 40px;
@@ -870,8 +870,7 @@
 }
 @media screen and (max-width: 80rem) {
   // 1280 // lg
-  .styles_section
-   {
+  .styles_section {
     padding: 80px 0;
     max-width: 100%;
     margin-left: 40px;
@@ -1984,6 +1983,13 @@
     grid-template-columns: repeat(auto-fit, 185px);
   }
 }
+@media screen and (max-width: 24.375rem) {
+  // 390 // xs
+  .why-us-grid-container {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
 .why-us-grid-item {
   width: 100%; /* Match the column width (350px) */
   height: 100%; /* Match the row height (344px) */
@@ -2050,7 +2056,9 @@
 }
 @media screen and (max-width: 540px) {
   .team-grid-container {
-    grid-template-columns: repeat(2, 187px);
+    // grid-template-columns: repeat(2, 187px);
+    grid-template-columns: repeat(2, auto);
+    margin: 0px;
   }
   .team-info-box {
     width: 152px !important;
@@ -2139,6 +2147,8 @@
   mask-composite: exclude; /* [3] 표준 속성 */
 }
 .explore-solutions-btn {
+  width: 38px;
+  height: 38px;
   position: absolute;
   bottom: 16px;
   padding: 7px;
@@ -2146,6 +2156,26 @@
   cursor: pointer;
   border: 2px solid #fff;
   background-color: rgba(255, 255, 255, 0.1);
+}
+.explore-solutions-btn::before {
+  content: "";
+  position: absolute;
+  width: 18px; /* 화살표 꼬리 길이 */
+  height: 2px; /* 꼬리 두께 */
+  background-color: white; /* 화살표 색상 */
+  left: 7px; /* 버튼 내 위치 조정 */
+}
+
+.explore-solutions-btn::after {
+  content: "";
+  position: absolute;
+  width: 10px; /* 화살표 머리 크기 */
+  height: 10px; /* 화살표 머리 크기 */
+  border-top: 2px solid white; /* 화살표 대각선 */
+  border-right: 2px solid white;
+  transform: rotate(45deg); /* 화살표 방향 조정 */
+  right: 8px; /* 버튼 내 위치 조정 */
+  top: 13px;
 }
 @media screen and (max-width: 65rem) {
   // 1040 // md
@@ -2157,6 +2187,31 @@
   .explore-solutions-btn {
     bottom: 8px;
     padding: 0px;
+    width: 24px;
+    height: 24px;
+    border-width: 1.263px;
+  }
+
+  .explore-solutions-btn::before {
+    content: "";
+    position: absolute;
+    width: 10px; /* 화살표 꼬리 길이 */
+    height: 1.263px; /* 꼬리 두께 */
+    background-color: white; /* 화살표 색상 */
+    left: 5px; /* 버튼 내 위치 조정 */
+    top: 10px; /* 버튼 내 위치 조정 */
+  }
+
+  .explore-solutions-btn::after {
+    content: "";
+    position: absolute;
+    width: 8px; /* 화살표 머리 크기 */
+    height: 8px; /* 화살표 머리 크기 */
+    border-top: 1.263px solid white; /* 화살표 대각선 */
+    border-right: 1.263px solid white;
+    transform: rotate(45deg); /* 화살표 방향 조정 */
+    right: 6px; /* 버튼 내 위치 조정 */
+    top: 7px; /* 버튼 내 위치 조정 */
   }
 }
 

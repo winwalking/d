@@ -38,7 +38,7 @@ const koKR: International = {
       ttFourth: "에서",
       ttFifth: "만나보세요",
       subDescFirst:
-        "자산 관리와 기업 가치평가의 새로운 가능성을 열어보세요. 최신 금융 기술과 맞춤 솔루션으로 더 나은 선택을 할 수 있습니다.",
+        "자산 관리와 기업 가치평가의 새로운 가능성을<br /> 열어보세요. 최신 금융 기술과 맞춤 솔루션으로<br /> 더 나은 선택을 할 수 있습니다.",
       subDescSecond: "",
       subDescThird: "",
       subDescFourth: "",
@@ -79,7 +79,7 @@ const koKR: International = {
       ourServices: "이렇게 도와드려요",
       ourServicesDesc: "",
       ourServicesFirstBold1: "로보어드바이저",
-      ourServicesFirst1: "로 연금 계획부터 스타트업 가치평가까지",
+      ourServicesFirst1: "로 연금 계획부터<br /> 스타트업 가치평가까지",
       ourServicesFirstBold2: "",
       ourServicesFirst2: "",
       ourServicesFirstBold3: "",
@@ -97,6 +97,7 @@ const koKR: International = {
       ourServicesFourth3: "",
       ourServicesFifth: "",
       ourServicesFifthBold: "",
+      ourServicesOtherDesc:"<b>한국을 넘어 아시아 시장으로,</b><br /> 디뉴로와 함께 더 나은 금융 결정을 함께하세요.",
       why: "우리가",
       ChooseUs: "선택받은 이유",
       whyChooseUsDesc:
@@ -117,7 +118,7 @@ const koKR: International = {
       retirementPension: "퇴직 연금",
       roboAdvisor: "로보어드바이저",
       retirementPensionDesc1:
-        "디뉴로의 퇴직 연금 로보어드바이저는 행동 경제학과 최첨단 금융 기술을 결합해 개인 맞춤형 연금 솔루션을 제공합니다.",
+        "디뉴로의 퇴직 연금 로보어드바이저는 행동 경제학과 최첨단 금융 기술을 결합해 <b>개인 맞춤형 연금 솔루션</b>을 제공합니다.",
       retirementPensionDesc2: "",
       retirementPensionDesc3: "",
       retirementPensionDesc4: "",
@@ -125,16 +126,16 @@ const koKR: International = {
       retirementPensionDesc6: "",
       retirementPensionDesc7: "",
       retirementPensionList1:
-        "고객의 투자 성향을 분석하고, 개인별 맞춤형 투자 계획을 설계합니다.",
+        "고객의 투자 성향을 분석하고,<br /> <b>개인별 맞춤형 투자 계획</b>을 설계합니다.",
       retirementPensionList2:
-        "Global Theme Machine과 NLP 기반 분석을 활용해 최적의 펀드 및 글로벌 주식을 추천합니다.",
+        "<b>Global Theme Machine</b>과 <b>NLP 기반 분석</b>을 <br />활용해 최적의 펀드 및 글로벌 주식을 추천합니다.",
       retirementPensionList3:
-        "개인 맞춤형 Glide Path 전략을 적용해, 은퇴 시점까지 안정적인 연금 운용을 돕습니다.",
+        "<b>개인 맞춤형 Glide Path 전략</b>을 적용해,<br /> 은퇴 시점까지 안정적인 연금 운용을 돕습니다.",
       retirementPensionList4:
-        "KB증권 MOA 서비스 및 키움자산운용 TDF와 협력하여 성공적인 운용 사례를 보유하고 있습니다.",
+        "<b>KB증권 MOA 서비스</b> 및 <b>키움자산운용 TDF</b>와 협력하여 성공적인 운용 사례를 보유하고 있습니다.",
       earlyStageCompanyValuation: "신생 기업 가치평가",
       companyValuationDesc1:
-        "디뉴로의 기업 가치평가 솔루션은 기업 데이터와 금융 정보를 결합해, 신뢰할 수 있는 최신 데이터 기반의 가치평가를 제공합니다. ",
+        "디뉴로의 기업 가치평가 솔루션은 <b>기업 데이터와 금융 정보를 결합</b>해, 신뢰할 수 있는 <b>최신 데이터 기반의 가치평가를 제공</b>합니다.",
       companyValuationDesc2: "",
       companyValuationDesc3: "",
       companyValuationDesc4: "",
@@ -142,12 +143,12 @@ const koKR: International = {
       companyValuationDesc6: "",
       companyValuationDesc7: "",
       companyValuationList1:
-        "ERP 시스템과 연동하여, 기업의 데이터를 바탕으로 신뢰도 높은 평가를 수행합니다.",
+        "ERP 시스템과 연동하여, 기업의 데이터를 바탕으로 <b>신뢰도 높은 평가를 수행</b>합니다.",
       companyValuationList2:
-        "IR 피치덱 퍼블리싱 솔루션을 활용해 투자 유치를 효과적으로 지원합니다.",
+        "<b>IR 피치덱 퍼블리싱 솔루션</b>을 활용해 투자 유치를<br /> 효과적으로 지원합니다.",
       companyValuationList3:
-        "한국, 일본, 중국, 베트남을 포함한 아시아 시장에서 기업의 성장을 돕습니다.",
-      companyValuationList4: "더 명확한 투자 결정을 위해 디뉴로를 선택하세요.",
+        "한국, 일본, 중국, 베트남을 포함한 <b>아시아 시장에서 기업의 성장</b>을 돕습니다.",
+      companyValuationList4: "더 명확한 투자 결정을 위해 <b>디뉴로</b>를 선택하세요.",
       history: "연혁",
       historyDate20201: "2020년 1월",
       historyDesc20201: "법인 설립",
