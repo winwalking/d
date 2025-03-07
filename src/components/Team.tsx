@@ -17,16 +17,6 @@ const Team = () => {
   // Array containing data for each team member
   const teamData = [
     {
-      imgSrc: TeamProfileMayumi,
-      name: `${t("pages.dashboard.teamMayumi")}`,
-      title: `${t("pages.dashboard.mayumiTitle")}`,
-    },
-    {
-      imgSrc: TeamProfileAbiko,
-      name: `${t("pages.dashboard.teamAbiko")}`,
-      title: `${t("pages.dashboard.abikoTitle")}`,
-    },
-    {
       imgSrc: TeamProfileSeungjong,
       name: `${t("pages.dashboard.teamSeungjong")}`,
       title: `${t("pages.dashboard.seungjongTitle")}`,
@@ -65,6 +55,16 @@ const Team = () => {
       imgSrc: TeamProfileHyunji,
       name: `${t("pages.dashboard.teamHyunji")}`,
       title: `${t("pages.dashboard.hyunjiTitle")}`,
+    },
+    {
+      imgSrc: TeamProfileMayumi,
+      name: `${t("pages.dashboard.teamMayumi")}`,
+      title: `${t("pages.dashboard.mayumiTitle")}`,
+    },
+    {
+      imgSrc: TeamProfileAbiko,
+      name: `${t("pages.dashboard.teamAbiko")}`,
+      title: `${t("pages.dashboard.abikoTitle")}`,
     },
   ];
 

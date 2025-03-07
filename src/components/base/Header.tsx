@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import Logo from "assets/image/logo_header.svg";
+import Logo from "assets/image/logo_header_d.svg";
 import Message from "assets/image/msg_header.svg";
 import Alram from "assets/image/alram_header.svg";
 import Profile from "assets/image/profile_header.svg";
 import Translation from "assets/image/translation.svg";
 import MoblieMenuBtn from "assets/image/mobile_menu_btn.svg";
-import TransJapan from "assets/image/trans_japan.png";
-import TransKorea from "assets/image/trans_south_korea.png";
-import TransUSA from "assets/image/trans_usa.png";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n"; // i18n 설정 불러오기
 
@@ -58,6 +55,7 @@ const Header: React.FC<HeaderProps> = ({
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+    setIsDropdownOpen(false);
   };
 
   // 🔥 드롭다운 외부 클릭 감지 이벤트 추가
@@ -111,7 +109,7 @@ const Header: React.FC<HeaderProps> = ({
           <div className="styles_pcOnly">
             <div className="styles_waitlist d_flex!" ref={dropdownRef}>
               <div
-                className="pos_relative d_flex items_center"
+                className="pos_relative d_flex items_center cursor_pointer"
                 onClick={toggleTranslator}
               >
                 <Translation className="my_0" />
@@ -129,33 +127,20 @@ const Header: React.FC<HeaderProps> = ({
                     className="d_flex items_center"
                     onClick={() => changeLanguage("ko-KR")}
                   >
-                    <img src={TransKorea} alt="" className="" />
                     <span>한국어</span>
                   </li>
                   <li
                     className="d_flex items_center"
                     onClick={() => changeLanguage("en-US")}
                   >
-                    <img src={TransUSA} alt="" />
                     <span>English</span>
-                  </li>
-                  <li
-                    className="d_flex items_center"
-                    onClick={() => changeLanguage("ja-JP")}
-                  >
-                    <img src={TransJapan} alt="" />
-                    <span>日本語</span>
                   </li>
                 </ul>
               )}
-              <Message className="my_0 mx_12" />
-              <Alram className="my_0 mx_12" />
-              <Profile className="my_0 mx_12" />
+              <Message className="my_0 mx_12 cursor_pointer" />
+              <Alram className="my_0 mx_12 cursor_pointer" />
+              <Profile className="my_0 mx_12 cursor_pointer" />
             </div>
-
-            {/* <button onClick={() => changeLanguage("ko-KR")}>한국어</button>
-            <button onClick={() => changeLanguage("en-US")}>English</button>
-            <button onClick={() => changeLanguage("ja-JP")}>日本語</button> */}
           </div>
 
           <div className="styles_mobileOnly">
@@ -202,27 +187,13 @@ const Header: React.FC<HeaderProps> = ({
                 className="d_flex items_center"
                 onClick={() => changeLanguage("ko-KR")}
               >
-                <img
-                  src={TransKorea}
-                  alt=""
-                  className=""
-                  style={{ width: 20 }}
-                />
                 <span>한국어</span>
               </li>
               <li
                 className="d_flex items_center"
                 onClick={() => changeLanguage("en-US")}
               >
-                <img src={TransUSA} alt="" style={{ width: 20 }} />
                 <span>English</span>
-              </li>
-              <li
-                className="d_flex items_center"
-                onClick={() => changeLanguage("ja-JP")}
-              >
-                <img src={TransJapan} alt="" style={{ width: 20 }} />
-                <span>日本語</span>
               </li>
             </ul>
           </div>

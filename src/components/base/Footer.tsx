@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import LogoFooter from "assets/image/logo_footer.svg";
-import LogoTextFooter from "assets/image/logo_text_footer.svg";
-import LogoTextFooterMd from "assets/image/logo_text_footer_md.svg";
+import LogoFooter from "assets/image/logo_footer_d.svg";
+import LogoTextFooter from "assets/image/logo_text_footer_d.svg";
+import LogoTextFooterMd from "assets/image/logo_text_footer_md_d.svg";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n"; // i18n 설정 불러오기
 // Predefined menu items
@@ -108,14 +108,15 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
           <div className="w_390 md:d_flex md:flex_column-reverse!">
             <div className="md:mb_28">
               <div className="d_flex items_center mb_20 gap_20">
-                {isDisplayMd ? <LogoTextFooterMd /> : <LogoTextFooter />}
-                <span className="text_rgb(118,_118,_118) fs_18 md:fs_14 fw_400">
-                  Powered by Dneuro
-                </span>
+                {isDisplayMd ? (
+                  <LogoTextFooterMd/>
+                ) : (
+                  <LogoTextFooter />
+                )}
               </div>
               <div className="mb_20">
                 <span className="text_rgb(118,_118,_118) fs_18 md:fs_14 fw_400">
-                  © 2025 Algolab INC. All Rights Reserved.
+                  © 2025 Dneuro INC. All Rights Reserved.
                 </span>
               </div>
             </div>
