@@ -97,11 +97,11 @@ const koKR: International = {
       ourServicesFourth3: "",
       ourServicesFifth: "",
       ourServicesFifthBold: "",
-      ourServicesOtherDesc:"<b>한국을 넘어 아시아 시장으로,</b><br /> 디뉴로와 함께 더 나은 금융 결정을 함께하세요.",
+      ourServicesOtherDesc:"<b>한국을 넘어 아시아 시장으로,</b><sbr /> 디뉴로와 함께 더 나은 금융 결정을 함께하세요.",
       why: "우리가",
       ChooseUs: "선택받은 이유",
       whyChooseUsDesc:
-        "디뉴로는 혁신적인 금융 기술과 맞춤형 자산 관리 서비스를 통해\n고객이 더 나은 금융 목표를 달성하도록 돕습니다.\n아시아 시장을 선도하는 금융 테크 기업으로서, 함께 금융의 미래를 만들어갑니다. ",
+        "디뉴로는<comma /><br /> 혁신적인 금융 기술과 맞춤형 자산 관리 서비스를 통해\n고객이 더 나은 금융 목표를 달성하도록 돕습니다.\n아시아 시장을 선도하는 금융 테크 기업으로서, 함께 금융의 미래를 만들어갑니다. ",
       innofinancial: "혁신적인 금융 기술",
       innofinancialDesc:
         "임베디드 금융과 AI 기반 분석을 활용해, 데이터 중심의 스마트한 금융 결정을\n지원합니다. 보다 빠르고 신뢰할 수 있는 투자 전략을 통해 고객이 시장의 변화를\n놓치지 않도록 합니다. ",
@@ -145,7 +145,7 @@ const koKR: International = {
       companyValuationList1:
         "ERP 시스템과 연동하여, 기업의 데이터를 바탕으로 <b>신뢰도 높은 평가를 수행</b>합니다.",
       companyValuationList2:
-        "<b>IR 피치덱 퍼블리싱 솔루션</b>을 활용해 투자 유치를<br /> 효과적으로 지원합니다.",
+        "<b>IR 피치덱 퍼블리싱 솔루션</b>을 활용해 투자 유치를 효과적으로 지원합니다.",
       companyValuationList3:
         "한국, 일본, 중국, 베트남을 포함한 <b>아시아 시장에서 기업의 성장</b>을 돕습니다.",
       companyValuationList4: "더 명확한 투자 결정을 위해 <b>디뉴로</b>를 선택하세요.",

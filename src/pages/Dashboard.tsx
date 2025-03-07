@@ -96,7 +96,7 @@ const Dashboard = () => {
     company: "",
     message: "",
   });
-  const [isDisplayXS, setIsDisplayXs] = useState(false);
+  const [isDisplayXs, setIsDisplayXs] = useState(false);
   const [isDisplaySm, setIsDisplaySm] = useState(false);
   const [isDisplayMd, setIsDisplayMd] = useState(false);
   const [isDisplayNm, setIsDisplayNm] = useState(false);
@@ -238,7 +238,7 @@ const Dashboard = () => {
               <span className="text_white leading_30px fs_20 md:fs_16 fw_normal mb_120 nm:mb_48 w_780 lg:w_517 nm:w_100%">
                 <Trans
                   i18nKey="pages.dashboard.subDescFirst"
-                  components={{ br: isDisplayXS ? <br /> : <></> }}
+                  components={{ br: isDisplayXs ? <br /> : <></> }}
                 />
                 {i18n.language === "ko-KR" || (isDisplayLg && <br />)}
                 {t("pages.dashboard.subDescSecond")}
@@ -528,7 +528,7 @@ const Dashboard = () => {
                 isDisplayNm ||
                 isDisplayMd ||
                 isDisplaySm ||
-                isDisplayXS ? (
+                isDisplayXs ? (
                   <p className="h_342 fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
                     {t("pages.dashboard.retirementPension")}
                     {<br />}
@@ -571,7 +571,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.retirementPensionList1"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -583,7 +583,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.retirementPensionList2"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -595,7 +595,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.retirementPensionList3"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -607,7 +607,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.retirementPensionList4"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -635,7 +635,7 @@ const Dashboard = () => {
                 isDisplayNm ||
                 isDisplayMd ||
                 isDisplaySm ||
-                isDisplayXS ? (
+                isDisplayXs ? (
                   <p className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
                     {t("pages.dashboard.earlyStageCompanyValuation")}
                   </p>
@@ -647,7 +647,7 @@ const Dashboard = () => {
                     i18nKey="pages.dashboard.companyValuationDesc1"
                     components={{
                       b: <b />,
-                      br: isDisplayXS ? <br /> : <></>,
+                      br: isDisplayXs ? <br /> : <></>,
                     }}
                   />
                   {i18n.language === "en-US" && isDisplaySm && <br />}
@@ -684,7 +684,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.companyValuationList1"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -696,7 +696,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.companyValuationList2"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -708,7 +708,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.companyValuationList3"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -722,7 +722,7 @@ const Dashboard = () => {
                       i18nKey="pages.dashboard.companyValuationList4"
                       components={{
                         b: <b />,
-                        br: isDisplayXS ? <br /> : <></>,
+                        br: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </span>

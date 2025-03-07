@@ -7,7 +7,7 @@ import FinancialTechnologiesMini from "assets/image/why_choose_us_finanicial_tec
 import HyperPersonlizedMini from "assets/image/why_choose_us_hyper_personali_responsive.svg";
 import ProvenTrustMini from "assets/image/why_choose_us_proven_trust_responsive.svg";
 import LeadershipMini from "assets/image/why_choose_us_leadership_responsive.svg";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import i18n from "../i18n"; // i18n 설정 불러오기
 
 const WhyChooseUs = () => {
@@ -160,18 +160,13 @@ const WhyChooseUs = () => {
             {t("pages.dashboard.ChooseUs")}
           </h2>
           <p className="fs_18 md:fs_16 fw_400 leading_28px text_#33322e md:break_break-all">
-            {t("pages.dashboard.whyChooseUsDesc")}
-            {/* Algolab is a trusted partner that helps clients achieve
-            {isDisplaySm && <br />} their financial goals
-            {!isDisplayXl && <br />}through innovative financial
-            {isDisplaySm && <br />}
-            technologies and hyper-personalized services.
-            {!isDisplayXl && <br />}
-            {isDisplayXl && "\u00A0"}
-            As a{isDisplaySm && <br />} leader in the Asian market, we are
-            shaping the future{isDisplaySm && <br />} of finance
-            {!isDisplayXl && <br />}
-            {isDisplayXl && "\u00A0"}together. */}
+            <Trans
+              i18nKey="pages.dashboard.whyChooseUsDesc"
+              components={{
+                br: isDisplayXs ? <br /> : <></>,
+                comma: isDisplayXs ? <span>,</span> : <></>,
+              }}
+            />
           </p>
         </div>
       </div>
