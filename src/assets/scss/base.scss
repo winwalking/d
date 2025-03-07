@@ -2499,6 +2499,9 @@
     .sm\:fs_14 {
       font-size: 14px;
     }
+    .sm\:fs_56 {
+      font-size: 56px;
+    }
     .sm\:leading_18px {
       line-height: 18px;
     }
@@ -2517,6 +2520,9 @@
     .sm\:leading_30px {
       line-height: 30px;
     }
+    .sm\:leading_84px {
+      line-height: 84px;
+    }
     .sm\:w_fit-content {
       width: fit-content;
     }
@@ -2525,8 +2531,9 @@
     }
   }
 
-  @media screen and (max-width: 24.375rem) {
-    // 390 // xs
+  @media screen and (max-width: 26.875rem) {
+    // 430 // 26.875
+    // 390 // xs // 24.375rem
     .xs\:min-w_243{
       min-width: 243px;
     }

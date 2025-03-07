@@ -204,7 +204,7 @@ const Dashboard = () => {
           <div className="styles_section mt_0 d_flex justify_between items_flex-start py_124! pb_60! lg:py_96! lg:pb_44! md:flex_column! md:items_center sm:items_flex-start!">
             <div className="d_flex flex_column">
               {/* pt_60 */}
-              <h1 className="fw_normal fs_80 md:fs_60 leading_120px md:leading_90px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100% xs:tracking_-0.08em">
+              <h1 className="fw_normal fs_80 md:fs_60 sm:fs_56 leading_120px md:leading_90px sm:leading_84px mb_80 nm:mb_20 text_white text-align_left lg:w_517 nm:w_100% xs:tracking_-0.08em">
                 {t("pages.dashboard.ttFirst")}
                 {isDisplayXl && <br />}
                 {!isDisplayXl && !isDisplayLg && "\u00A0"}

@@ -142,7 +142,13 @@ const WhyChooseUs = () => {
                   {/* Render image */}
                   {reason.img}
                 </div>
-                <p className="w_189 fs_20 fw_bold leading_30px text-align_left mb_12 md:fs_16 sm:w_fit-content sm:fs_14 sm:leading_21px">
+                <p
+                  className={`${
+                    reason.title === `${t("pages.dashboard.leadershipMarket")}`
+                      ? "xs:tracking_-0.08em"
+                      : ""
+                  } w_189 fs_20 fw_bold leading_30px text-align_left mb_12 md:fs_16 sm:w_fit-content sm:fs_14 sm:leading_21px`}
+                >
                   {/* Render title */}
                   {reason.title}
                 </p>
