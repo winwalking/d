@@ -113,13 +113,7 @@ const Header: React.FC<HeaderProps> = ({
                 onClick={toggleTranslator}
               >
                 <Translation className="my_0" />
-                <span>
-                  {i18n.language === "ja-JP"
-                    ? "日本語"
-                    : i18n.language === "ko-KR"
-                    ? "한국어"
-                    : "ENG"}
-                </span>
+                <span>{i18n.language === "ko-KR" ? "한국어" : "ENG"}</span>
               </div>
               {isDropdownOpen && (
                 <ul className="styles_dropdown_menu">
