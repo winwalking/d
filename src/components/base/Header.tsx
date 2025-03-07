@@ -155,7 +155,7 @@ const Header: React.FC<HeaderProps> = ({
           transition: "transform 0.3s ease-in-out", // 부드러운 애니메이션 효과 추가
         }}
       >
-        <div onClick={toggleMobileMenu}>닫기(임시방편)</div>
+        <div onClick={toggleMobileMenu}>닫기</div>
         <div className="styles_module_5">
           <div className="flex_column items_flex-start">
             <div className="styles_navigationItems flex_column">
