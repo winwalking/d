@@ -22,11 +22,11 @@ const enUS: International = {
     footer: {
       privacyPolicy: "Privacy Policy",
       termsOfService: "Terms of Service",
-      address1: "100-0005",
-      address2: "ALGOLAB Inc. Level 2, Marunouchi",
-      address3: "Nijubashi",
-      address4: "Building, 3-2-2, Marunouchi,",
-      address5: "Chiyoda-ku, Tokyo",
+      address1: "06134",
+      address2: "KG Tower 08-104, 7, Teheran-ro 5gil,",
+      address3: "",
+      address4: "Gangnam-gu, Seoul, Republic of Korea",
+      address5: "",
     },
   },
   pages: {
