@@ -576,7 +576,10 @@
     background-color: rgba(17, 17, 17, 0.5);
   }
   .bg_rgba\(50\,_96\,_231\,_1\) {
-    background-color: rgba(50, 96, 231, 1);
+    background-color: #3260e7;
+  }
+  .bg_rgba\(22\,_35\,_254\,_1\) {
+    background-color: rgba(22, 35, 254, 1);
   }
   .bg_rgba\(146\,_177\,_227\,_0\.3\) {
     background-color: rgba(146, 177, 227, 0.3);
@@ -785,7 +788,9 @@
   .h_auto {
     height: auto;
   }
-
+  .h_auto\! {
+    height: auto !important;
+  }
   .px_0 {
     padding-inline: 0;
   }
@@ -1200,7 +1205,7 @@
   .tracking_0\.05rem {
     letter-spacing: 0.05rem;
   }
-  
+
   .obj-fit_contain {
     object-fit: contain;
   }
@@ -1462,6 +1467,10 @@
 
   .d_initial {
     display: initial;
+  }
+
+  .transform_rotate\(45deg\) {
+    transform: rotate(45deg);
   }
 
   .transform_rotate\(90deg\) {
@@ -2148,7 +2157,6 @@
     .xl\:flex-wrap_wrap\! {
       flex-wrap: wrap !important;
     }
-
   }
   @media screen and (max-width: 80rem) {
     // 1280 // lg
@@ -2182,7 +2190,7 @@
     .lg\:d_flex {
       display: flex;
     }
-    .lg\:items_flex-start{
+    .lg\:items_flex-start {
       align-items: flex-start;
     }
     .lg\:items_center {
@@ -2534,10 +2542,10 @@
   @media screen and (max-width: 26.875rem) {
     // 430 // 26.875
     // 390 // xs // 24.375rem
-    .xs\:min-w_243{
+    .xs\:min-w_243 {
       min-width: 243px;
     }
-    .xs\:left_80\!{
+    .xs\:left_80\! {
       left: 80px !important;
     }
     .xs\:tracking_\-0\.08em {

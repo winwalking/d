@@ -5,6 +5,7 @@ import Alram from "assets/image/alram_header.svg";
 import Profile from "assets/image/profile_header.svg";
 import Translation from "assets/image/translation.svg";
 import MoblieMenuBtn from "assets/image/mobile_menu_btn.svg";
+import MobileMenuClseBtn from "assets/image/close_white_trans.svg";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n"; // i18n 설정 불러오기
 
@@ -144,7 +145,6 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       </header>
-
       {/* Mobile Menu Overlay */}
       <div
         className={`styles_layout_header_other ${
@@ -155,7 +155,9 @@ const Header: React.FC<HeaderProps> = ({
           transition: "transform 0.3s ease-in-out", // 부드러운 애니메이션 효과 추가
         }}
       >
-        <div onClick={toggleMobileMenu}>닫기</div>
+        <div className="styles_module_5 h_auto!" onClick={toggleMobileMenu}>
+          <MobileMenuClseBtn className="transform_rotate(45deg)"/>
+        </div>
         <div className="styles_module_5">
           <div className="flex_column items_flex-start">
             <div className="styles_navigationItems flex_column">
@@ -166,28 +168,42 @@ const Header: React.FC<HeaderProps> = ({
                     className="styles_navigationTreeLabel"
                     onClick={() => scrollToSection(menu.path)}
                   >
-                    <a>{menu.name}</a>
+                    <a style={{ fontWeight: "bold", color: "#fff" }}>
+                      {menu.name}
+                    </a>
                   </h2>
                 </div>
               ))}
             </div>
-            <div className="styles_waitlist d_flex!">
+            <div className="styles_waitlist d_flex! mb_40">
               <Message className="my_0 mx_12" />
               <Alram className="my_0 mx_12" />
               <Profile className="my_0 mx_12" />
             </div>
             <ul className="styles_trans_menu">
               <li
-                className="d_flex items_center"
+                className={`${
+                  i18n.language === "ko-KR" ? "bg_rgba(22,_35,_254,_1)" : ""
+                } d_flex items_center`}
                 onClick={() => changeLanguage("ko-KR")}
               >
-                <span>한국어</span>
+                <span
+                  className={`${i18n.language === "ko-KR" ? "fw_bold " : ""}`}
+                >
+                  한국어
+                </span>
               </li>
               <li
-                className="d_flex items_center"
+                className={`${
+                  i18n.language === "en-US" ? "bg_rgba(22,_35,_254,_1)" : ""
+                } d_flex items_center`}
                 onClick={() => changeLanguage("en-US")}
               >
-                <span>English</span>
+                <span
+                  className={`${i18n.language === "en-US" ? "fw_bold" : ""}`}
+                >
+                  English
+                </span>
               </li>
             </ul>
           </div>
