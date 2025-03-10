@@ -158,7 +158,7 @@ const Dashboard = () => {
     setToast({ ...toast, visible: false });
   };
   // 폼 전송 함수
-  const emailRegex = /^[a-zA-Z0-9]{4,}@[a-zA-Z0-9]{3,}\.[a-zA-Z]{2,}$/;
+  const emailRegex = /^[a-zA-Z0-9]{3,}@[a-zA-Z0-9]{3,}\.[a-zA-Z]{2,}$/;
 
   const sendForm = async () => {
     if (!isFormValid || loading) return; // 폼이 유효하지 않거나 로딩 중이면 실행 안 함
