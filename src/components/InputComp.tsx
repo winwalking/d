@@ -127,7 +127,7 @@ const InputComp: React.FC<InputCompProps> = ({
       const emailPattern = /^[a-zA-Z0-9]{4,}@[a-zA-Z0-9]{3,}\.[a-zA-Z]{2,}$/;
       if (!emailPattern.test(value)) {
         setError(true);
-        setErrorMessage({t("pages.dashboard.contactUsInputRequired")});
+        setErrorMessage(t("pages.dashboard.contactUsInputRequired"));
       } else {
         setError(false);
         setErrorMessage("");
