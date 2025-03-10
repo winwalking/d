@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const { t } = useTranslation();
   const dropdownRef = useRef<HTMLDivElement>(null); // 🔥 드롭다운을 감싸는 Ref 추가
-  // Translate menu names
+  const mobileMenuRef = useRef<HTMLDivElement>(null); // 🔥 메뉴 내부 감지 Ref
   const translatedMenus = predefinedMenus.map((menu) => ({
     ...menu,
     name: t(`layouts.top.menus.landing.${menu.key}`),
@@ -49,9 +49,14 @@ const Header: React.FC<HeaderProps> = ({
     setIsDropdownOpen(!isDropdownOpen);
   };
   const toggleMobileMenu = () => {
-    const newState = !isOpen; // 🛠 상태를 미리 저장
+    const newState = !isOpen; 
     setIsOpen(newState);
-    shadowOn(newState); // 🛠 shadowOn에 newState 전달
+    shadowOn(newState); 
+    if (newState) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   };
 
   const changeLanguage = (lng: string) => {
@@ -59,7 +64,6 @@ const Header: React.FC<HeaderProps> = ({
     setIsDropdownOpen(false);
   };
 
-  // 🔥 드롭다운 외부 클릭 감지 이벤트 추가
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -78,6 +82,28 @@ const Header: React.FC<HeaderProps> = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isDropdownOpen]);
+
+  useEffect(() => {
+    const handleMobileClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+        shadowOn(false);
+        document.body.style.overflow = "";
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleMobileClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleMobileClickOutside);
+    };
+  }, [isOpen]);
   return (
     <div className="styles_layout_header">
       <header className="styles_header">
@@ -147,6 +173,7 @@ const Header: React.FC<HeaderProps> = ({
       </header>
       {/* Mobile Menu Overlay */}
       <div
+        ref={mobileMenuRef} 
         className={`styles_layout_header_other ${
           isOpen ? "styles_isVisible" : ""
         }`}
@@ -155,12 +182,15 @@ const Header: React.FC<HeaderProps> = ({
           transition: "transform 0.3s ease-in-out", // 부드러운 애니메이션 효과 추가
         }}
       >
-        <div className="styles_module_5 h_auto!" onClick={toggleMobileMenu}>
-          <MobileMenuClseBtn className="transform_rotate(45deg)"/>
+        <div className="styles_module_5 h_auto!">
+          <MobileMenuClseBtn
+            className="transform_rotate(45deg) cursor_pointer"
+            onClick={toggleMobileMenu}
+          />
         </div>
         <div className="styles_module_5">
           <div className="flex_column items_flex-start">
-            <div className="styles_navigationItems flex_column">
+            <div className="styles_navigationItems flex_column mb_40!">
               {/* Render Mobile Menus */}
               {translatedMenus.map((menu) => (
                 <div key={menu.id} className="styles_navigationTree">
@@ -168,9 +198,7 @@ const Header: React.FC<HeaderProps> = ({
                     className="styles_navigationTreeLabel"
                     onClick={() => scrollToSection(menu.path)}
                   >
-                    <a style={{ fontWeight: "bold", color: "#fff" }}>
-                      {menu.name}
-                    </a>
+                    <a className="fw_bold text_white">{menu.name}</a>
                   </h2>
                 </div>
               ))}
@@ -209,7 +237,7 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       </div>
-      {isOpen && <div className="overlay" />}{" "}
+      {isOpen && <div className="overlay" />}
     </div>
   );
 };

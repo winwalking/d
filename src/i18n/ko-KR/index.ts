@@ -114,7 +114,7 @@ const koKR: International = {
       leadershipMarket: "아시아 시장을 선도하는 기업",
       leadershipMarketDesc:
         "기술과 금융을 결합한 새로운 투자 방식을 제시하며, 글로벌 파트너들과 협력해 보다 넓은 시장에서 고객이 더 많은 기회를 \n가질 수 있도록 돕습니다.",
-      services: "",
+      services: "서비스",
       retirementPension: "퇴직 연금",
       roboAdvisor: "로보어드바이저",
       retirementPensionDesc1:

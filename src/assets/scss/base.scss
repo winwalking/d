@@ -1804,6 +1804,9 @@
   .mb_40 {
     margin-bottom: 40px;
   }
+  .mb_40\! {
+    margin-bottom: 40px !important;
+  }
   .font_\'proxima-nova\'\,_\'kinto-sans\' {
     font-family: proxima-nova, kinto-sans;
   }
@@ -2567,7 +2570,7 @@
 html {
   line-height: 1;
   box-sizing: border-box;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 ol,
 ul {
