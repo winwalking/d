@@ -52,43 +52,62 @@ const Dashboard = () => {
   };
 
   const [scrolling, setScrolling] = useState(false); // 스크롤 잠금 상태 추가
+  const [scrollOffset, setScrollOffset] = useState(60); // 🔥 고정된 offset 값 (예: 20px)
   const [isShadowOn, setIsShadowOn] = useState(false); // 🛠 상태 추가
   const scrollToSection = (id: keyof typeof sectionRefs) => {
     const section = sectionRefs[id]?.current;
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const targetPosition = section.getBoundingClientRect().top + window.scrollY - scrollOffset;
+      window.scrollTo({ top: targetPosition, behavior: "smooth" });
       setActiveMenu(id); // 클릭한 메뉴로 활성화
-      console.log(id);
       setScrolling(true); // 스크롤 잠금 활성화
-      console.log(id);
-
       setTimeout(() => {
         setScrolling(false); // 잠금 해제
       }, 1000); // 스크롤 애니메이션 시간 동안 잠금 유지
     }
   };
-
   useEffect(() => {
     const handleScroll = () => {
       if (scrolling) return; // 스크롤 잠금 상태일 때 무시
-
+  
       const offsets = Object.entries(sectionRefs).map(([key, ref]) => ({
         key,
-        offset: ref.current?.getBoundingClientRect().top || Infinity,
+        offset: ref.current ? ref.current.getBoundingClientRect().top - scrollOffset : Infinity, // 💡 offset 반영
       }));
-
+  
       const closest = offsets.reduce((acc, curr) =>
         Math.abs(curr.offset) < Math.abs(acc.offset) ? curr : acc
       );
-
+  
       if (closest.key !== activeMenu) {
         setActiveMenu(closest.key as keyof typeof sectionRefs);
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeMenu, scrolling, sectionRefs]);
+  }, [activeMenu, scrolling, sectionRefs, scrollOffset]);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (scrolling) return; // 스크롤 잠금 상태일 때 무시
+
+  //     const offsets = Object.entries(sectionRefs).map(([key, ref]) => ({
+  //       key,
+  //       offset: ref.current?.getBoundingClientRect().top || Infinity,
+  //     }));
+
+  //     const closest = offsets.reduce((acc, curr) =>
+  //       Math.abs(curr.offset) < Math.abs(acc.offset) ? curr : acc
+  //     );
+
+  //     if (closest.key !== activeMenu) {
+  //       setActiveMenu(closest.key as keyof typeof sectionRefs);
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [activeMenu, scrolling, sectionRefs]);
 
   const [formData, setFormData] = useState({
     name: "",

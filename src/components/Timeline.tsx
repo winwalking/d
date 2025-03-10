@@ -217,7 +217,7 @@ const Timeline = () => {
   const years = Object.keys(yearContent);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  const [scrollOffset, setScrollOffset] = useState<number>(-220);
+  const [scrollOffset, setScrollOffset] = useState<number>(-270);
 
   const handleYearClick = (year: string) => {
     setActiveYear(year);
