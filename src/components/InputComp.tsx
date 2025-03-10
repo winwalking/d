@@ -87,7 +87,7 @@ import React, { useState, useEffect } from "react";
 
 interface InputCompProps {
   label: string; // Label text
-  type: "input" | "textarea"; // Type of element to render
+  type: "input" | "textarea" | "email"; // Added "email" type
   placeholder?: string | React.ReactNode; // 🔥 React 요소도 허용
   width?: string; // Width of the input/textarea
   height?: string; // Height of the input/textarea (only for textarea)
@@ -115,17 +115,30 @@ const InputComp: React.FC<InputCompProps> = ({
   name,
 }) => {
   const [error, setError] = useState(false); // State to manage error
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleBlur = (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (!value) {
-      setError(true); // Show error if value is empty
+      setError(true);
+      setErrorMessage("This field is required.");
+    } else if (type === "email") {
+      const emailPattern = /^[a-zA-Z0-9]{4,}@[a-zA-Z0-9]{3,}\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(value)) {
+        setError(true);
+        setErrorMessage({t("pages.dashboard.contactUsInputRequired")});
+      } else {
+        setError(false);
+        setErrorMessage("");
+      }
     } else {
-      setError(false); // Clear error if value exists
+      setError(false);
+      setErrorMessage("");
     }
+
     if (onBlur) {
-      onBlur(e); // Call the external onBlur handler if provided
+      onBlur(e);
     }
   };
   const [isDisplayXS, setIsDisplayXs] = useState(false);
@@ -171,34 +184,14 @@ const InputComp: React.FC<InputCompProps> = ({
         {label}
       </label>
 
-      {/* Input or Textarea */}
-      {type === "input" ? (
-        <input
-          type="text"
-          placeholder={typeof placeholder === "string" ? placeholder : undefined} // 🚀 문자열만 placeholder로 설정
-          value={value}
-          onChange={onChange}
-          onBlur={handleBlur} // Trigger error check on blur
-          name={name} // Pass name prop
-          style={{
-            width: width,
-            color: "#767676",
-            padding: "10px",
-            fontSize: isDisplayMd ? "16px" : "18px",
-            border: error ? "1px solid red" : "1px solid #D5DBE2", // Highlight border if error
-            borderRadius: "4px",
-            backgroundColor: "#fff",
-            boxSizing: "border-box",
-          }}
-        />
-        
-      ) : (
+       {/* Input or Textarea */}
+       {type === "textarea" ? (
         <textarea
-        placeholder={typeof placeholder === "string" ? placeholder : undefined} // 🚀 문자열만 placeholder로 설정
+          placeholder={typeof placeholder === "string" ? placeholder : undefined}
           value={value}
           onChange={onChange}
-          onBlur={handleBlur} // Trigger error check on blur
-          name={name} // Pass name prop
+          onBlur={handleBlur}
+          name={name}
           style={{
             width: width,
             height: height,
@@ -206,15 +199,33 @@ const InputComp: React.FC<InputCompProps> = ({
             padding: "20px",
             fontSize: isDisplayMd ? "16px" : "18px",
             lineHeight: "27px",
-            border: error ? "1px solid red" : "1px solid #D5DBE2", // Highlight border if error
+            border: error ? "1px solid red" : "1px solid #D5DBE2",
             borderRadius: "4px",
             resize: resize,
             backgroundColor: "#fff",
             boxSizing: "border-box",
           }}
         />
+      ) : (
+        <input
+          type={type === "email" ? "email" : "text"}
+          placeholder={typeof placeholder === "string" ? placeholder : undefined}
+          value={value}
+          onChange={onChange}
+          onBlur={handleBlur}
+          name={name}
+          style={{
+            width: width,
+            color: "#767676",
+            padding: "10px",
+            fontSize: isDisplayMd ? "16px" : "18px",
+            border: error ? "1px solid red" : "1px solid #D5DBE2",
+            borderRadius: "4px",
+            backgroundColor: "#fff",
+            boxSizing: "border-box",
+          }}
+        />
       )}
-
       {/* Error Message */}
       {error && (
         <span
@@ -225,7 +236,7 @@ const InputComp: React.FC<InputCompProps> = ({
             display: "block",
           }}
         >
-          This field is required.
+          {errorMessage}
         </span>
       )}
     </div>

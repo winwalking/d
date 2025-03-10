@@ -1,5 +1,26 @@
 export interface International {
-  common: {};
+  common: {
+    alert: {
+      sucess: {
+        title: string;
+        msg: {
+          successSent: string;
+        };
+      };
+      error: {
+        title: string;
+        msg: { errorSent: string; invalidEmail: string };
+      };
+      warning: {
+        title: string;
+        msg: {};
+      };
+      info: {
+        title: string;
+        msg: {};
+      };
+    };
+  };
   layouts: {
     top: {
       menus: {
@@ -204,6 +225,8 @@ export interface International {
       contactUsCompanyName: string;
       contactUsMessage: string;
       contactUsMsgPlaceholder: string;
+      contactUsInputRequired: string;
+      contactUsInputEmailAddress: string;
       contactUsSubmit: string;
       contactUsSending: string;
     };

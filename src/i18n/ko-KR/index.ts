@@ -1,7 +1,35 @@
 import International from "i18n/@types/index";
 
 const koKR: International = {
-  common: {},
+  common: {
+    alert: {
+      sucess: {
+        title: "완료",
+        msg: {
+          successSent:"메일 전송이 완료되었습니다!"
+        },
+      },
+      error: {
+        title: "실패",
+        msg: {
+          errorSent:"메일 전송을 실패하였습니다. 다시 한 번 시도해주세요.",
+          invalidEmail:"올바른 이메일 양식으로 작성해주세요.",
+        },
+      },
+      warning: {
+        title: "주의",
+        msg: {
+          
+        },
+      },
+      info: {
+        title: "도움말",
+        msg: {
+          
+        },
+      },
+    },
+  },
   layouts: {
     top: {
       menus: {
@@ -227,6 +255,8 @@ const koKR: International = {
       contactUsWorkEmail: "이메일 주소",
       contactUsCompanyName: "회사명",
       contactUsMessage: "문의사항",
+      contactUsInputRequired:"해당 항목은 필수 작성항목입니다.",
+      contactUsInputEmailAddress:"올바른 이메일 양식으로 작성해주세요.",
       contactUsMsgPlaceholder:
         "궁금한 점을 남겨주시면,\n확인 후 빠르게 답변 드리겠습니다.",
       contactUsSubmit: "보내기",

@@ -158,8 +158,21 @@ const Dashboard = () => {
     setToast({ ...toast, visible: false });
   };
   // 폼 전송 함수
+  const emailRegex = /^[a-zA-Z0-9]{4,}@[a-zA-Z0-9]{3,}\.[a-zA-Z]{2,}$/;
+
   const sendForm = async () => {
-    if (!isFormValid || loading) return; // 폼이 유효하지 않거나 로딩 중일 때 실행 안 함
+    if (!isFormValid || loading) return; // 폼이 유효하지 않거나 로딩 중이면 실행 안 함
+  
+    // 이메일 검증
+    if (!emailRegex.test(formData.email)) {
+      setToast({
+        type: "error",
+        title: `${t("common.alert.error.title")}`,
+        message: `${t("common.alert.error.msg.invalidEmail")}`, // 이메일 형식이 잘못되었음을 알림
+        visible: true,
+      });
+      return; // 이메일이 유효하지 않으면 함수 종료
+    }
 
     setLoading(true); // 로딩 시작
     try {
@@ -168,8 +181,8 @@ const Dashboard = () => {
 
       setToast({
         type: "success", // Valid type
-        title: "Success",
-        message: "Message sent successfully!",
+        title: `${t("common.alert.sucess.title")}`,
+        message: `${t("common.alert.sucess.msg.successSent")}`,
         visible: true,
       }); // Show success toast
 
@@ -177,8 +190,8 @@ const Dashboard = () => {
     } catch (error) {
       setToast({
         type: "error", // Valid type
-        title: "Error",
-        message: "Failed to send message. Please try again later.",
+        title: `${t("common.alert.error.title")}`,
+        message: `${t("common.alert.error.msg.errorSent")}`,
         visible: true,
       }); // Show error toast
     } finally {
@@ -794,7 +807,7 @@ const Dashboard = () => {
               <div className="d_flex justify_between mb_40 md:mb_20 xl:flex-wrap_wrap!">
                 <InputComp
                   label={t("pages.dashboard.contactUsWorkEmail")}
-                  type="input"
+                  type="email"
                   name="email" // Add name prop
                   placeholder=""
                   width={isDisplayMd ? "100%" : "690px"}

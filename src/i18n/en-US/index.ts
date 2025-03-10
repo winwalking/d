@@ -1,7 +1,32 @@
 import International from "i18n/@types/index";
 
 const enUS: International = {
-  common: {},
+  common: {
+    alert: {
+      sucess: {
+        title: "Success",
+        msg: {
+          successSent:"Message sent successfully!"
+        },
+      },
+      error: {
+        title: "Error",
+        msg: {
+          
+          errorSent:"Failed to send message. Please try again later.",
+          invalidEmail:"Please enter a valid email address.",
+        },
+      },
+      warning: {
+        title: "Warning",
+        msg: {},
+      },
+      info: {
+        title: "Info",
+        msg: {},
+      },
+    },
+  },
   layouts: {
     top: {
       menus: {
@@ -231,6 +256,8 @@ const enUS: International = {
       contactUsWorkEmail: "Work Email",
       contactUsCompanyName: "Company Name",
       contactUsMessage: "Message",
+      contactUsInputRequired:"This field is required.",
+      contactUsInputEmailAddress:"Please enter a valid email address.",
       contactUsMsgPlaceholder:
         "Tell us how can we help!\n Leave your message, and we’ll get back to you shortly.",
       contactUsSubmit: "Submit",
