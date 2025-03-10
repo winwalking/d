@@ -84,6 +84,7 @@
 
 // export default InputComp;
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 interface InputCompProps {
   label: string; // Label text
@@ -114,6 +115,7 @@ const InputComp: React.FC<InputCompProps> = ({
   onBlur, // Added as a prop
   name,
 }) => {
+  const { t } = useTranslation();
   const [error, setError] = useState(false); // State to manage error
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -127,7 +129,7 @@ const InputComp: React.FC<InputCompProps> = ({
       const emailPattern = /^[a-zA-Z0-9]{4,}@[a-zA-Z0-9]{3,}\.[a-zA-Z]{2,}$/;
       if (!emailPattern.test(value)) {
         setError(true);
-        setErrorMessage(t("pages.dashboard.contactUsInputRequired"));
+        setErrorMessage(t("pages.dashboard.contactUsInputRequired") );
       } else {
         setError(false);
         setErrorMessage("");
