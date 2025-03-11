@@ -57,7 +57,8 @@ const Dashboard = () => {
   const scrollToSection = (id: keyof typeof sectionRefs) => {
     const section = sectionRefs[id]?.current;
     if (section) {
-      const targetPosition = section.getBoundingClientRect().top + window.scrollY - scrollOffset;
+      const targetPosition =
+        section.getBoundingClientRect().top + window.scrollY - scrollOffset;
       window.scrollTo({ top: targetPosition, behavior: "smooth" });
       setActiveMenu(id); // 클릭한 메뉴로 활성화
       setScrolling(true); // 스크롤 잠금 활성화
@@ -69,21 +70,23 @@ const Dashboard = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (scrolling) return; // 스크롤 잠금 상태일 때 무시
-  
+
       const offsets = Object.entries(sectionRefs).map(([key, ref]) => ({
         key,
-        offset: ref.current ? ref.current.getBoundingClientRect().top - scrollOffset : Infinity, // 💡 offset 반영
+        offset: ref.current
+          ? ref.current.getBoundingClientRect().top - scrollOffset
+          : Infinity, // 💡 offset 반영
       }));
-  
+
       const closest = offsets.reduce((acc, curr) =>
         Math.abs(curr.offset) < Math.abs(acc.offset) ? curr : acc
       );
-  
+
       if (closest.key !== activeMenu) {
         setActiveMenu(closest.key as keyof typeof sectionRefs);
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeMenu, scrolling, sectionRefs, scrollOffset]);
@@ -162,7 +165,7 @@ const Dashboard = () => {
 
   const sendForm = async () => {
     if (!isFormValid || loading) return; // 폼이 유효하지 않거나 로딩 중이면 실행 안 함
-  
+
     // 이메일 검증
     if (!emailRegex.test(formData.email)) {
       setToast({
@@ -370,7 +373,15 @@ const Dashboard = () => {
                   className="w_999 nm:w_100% fs_18 fw_normal text_dark leading_28px md:fs_16 md:leading_24px md:break_break-all"
                   //   lineHeight: "27px",
                 >
-                  <span className="fw_bold">
+                  <Trans
+                    i18nKey="pages.dashboard.aboutUsDesc"
+                    components={{
+                      br: <br />,
+                      sbold: <span className="fw_bold" />,
+                      ensmbr: i18n.language === "en-US" && isDisplaySm ? <br /> : <></>,
+                    }}
+                  />
+                  {/* <span className="fw_bold">
                     {t("pages.dashboard.aboutUsDescFirstBold")}
                   </span>
                   {i18n.language === "en-US" && "\u00A0"}
@@ -400,7 +411,7 @@ const Dashboard = () => {
                   {t("pages.dashboard.aboutUsDescFifth")}
                   {i18n.language === "en-US" && "\u00A0"}
                   <span className="fw_bold">
-                    {/* innovative {isDisplaySm && <br />}  */}
+                   --  innovative {isDisplaySm && <br />}  --
                     {t("pages.dashboard.aboutUsDescFifthBold")}
                   </span>
                   {i18n.language === "en-US" && <br />}
@@ -436,7 +447,7 @@ const Dashboard = () => {
                   {i18n.language === "ko-KR" && <br />}
                   {i18n.language === "ko-KR" && (
                     <span>{t("pages.dashboard.aboutUsDescOnlyKR")}</span>
-                  )}
+                  )} */}
                 </p>
               </div>
               {/* Our services include */}
