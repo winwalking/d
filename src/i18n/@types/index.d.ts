@@ -33,7 +33,10 @@ export interface International {
           team: string;
           contactUs: string;
           messages: string;
-          language: string;
+          language: {
+            eng: string;
+            kor: string;
+          };
           user: string;
         };
       };

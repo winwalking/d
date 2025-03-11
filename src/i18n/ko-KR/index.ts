@@ -38,7 +38,10 @@ const koKR: International = {
           team: "팀 소개",
           contactUs: "문의하기",
           messages: "",
-          language: "",
+          language: {
+            eng:"English",
+            kor:"한국어",
+          },
           user: "",
         },
       },

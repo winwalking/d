@@ -38,7 +38,10 @@ const enUS: International = {
           team: "Team",
           contactUs: "Contact Us",
           messages: "",
-          language: "",
+          language: {
+            eng:"English",
+            kor:"Korean",
+          },
           user: "",
         },
       },

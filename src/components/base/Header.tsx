@@ -148,13 +148,13 @@ const Header: React.FC<HeaderProps> = ({
                     className="d_flex items_center"
                     onClick={() => changeLanguage("ko-KR")}
                   >
-                    <span>한국어</span>
+                    <span>{t("layouts.top.menus.landing.language.kor")}</span>
                   </li>
                   <li
                     className="d_flex items_center"
                     onClick={() => changeLanguage("en-US")}
                   >
-                    <span>English</span>
+                    <span>{t("layouts.top.menus.landing.language.eng")}</span>
                   </li>
                 </ul>
               )}
@@ -218,7 +218,7 @@ const Header: React.FC<HeaderProps> = ({
                 <span
                   className={`${i18n.language === "ko-KR" ? "fw_bold " : ""}`}
                 >
-                  한국어
+                  {t("layouts.top.menus.landing.language.kor")}
                 </span>
               </li>
               <li
@@ -230,7 +230,7 @@ const Header: React.FC<HeaderProps> = ({
                 <span
                   className={`${i18n.language === "en-US" ? "fw_bold" : ""}`}
                 >
-                  English
+                  {t("layouts.top.menus.landing.language.eng")}
                 </span>
               </li>
             </ul>
