@@ -6,15 +6,14 @@ const enUS: International = {
       sucess: {
         title: "Success",
         msg: {
-          successSent:"Message sent successfully!"
+          successSent: "Message sent successfully!",
         },
       },
       error: {
         title: "Error",
         msg: {
-          
-          errorSent:"Failed to send message. Please try again later.",
-          invalidEmail:"Please enter a valid email address.",
+          errorSent: "Failed to send message. Please try again later.",
+          invalidEmail: "Please enter a valid email address.",
         },
       },
       warning: {
@@ -61,11 +60,11 @@ const enUS: International = {
       ttThird: "Future with",
       ttFourth: "ALGOLAB",
       ttFifth: "",
-      subDescFirst: "Unlock new possibilities in asset management and",
-      subDescSecond: "venture valuation with",
-      subDescThird: "cutting-edge financial",
-      subDescFourth: "technology",
-      subDescFifth: "and personalized solutions",
+      subDesc: "Unlock new possibilities in asset<xsbr /> management and<lgbr /> venture valuation<xsbr /> with<nxlbr /> cutting-edge financial<mdbr /> technology<lgnmdbr /> and personalized solutions.",
+      // subDescSecond: "venture valuation with",
+      // subDescThird: "cutting-edge financial",
+      // subDescFourth: "technology",
+      // subDescFifth: "and personalized solutions",
       exploreBox: "Explore Our <br /> Financial Solutions",
       realTimeTrends: "Real-Time Industry Trends",
       slideDataAnalytics: "Data Analytics",
@@ -77,35 +76,26 @@ const enUS: International = {
       slideBlockchain: "",
       slideEnergy: "",
       aboutUs: "About Us",
-      aboutUsDesc: "<sbold>Algolab</sbold> is a financial technology company offering <sbold><ensmbr />personalized asset management</sbold> for investors and <sbold><ensmbr />startup valuation</sbold> services for emerging businesses,<ensmbr /> leveraging <sbold>embedded finance</sbold> and <sbold>innovative<ensmbr /> financial technologies.</sbold> We provide <sbold>cutting-edge tools</sbold> to <sbold>financial institutions, investors,</sbold> and <sbold>startups,</sbold> and achieve their <sbold>financial goals.</sbold>",
+      aboutUsDesc:
+        "<sbold>Algolab</sbold> is a financial technology company offering <sbold>personalized asset management</sbold> for investors and <sbold>startup valuation</sbold> services for emerging businesses,<ensmbr /> leveraging <sbold>embedded finance</sbold> and <sbold>innovative financial technologies.</sbold><ensmbr /> We provide <sbold>cutting-edge tools</sbold> to <sbold>financial institutions, investors,</sbold> and <sbold> startups,</sbold> and achieve their <sbold>financial goals.</sbold>",
       aboutUsDescOnlyJP: "",
-      aboutUsDescOnlyKR:"",
+      aboutUsDescOnlyKR: "",
       ourServices: "Our services include",
       ourServicesDesc: "",
-      ourServicesFirstBold1: "Robo-advisory solutions",
-      ourServicesFirst1: "for",
-      ourServicesFirstBold2: "pension planning",
-      ourServicesFirst2: "and",
-      ourServicesFirstBold3: "startup valuation",
-      ourServicesSecondBold: "Behavioral economics–based",
-      ourServicesSecond: "personalized asset management",
-      ourServicesThirdBold1: "Tailored investment strategies",
-      ourServicesThird1: "and",
-      ourServicesThirdBold2: "AI-driven",
-      ourServicesThird2: "reporting",
-      ourServicesFourthBold1: "Global theme analysis",
-      ourServicesFourth1: "and",
-      ourServicesFourthBold2: "alternative",
-      ourServicesFourth2: "",
-      ourServicesFourthBold3: "investment",
-      ourServicesFourth3: "solutions",
-      ourServicesFifth: "",
-      ourServicesFifthBold: "",
-      ourServicesOtherDesc:"As we <b>expand into the Asian market,</b><sbr /> we empower our clients to<b> make better financial decisions.</b><nsbr /> Experience the <b>future of finance</b> with <b>Algolab.</b>",
+      ourServicesFirst:
+        "<sbold>Robo-advisory solutions</sbold> for <sbold>pension<ensmbr/> planning</sbold> and <sbold>startup valuation</sbold>",
+      ourServicesSecond:
+        "<sbold>Behavioral economics–based</sbold><smbr /> personalized asset management",
+      ourServicesThird:
+        "<sbold>Tailored investment strategies</sbold> and <sbold><smbr />AI-driven</sbold> reporting",
+      ourServicesFourth:
+        "<sbold>Global theme analysis</sbold> and <smbr/><sbold>alternative investment</sbold> solutions",
+      ourServicesOtherDesc:
+        "As we <sbold>expand into the Asian market,</sbold><smbr /> we empower our clients to <sbold>make better<smbr /> financial decisions.</sbold> Experience the<smbr /> <sbold>future of finance</sbold> with <sbold>Algolab.</sbold>",
       why: "Why",
       ChooseUs: "Choose Us?",
       whyChooseUsDesc:
-        "Algolab is a trusted partner that helps clients achieve their financial goals through innovative financialtechnologies and hyper-personalized services. As a leader in the Asian market, we are shaping the future of finance together.",
+        "Algolab is a trusted partner that helps clients achieve their financial goals through innovative financial technologies and hyper-personalized services. As a leader in the Asian market, we are shaping the future of finance together.",
       innofinancial: "Innovative Financial Technologies",
       innofinancialDesc:
         "We deliver precise asset management using Embedded Finance and advanced technologies.",
@@ -119,41 +109,28 @@ const enUS: International = {
       leadershipMarketDesc:
         "We are shaping the globalfinancial ecosystem across Asia.",
       services: "Services",
-      retirementPension: "Retirement Pension",
-      roboAdvisor: "Robo-Advisor",
-      retirementPensionDesc1:
-        "Algolab’s retirement pension robo-advisor integrates",
-      retirementPensionDesc2: "behavioral economics",
-      retirementPensionDesc3: "and",
-      retirementPensionDesc4: "cutting-edge financial technologies",
-      retirementPensionDesc5: "to provide",
-      retirementPensionDesc6: "personalized pension management",
-      retirementPensionDesc7: "solutions.",
-      retirementPensionList1:
-        "<b>Analyzes</b> clients’ investment preferences and <b>designs</b> customized investment plans",
-      retirementPensionList2:
-        "<b>Optimizes</b> fund and global stock selection through the <b>Global Theme Machine</b> and <b>NLP-based</b> analysis",
-      retirementPensionList3:
-        "<b>Ensures</b> stable and effective pension management with <b>personalized glide paths</b>",
-      retirementPensionList4:
-        "<b>Proven track record,</b> including successfulcollaborations with <b>KB Securities’ MOA</b> service and <b>Kiwoom Asset Management’s TDF</b>",
+      retireRoboAdvisor: "Retirement Pension<br /> Robo-Advisor",
+      retireRoboAdvisorDesc:
+        "Algolab’s retirement pension robo-advisor integrates <sbold>behavioral economics</sbold> and <sbold>cutting-edge financial technologies</sbold> to provide <sbold>personalized pension management</sbold> solutions.",
+      retireRoboAdvisorList1:
+        "<sbold>Analyzes</sbold> clients’ investment preferences and <sbold>designs</sbold> customized investment plans",
+      retireRoboAdvisorList2:
+        "<sbold>Optimizes</sbold> fund and global stock selection through the <sbold>Global Theme Machine</sbold> and <sbold>NLP-based</sbold> analysis",
+      retireRoboAdvisorList3:
+        "<sbold>Ensures</sbold> stable and effective pension management with <sbold>personalized glide paths</sbold>",
+      retireRoboAdvisorList4:
+        "<sbold>Proven track record,</sbold> including successful collaborations with <sbold>KB Securities’ MOA</sbold> service and <sbold>Kiwoom Asset Management’s TDF</sbold>",
       earlyStageCompanyValuation: "Early-Stage Company Valuation",
-      companyValuationDesc1:
-        "Algolab’s early-stage company valuation solution combines",
-      companyValuationDesc2: "corporate data",
-      companyValuationDesc3: "and",
-      companyValuationDesc4: "financial information",
-      companyValuationDesc5: "to deliver",
-      companyValuationDesc6: "reliable,",
-      companyValuationDesc7: "up-to-date valuations.",
+      companyValuationDesc:
+        "Algolab’s early-stage company valuation solution combines <sbold>corporate data</sbold> and <sbold>financial information</sbold> to deliver <sbold>reliable, up-to-date valuations.</sbold>",
       companyValuationList1:
-        "<b>Conducts</b> precise, <b>data-driven</b> valuations through <b>ERP system</b> integration",
+        "<sbold>Conducts</sbold> precise, <sbold>data-driven</sbold> valuations through <sbold>ERP system</sbold> integration",
       companyValuationList2:
-        "<b>Streamlines</b> the creation of investment proposals with an <b>IR pitch deck publishing</b> solution, facilitating investment attraction",
+        "<sbold>Streamlines</sbold> the creation of investment proposals with an <sbold>IR pitch deck publishing</sbold> solution, facilitating investment attraction",
       companyValuationList3:
-        "<b>Expands</b> across <b>Asia -</b> including Korea, Japan, China, and Vietnam - fostering a <b>global investment ecosystem</b>",
+        "<sbold>Expands</sbold> across <sbold>Asia -</sbold> including Korea, Japan, China, and Vietnam - fostering a <sbold>global investment ecosystem</sbold>",
       companyValuationList4:
-        "Make clearer investment decisions with <b>Algolab’s</b> valuation solutions.",
+        "Make clearer investment decisions with <sbold>Algolab’s</sbold> valuation solutions.",
       history: "History",
       historyDate20201: "January 2020",
       historyDesc20201: "Establishment.",
@@ -239,8 +216,8 @@ const enUS: International = {
       contactUsWorkEmail: "Work Email",
       contactUsCompanyName: "Company Name",
       contactUsMessage: "Message",
-      contactUsInputRequired:"This field is required.",
-      contactUsInputEmailAddress:"Please enter a valid email address.",
+      contactUsInputRequired: "This field is required.",
+      contactUsInputEmailAddress: "Please enter a valid email address.",
       contactUsMsgPlaceholder:
         "Tell us how can we help!\n Leave your message, and we’ll get back to you shortly.",
       contactUsSubmit: "Submit",

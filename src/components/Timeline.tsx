@@ -201,7 +201,7 @@ const Timeline = () => {
         <p className="history_description">
           <Trans
             i18nKey="pages.dashboard.historyDesc20241"
-            components={{ br: <br /> }}
+            components={{ br: <br />, }}
           />
         </p>
         <h3 className="history_date">

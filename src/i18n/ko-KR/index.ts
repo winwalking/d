@@ -6,27 +6,23 @@ const koKR: International = {
       sucess: {
         title: "완료",
         msg: {
-          successSent:"메일 전송이 완료되었습니다!"
+          successSent: "메일 전송이 완료되었습니다!",
         },
       },
       error: {
         title: "실패",
         msg: {
-          errorSent:"메일 전송을 실패하였습니다. 다시 한 번 시도해주세요.",
-          invalidEmail:"올바른 이메일 양식으로 작성해주세요.",
+          errorSent: "메일 전송을 실패하였습니다. 다시 한 번 시도해주세요.",
+          invalidEmail: "올바른 이메일 양식으로 작성해주세요.",
         },
       },
       warning: {
         title: "주의",
-        msg: {
-          
-        },
+        msg: {},
       },
       info: {
         title: "도움말",
-        msg: {
-          
-        },
+        msg: {},
       },
     },
   },
@@ -65,12 +61,9 @@ const koKR: International = {
       ttThird: "DNEURO",
       ttFourth: "에서",
       ttFifth: "만나보세요",
-      subDescFirst:
+      subDesc:
         "자산 관리와 기업 가치평가의 새로운 가능성을<br /> 열어보세요. 최신 금융 기술과 맞춤 솔루션으로<br /> 더 나은 선택을 할 수 있습니다.",
-      subDescSecond: "",
-      subDescThird: "",
-      subDescFourth: "",
-      subDescFifth: "",
+
       exploreBox: "투자를 더 쉽게,<br /> 금융솔루션을 탐색하세요",
       realTimeTrends: "실시간 산업 트렌드",
       slideDataAnalytics: "데이터 분석",
@@ -85,30 +78,16 @@ const koKR: International = {
       aboutUsDesc:
         "<sbold>디뉴로는 투자자와 스타트업을 위한 맞춤형 자산 관리와 가치평가 서비스를 제공합니다.</sbold><br/> 혁신적인 금융 기술을 활용해 더 쉽고, 효율적인 투자 경험을 만듭니다.",
       aboutUsDescOnlyJP: "",
-      aboutUsDescOnlyKR:
-        "",
+      aboutUsDescOnlyKR: "",
       ourServices: "이렇게 도와드려요",
       ourServicesDesc: "",
-      ourServicesFirstBold1: "로보어드바이저",
-      ourServicesFirst1: "로 연금 계획부터<br /> 스타트업 가치평가까지",
-      ourServicesFirstBold2: "",
-      ourServicesFirst2: "",
-      ourServicesFirstBold3: "",
-      ourServicesSecond: "맞춤형 자산 관리",
-      ourServicesSecondBold: "행동 경제학 기반",
-      ourServicesThirdBold1: "AI 투자 전략과 데이터 기반 보고서 제공",
-      ourServicesThird1: "",
-      ourServicesThirdBold2: "",
-      ourServicesThird2: "",
-      ourServicesFourthBold1: "글로벌 테마 분석과 대체 투자 솔루션",
-      ourServicesFourth1: "",
-      ourServicesFourthBold2: "",
-      ourServicesFourth2: "",
-      ourServicesFourthBold3: "",
-      ourServicesFourth3: "",
-      ourServicesFifth: "",
-      ourServicesFifthBold: "",
-      ourServicesOtherDesc:"<b>한국을 넘어 아시아 시장으로,</b><sbr /> 디뉴로와 함께 더 나은 금융 결정을 함께하세요.",
+      ourServicesFirst:
+        "<sbold>로보어드바이저</sbold>로 연금 계획부터<br /> 스타트업 가치평가까지",
+      ourServicesSecond: "<sbold>행동 경제학 기반</sbold> 맞춤형 자산 관리",
+      ourServicesThird: "<sbold>AI 투자 전략과 데이터 기반 보고서 제공</sbold>",
+      ourServicesFourth: "<sbold>글로벌 테마 분석과 대체 투자 솔루션</sbold>",
+      ourServicesOtherDesc:
+        "<sbold>한국을 넘어 아시아 시장으로,</sbold><smbr /> 디뉴로와 함께 더 나은 금융 결정을 함께하세요.",
       why: "우리가",
       ChooseUs: "선택받은 이유",
       whyChooseUsDesc:
@@ -126,40 +105,28 @@ const koKR: International = {
       leadershipMarketDesc:
         "기술과 금융을 결합한 새로운 투자 방식을 제시하며, 글로벌 파트너들과 협력해 보다 넓은 시장에서 고객이 더 많은 기회를 \n가질 수 있도록 돕습니다.",
       services: "서비스",
-      retirementPension: "퇴직 연금",
-      roboAdvisor: "로보어드바이저",
-      retirementPensionDesc1:
-        "디뉴로의 퇴직 연금 로보어드바이저는 행동 경제학과 최첨단 금융 기술을 결합해 <b>개인 맞춤형 연금 솔루션</b>을 제공합니다.",
-      retirementPensionDesc2: "",
-      retirementPensionDesc3: "",
-      retirementPensionDesc4: "",
-      retirementPensionDesc5: "",
-      retirementPensionDesc6: "",
-      retirementPensionDesc7: "",
-      retirementPensionList1:
-        "고객의 투자 성향을 분석하고,<br /> <b>개인별 맞춤형 투자 계획</b>을 설계합니다.",
-      retirementPensionList2:
-        "<b>Global Theme Machine</b>과 <b>NLP 기반 분석</b>을 <br />활용해 최적의 펀드 및 글로벌 주식을 추천합니다.",
-      retirementPensionList3:
-        "<b>개인 맞춤형 Glide Path 전략</b>을 적용해,<br /> 은퇴 시점까지 안정적인 연금 운용을 돕습니다.",
-      retirementPensionList4:
-        "<b>KB증권 MOA 서비스</b> 및 <b>키움자산운용 TDF</b>와 협력하여 성공적인 운용 사례를 보유하고 있습니다.",
+      retireRoboAdvisor: "퇴직 연금<br /> 로보어드바이저",
+      retireRoboAdvisorDesc:
+        "디뉴로의 퇴직 연금 로보어드바이저는 행동 경제학과 최첨단 금융 기술을 결합해 <sbold>개인 맞춤형 연금 솔루션</sbold>을 제공합니다.",
+      retireRoboAdvisorList1:
+        "고객의 투자 성향을 분석하고,<xsbr /> <sbold>개인별 맞춤형 투자 계획</sbold>을 설계합니다.",
+      retireRoboAdvisorList2:
+        "<sbold>Global Theme Machine</sbold>과 <sbold>NLP 기반 분석</sbold>을 <xsbr />활용해 최적의 펀드 및 글로벌 주식을 추천합니다.",
+      retireRoboAdvisorList3:
+        "<sbold>개인 맞춤형 Glide Path 전략</sbold>을 적용해,<xsbr /> 은퇴 시점까지 안정적인 연금 운용을 돕습니다.",
+      retireRoboAdvisorList4:
+        "<sbold>KB증권 MOA 서비스</sbold> 및 <sbold>키움자산운용 TDF</sbold>와 협력하여 성공적인 운용 사례를 보유하고 있습니다.",
       earlyStageCompanyValuation: "신생 기업 가치평가",
-      companyValuationDesc1:
-        "디뉴로의 기업 가치평가 솔루션은 <b>기업 데이터와 금융 정보를 결합</b>해, 신뢰할 수 있는 <b>최신 데이터 기반의 가치평가를 제공</b>합니다.",
-      companyValuationDesc2: "",
-      companyValuationDesc3: "",
-      companyValuationDesc4: "",
-      companyValuationDesc5: "",
-      companyValuationDesc6: "",
-      companyValuationDesc7: "",
+      companyValuationDesc:
+        "디뉴로의 기업 가치평가 솔루션은 <sbold>기업 데이터와 금융 정보를 결합</sbold>해, 신뢰할 수 있는 <sbold>최신 데이터 기반의 가치평가를 제공</sbold>합니다.",
       companyValuationList1:
-        "ERP 시스템과 연동하여, 기업의 데이터를 바탕으로 <b>신뢰도 높은 평가를 수행</b>합니다.",
+        "ERP 시스템과 연동하여, 기업의 데이터를 바탕으로 <sbold>신뢰도 높은 평가를 수행</sbold>합니다.",
       companyValuationList2:
-        "<b>IR 피치덱 퍼블리싱 솔루션</b>을 활용해 투자 유치를 효과적으로 지원합니다.",
+        "<sbold>IR 피치덱 퍼블리싱 솔루션</sbold>을 활용해 투자 유치를 효과적으로 지원합니다.",
       companyValuationList3:
-        "한국, 일본, 중국, 베트남을 포함한 <b>아시아 시장에서 기업의 성장</b>을 돕습니다.",
-      companyValuationList4: "더 명확한 투자 결정을 위해 <b>디뉴로</b>를 선택하세요.",
+        "한국, 일본, 중국, 베트남을 포함한 <sbold>아시아 시장에서 기업의 성장</sbold>을 돕습니다.",
+      companyValuationList4:
+        "더 명확한 투자 결정을 위해 <sbold>디뉴로</sbold>를 선택하세요.",
       history: "연혁",
       historyDate20201: "2020년 1월",
       historyDesc20201: "법인 설립",
@@ -202,7 +169,8 @@ const koKR: International = {
       historyDate20232: "2023년 3월",
       historyDesc20232: "미국 IBM 퀀텀컴퓨팅 파트너",
       historyDate20233: "2023년 8월",
-      historyDesc20233: "유진투자증권 비상장벤처 가치평가 증권형토큰 솔루션<br />일본 Creww, StartupDB, 중국36kr 아시아 스타트업 밸류에이션 피치북 PaaS구축 추진",
+      historyDesc20233:
+        "유진투자증권 비상장벤처 가치평가 증권형토큰 솔루션<br />일본 Creww, StartupDB, 중국36kr 아시아 스타트업 밸류에이션 피치북 PaaS구축 추진",
       historyDate20234: "",
       historyDesc20234: "",
       historyDate20235: "",
@@ -238,8 +206,8 @@ const koKR: International = {
       contactUsWorkEmail: "이메일 주소",
       contactUsCompanyName: "회사명",
       contactUsMessage: "문의사항",
-      contactUsInputRequired:"해당 항목은 필수 작성항목입니다.",
-      contactUsInputEmailAddress:"올바른 이메일 양식으로 작성해주세요.",
+      contactUsInputRequired: "해당 항목은 필수 작성항목입니다.",
+      contactUsInputEmailAddress: "올바른 이메일 양식으로 작성해주세요.",
       contactUsMsgPlaceholder:
         "궁금한 점을 남겨주시면,\n확인 후 빠르게 답변 드리겠습니다.",
       contactUsSubmit: "보내기",

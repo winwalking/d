@@ -272,17 +272,23 @@ const Dashboard = () => {
               </h1>
               <span className="text_white leading_30px fs_20 md:fs_16 fw_normal mb_120 nm:mb_48 w_780 lg:w_517 nm:w_100%">
                 <Trans
-                  i18nKey="pages.dashboard.subDescFirst"
-                  components={{ br: isDisplayXs ? <br /> : <></> }}
+                  i18nKey="pages.dashboard.subDesc"
+                  components={{
+                    xsbr: isDisplayXs ?<br /> :<></>,
+                    mdbr: isDisplayMd ? <br /> : <></>,
+                    lgbr: isDisplayLg && !isDisplayXs ? <br /> : <></>,
+                    lgnmdbr: isDisplayLg && !isDisplayMd ? <br /> : <></>,
+                    nxlbr: !isDisplayXl ? <br /> : <></>,
+                  }}
                 />
-                {i18n.language === "ko-KR" || (isDisplayLg && <br />)}
+                {/* {i18n.language === "ko-KR" || (isDisplayLg && <br />)}
                 {t("pages.dashboard.subDescSecond")}
                 {!isDisplayXl && <br />}
                 {t("pages.dashboard.subDescThird")}
                 {isDisplayMd && <br />}
                 {t("pages.dashboard.subDescFourth")}
                 {isDisplayLg && !isDisplayMd && <br />}
-                {t("pages.dashboard.subDescFifth")}
+                {t("pages.dashboard.subDescFifth")} */}
               </span>
               {/* <button
                 style={{
@@ -326,7 +332,7 @@ const Dashboard = () => {
                 <div className="gradient-border-rounded">
                   <img src={MainSmImg} className="md:w_80 md:h_80" />
                   <div
-                    className="text_white fs_18 fw_normal leading_28px md:fs_16 md:leading_21px"
+                    className="text_white fs_18 fw_normal leading_28px md:fs_16 md:leading_21px sm:fs_14 sm:leading_18px"
                     //   lineHeight: "27px",
                   >
                     <p className="mt_8 mb_18 md:mt_0! md:mb_0!">
@@ -378,7 +384,12 @@ const Dashboard = () => {
                     components={{
                       br: <br />,
                       sbold: <span className="fw_bold" />,
-                      ensmbr: i18n.language === "en-US" && isDisplaySm ? <br /> : <></>,
+                      ensmbr:
+                        i18n.language === "en-US" && isDisplaySm ? (
+                          <br />
+                        ) : (
+                          <></>
+                        ),
                     }}
                   />
                   {/* <span className="fw_bold">
@@ -458,47 +469,69 @@ const Dashboard = () => {
                 {t("pages.dashboard.ourServices")}:
                 <ul className="ml_22 mb_24">
                   <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
-                    <b>{t("pages.dashboard.ourServicesFirstBold1")}</b>&nbsp;
                     <Trans
-                      i18nKey="pages.dashboard.ourServicesFirst1"
-                      components={{ br: <br /> }}
+                      i18nKey="pages.dashboard.ourServicesFirst"
+                      components={{
+                        br: <br />,
+                        sbold: <span className="fw_bold" />,
+                        smbr: isDisplaySm ? <br /> : <></>,
+                        ensmbr:
+                          i18n.language === "en-US" && isDisplaySm ? (
+                            <br />
+                          ) : (
+                            <></>
+                          ),
+                      }}
                     />
-                    &nbsp;
-                    <b>{t("pages.dashboard.ourServicesFirstBold2")}</b>
-                    {i18n.language !== "ko-KR" && isDisplaySm && <br />}&nbsp;
-                    <span>
-                      {t("pages.dashboard.ourServicesFirst2")}&nbsp;
-                      <b>{t("pages.dashboard.ourServicesFirstBold3")}</b>
-                    </span>
                   </li>
                   <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
-                    <b>{t("pages.dashboard.ourServicesSecondBold")}</b>&nbsp;
-                    {/* personalized {isDisplaySm && <br />} */}
-                    <span>{t("pages.dashboard.ourServicesSecond")}</span>
+                    <Trans
+                      i18nKey="pages.dashboard.ourServicesSecond"
+                      components={{
+                        br: <br />,
+                        sbold: <span className="fw_bold" />,
+                        smbr: isDisplaySm ? <br /> : <></>,
+                        ensmbr:
+                          i18n.language === "en-US" && isDisplaySm ? (
+                            <br />
+                          ) : (
+                            <></>
+                          ),
+                      }}
+                    />
                   </li>
                   <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
-                    <b>{t("pages.dashboard.ourServicesThirdBold1")}</b>&nbsp;
-                    {t("pages.dashboard.ourServicesThird1")}&nbsp;
-                    <b>{t("pages.dashboard.ourServicesThirdBold2")}</b>&nbsp;
-                    {isDisplaySm && <br />}
-                    <span>{t("pages.dashboard.ourServicesThird2")}</span>
+                    <Trans
+                      i18nKey="pages.dashboard.ourServicesThird"
+                      components={{
+                        br: <br />,
+                        sbold: <span className="fw_bold" />,
+                        smbr: isDisplaySm ? <br /> : <></>,
+                        ensmbr:
+                          i18n.language === "en-US" && isDisplaySm ? (
+                            <br />
+                          ) : (
+                            <></>
+                          ),
+                      }}
+                    />
                   </li>
                   <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
-                    <b>{t("pages.dashboard.ourServicesFourthBold1")}</b>&nbsp;
-                    {t("pages.dashboard.ourServicesFourth1")}&nbsp;
-                    <b>{t("pages.dashboard.ourServicesFourthBold2")}</b>
-                    {isDisplaySm && <br />}
-                    <span>
-                      <b>{t("pages.dashboard.ourServicesFourthBold3")}</b>&nbsp;
-                      {t("pages.dashboard.ourServicesFourth3")}
-                    </span>
+                    <Trans
+                      i18nKey="pages.dashboard.ourServicesFourth"
+                      components={{
+                        br: <br />,
+                        sbold: <span className="fw_bold" />,
+                        smbr: isDisplaySm ? <br /> : <></>,
+                        ensmbr:
+                          i18n.language === "en-US" && isDisplaySm ? (
+                            <br />
+                          ) : (
+                            <></>
+                          ),
+                      }}
+                    />
                   </li>
-                  {i18n.language === "ja-JP" && (
-                    <li className="list-type_outside md:fs_16 md:leading_24px sm:list-type_outside::marker">
-                      <b>{t("pages.dashboard.ourServicesFifthBold")}</b>&nbsp;
-                      <span>{t("pages.dashboard.ourServicesFifth")}</span>
-                    </li>
-                  )}
                 </ul>
               </div>
 
@@ -509,24 +542,11 @@ const Dashboard = () => {
                 <Trans
                   i18nKey="pages.dashboard.ourServicesOtherDesc"
                   components={{
-                    b: <b />,
-                    nsbr: !isDisplaySm ? <br /> : <></>,
-                    sbr: isDisplaySm ? <br /> : <></>,
+                    sbold: <span className="fw_bold" />,
+                    nsmbr: !isDisplaySm ? <br /> : <></>,
+                    smbr: isDisplaySm ? <br /> : <></>,
                   }}
                 />
-                {/* As we&nbsp;
-                  <span className="fw_bold">expand into the Asian market,</span>
-                  {isDisplaySm && <br />}
-                  {!isDisplaySm && "\u00A0"}we empower our clients to&nbsp;
-                  <span className="fw_bold">
-                    make better financial {isDisplaySm && <br />}decisions.
-                  </span>
-                  &nbsp;
-                  {!isDisplaySm && <br />}
-                  Experience the future of&nbsp;
-                  <span className="fw_bold">
-                    finance with {isDisplaySm && <br />}Algolab.
-                  </span> */}
               </div>
             </div>
             <div className="d_flex justify_flex-end w_100% lg:d_flex lg:justify_flex-end">
@@ -559,9 +579,12 @@ const Dashboard = () => {
                 />
                 {!isDisplayNm && isDisplayLg ? (
                   <div className="fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
-                    {t("pages.dashboard.retirementPension")}
-                    {<br />}
-                    {t("pages.dashboard.roboAdvisor")}
+                    <Trans
+                      i18nKey="pages.dashboard.retireRoboAdvisor"
+                      components={{
+                        br: <br />,
+                      }}
+                    />
                   </div>
                 ) : null}
               </div>
@@ -573,17 +596,24 @@ const Dashboard = () => {
                 isDisplaySm ||
                 isDisplayXs ? (
                   <p className="h_342 fs_32 md:fs_26 sm:fs_20 leading_48px md:leading_39px sm:leading_30px nm:mt_40 md:mt_20 mb_28 md:mb_22 sm:mb_16 fw_normal text_dark">
-                    {t("pages.dashboard.retirementPension")}
-                    {<br />}
-                    {t("pages.dashboard.roboAdvisor")}
+                    <Trans
+                      i18nKey="pages.dashboard.retireRoboAdvisor"
+                      components={{
+                        br: <br />,
+                      }}
+                    />
                   </p>
                 ) : null}
                 <span className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all">
                   <Trans
-                    i18nKey="pages.dashboard.retirementPensionDesc1"
-                    components={{ b: <b /> }}
+                    i18nKey="pages.dashboard.retireRoboAdvisorDesc"
+                    components={{
+                      br: <br />,
+                      sbold: <span className="fw_bold" />,
+                      smbr: isDisplaySm ? <br /> : <></>,
+                    }}
                   />
-                  {i18n.language === "en-US" && <br />}
+                  {/* {i18n.language === "en-US" && <br />}
                   <span className="fw_bold">
                     {t("pages.dashboard.retirementPensionDesc2")}
                   </span>
@@ -603,7 +633,7 @@ const Dashboard = () => {
                     {isDisplaySm && <br />}
                   </span>
                   {i18n.language === "en-US" && "\u00A0"}
-                  {t("pages.dashboard.retirementPensionDesc7")}
+                  {t("pages.dashboard.retirementPensionDesc7")} */}
                 </span>
                 <ul className="ml_22">
                   <li
@@ -611,10 +641,10 @@ const Dashboard = () => {
                     // lineHeight: "27px",
                   >
                     <Trans
-                      i18nKey="pages.dashboard.retirementPensionList1"
+                      i18nKey="pages.dashboard.retireRoboAdvisorList1"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -623,10 +653,10 @@ const Dashboard = () => {
                     // lineHeight: "27px",
                   >
                     <Trans
-                      i18nKey="pages.dashboard.retirementPensionList2"
+                      i18nKey="pages.dashboard.retireRoboAdvisorList2"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -635,10 +665,10 @@ const Dashboard = () => {
                     // lineHeight: "27px",
                   >
                     <Trans
-                      i18nKey="pages.dashboard.retirementPensionList3"
+                      i18nKey="pages.dashboard.retireRoboAdvisorList3"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -647,10 +677,10 @@ const Dashboard = () => {
                     // lineHeight: "27px",
                   >
                     <Trans
-                      i18nKey="pages.dashboard.retirementPensionList4"
+                      i18nKey="pages.dashboard.retireRoboAdvisorList4"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -687,13 +717,13 @@ const Dashboard = () => {
                   className="fs_18 md:fs_16 leading_28px md:leading_24px text_dark mb_24 fw_normal md:break_break-all" // lineHeight: "27px"
                 >
                   <Trans
-                    i18nKey="pages.dashboard.companyValuationDesc1"
+                    i18nKey="pages.dashboard.companyValuationDesc"
                     components={{
-                      b: <b />,
-                      br: isDisplayXs ? <br /> : <></>,
+                      sbold: <span className="fw_bold" />,
+                      smbr: isDisplaySm ? <br /> : <></>,
                     }}
                   />
-                  {i18n.language === "en-US" && isDisplaySm && <br />}
+                  {/* {i18n.language === "en-US" && isDisplaySm && <br />}
                   {i18n.language === "ja-JP" && "\u00A0"}
                   {i18n.language === "en-US" && "\u00A0"}
                   <span className="fw_bold">
@@ -716,7 +746,7 @@ const Dashboard = () => {
                   <span className="fw_bold">
                     {t("pages.dashboard.companyValuationDesc7")}
                   </span>
-                  {i18n.language === "en-US" && "\u00A0"}
+                  {i18n.language === "en-US" && "\u00A0"} */}
                 </span>
                 <ul className="ml_22 mb_24">
                   <li
@@ -726,8 +756,8 @@ const Dashboard = () => {
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList1"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -738,8 +768,8 @@ const Dashboard = () => {
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList2"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -750,8 +780,8 @@ const Dashboard = () => {
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList3"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </li>
@@ -764,8 +794,8 @@ const Dashboard = () => {
                     <Trans
                       i18nKey="pages.dashboard.companyValuationList4"
                       components={{
-                        b: <b />,
-                        br: isDisplayXs ? <br /> : <></>,
+                        sbold: <span className="fw_bold" />,
+                        xsbr: isDisplayXs ? <br /> : <></>,
                       }}
                     />
                   </span>
